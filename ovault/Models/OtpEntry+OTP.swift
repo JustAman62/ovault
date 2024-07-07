@@ -2,10 +2,7 @@ import Foundation
 import CryptoKit
 import Base32
 
-extension OtpEntry {
-    var timeStep: Int64 { Int64(Date().timeIntervalSince1970) / Int64(self.period) }
-    var expiresIn: Int { Int(Date().timeIntervalSince1970) % self.period }
-    
+extension OtpEntry {  
     func getOtp() -> String {
         let number = switch self.type {
         case .totp: calculateOtp(alg: self.algorithm, key: self.secret, counter: timeStep, digits: self.digits)

@@ -1,5 +1,6 @@
 import Foundation
 import SwiftData
+import SwiftUI
 
 @Model
 final class OtpEntry {
@@ -32,6 +33,13 @@ final class OtpEntry {
         self.type = type
         self.counter = counter
         self.period = period
+    }
+    
+    var timeStep: Int64 { Int64(Date().timeIntervalSince1970) / Int64(self.period) }
+    var expiresIn: Double {
+        withAnimation {
+            Double(self.period) - Date().timeIntervalSince1970.truncatingRemainder(dividingBy: Double(self.period))
+        }
     }
 }
 

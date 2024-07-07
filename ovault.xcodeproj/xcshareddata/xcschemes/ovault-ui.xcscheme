@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "07C5324F2C38865300DC54C6"
-               BuildableName = "ovault-ui.app"
-               BlueprintName = "ovault-ui"
-               ReferencedContainer = "container:ovault-ui.xcodeproj">
+               BuildableName = "ovault.app"
+               BlueprintName = "ovault"
+               ReferencedContainer = "container:ovault.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -36,9 +36,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "071A79A42C3AA66A00077318"
-               BuildableName = "ovault-uiTests.xctest"
-               BlueprintName = "ovault-uiTests"
-               ReferencedContainer = "container:ovault-ui.xcodeproj">
+               BuildableName = "ovaultTests.xctest"
+               BlueprintName = "ovaultTests"
+               ReferencedContainer = "container:ovault.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -58,9 +58,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "07C5324F2C38865300DC54C6"
-            BuildableName = "ovault-ui.app"
-            BlueprintName = "ovault-ui"
-            ReferencedContainer = "container:ovault-ui.xcodeproj">
+            BuildableName = "ovault.app"
+            BlueprintName = "ovault"
+            ReferencedContainer = "container:ovault.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "07C5324F2C38865300DC54C6"
-            BuildableName = "ovault-ui.app"
-            BlueprintName = "ovault-ui"
-            ReferencedContainer = "container:ovault-ui.xcodeproj">
+            BuildableName = "ovault.app"
+            BlueprintName = "ovault"
+            ReferencedContainer = "container:ovault.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

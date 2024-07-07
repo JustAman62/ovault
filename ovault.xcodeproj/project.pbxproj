@@ -10,14 +10,16 @@
 		071A799A2C3A94F400077318 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071A79992C3A94F400077318 /* Extensions.swift */; };
 		071A799D2C3A9D0900077318 /* OtpEntry+From.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071A799C2C3A9D0900077318 /* OtpEntry+From.swift */; };
 		071A79A02C3AA08E00077318 /* URL+Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071A799F2C3AA08E00077318 /* URL+Query.swift */; };
-		071A79A82C3AA66A00077318 /* ovault_uiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071A79A72C3AA66A00077318 /* ovault_uiTests.swift */; };
+		071A79A82C3AA66A00077318 /* ovaultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071A79A72C3AA66A00077318 /* ovaultTests.swift */; };
 		0767D6CC2C3AAB8300E8462E /* OtpEntry+OTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0767D6CB2C3AAB8300E8462E /* OtpEntry+OTP.swift */; };
 		07B523CF2C3AC9C4002EEEEB /* Base32 in Frameworks */ = {isa = PBXBuildFile; productRef = 07B523CE2C3AC9C4002EEEEB /* Base32 */; };
-		07C532542C38865300DC54C6 /* ovaultuiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C532532C38865300DC54C6 /* ovaultuiApp.swift */; };
+		07C532542C38865300DC54C6 /* ovaultApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C532532C38865300DC54C6 /* ovaultApp.swift */; };
 		07C532562C38865300DC54C6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C532552C38865300DC54C6 /* ContentView.swift */; };
 		07C532582C38865300DC54C6 /* OtpEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C532572C38865300DC54C6 /* OtpEntry.swift */; };
 		07C5325A2C38865300DC54C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07C532592C38865300DC54C6 /* Assets.xcassets */; };
 		07C5325E2C38865300DC54C6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07C5325D2C38865300DC54C6 /* Preview Assets.xcassets */; };
+		07F630F22C3B18FF00A10485 /* OtpEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F630F12C3B18FF00A10485 /* OtpEntryView.swift */; };
+		07F630F42C3B28DC00A10485 /* CopyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F630F32C3B28DC00A10485 /* CopyButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,7 +28,7 @@
 			containerPortal = 07C532482C38865300DC54C6 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 07C5324F2C38865300DC54C6;
-			remoteInfo = "ovault-ui";
+			remoteInfo = ovault;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -34,16 +36,18 @@
 		071A79992C3A94F400077318 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		071A799C2C3A9D0900077318 /* OtpEntry+From.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OtpEntry+From.swift"; sourceTree = "<group>"; };
 		071A799F2C3AA08E00077318 /* URL+Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Query.swift"; sourceTree = "<group>"; };
-		071A79A52C3AA66A00077318 /* ovault-uiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ovault-uiTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		071A79A72C3AA66A00077318 /* ovault_uiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ovault_uiTests.swift; sourceTree = "<group>"; };
+		071A79A52C3AA66A00077318 /* ovaultTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ovaultTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		071A79A72C3AA66A00077318 /* ovaultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ovaultTests.swift; sourceTree = "<group>"; };
 		0767D6CB2C3AAB8300E8462E /* OtpEntry+OTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OtpEntry+OTP.swift"; sourceTree = "<group>"; };
-		07C532502C38865300DC54C6 /* ovault-ui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ovault-ui.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		07C532532C38865300DC54C6 /* ovaultuiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ovaultuiApp.swift; sourceTree = "<group>"; };
+		07C532502C38865300DC54C6 /* ovault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ovault.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		07C532532C38865300DC54C6 /* ovaultApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ovaultApp.swift; sourceTree = "<group>"; };
 		07C532552C38865300DC54C6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		07C532572C38865300DC54C6 /* OtpEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpEntry.swift; sourceTree = "<group>"; };
 		07C532592C38865300DC54C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		07C5325B2C38865300DC54C6 /* ovault_ui.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ovault_ui.entitlements; sourceTree = "<group>"; };
+		07C5325B2C38865300DC54C6 /* ovault.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ovault.entitlements; sourceTree = "<group>"; };
 		07C5325D2C38865300DC54C6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		07F630F12C3B18FF00A10485 /* OtpEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpEntryView.swift; sourceTree = "<group>"; };
+		07F630F32C3B28DC00A10485 /* CopyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,12 +87,12 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		071A79A62C3AA66A00077318 /* ovault-uiTests */ = {
+		071A79A62C3AA66A00077318 /* ovaultTests */ = {
 			isa = PBXGroup;
 			children = (
-				071A79A72C3AA66A00077318 /* ovault_uiTests.swift */,
+				071A79A72C3AA66A00077318 /* ovaultTests.swift */,
 			);
-			path = "ovault-uiTests";
+			path = ovaultTests;
 			sourceTree = "<group>";
 		};
 		07B523CA2C3AC96B002EEEEB /* Frameworks */ = {
@@ -101,8 +105,8 @@
 		07C532472C38865300DC54C6 = {
 			isa = PBXGroup;
 			children = (
-				07C532522C38865300DC54C6 /* ovault-ui */,
-				071A79A62C3AA66A00077318 /* ovault-uiTests */,
+				07C532522C38865300DC54C6 /* ovault */,
+				071A79A62C3AA66A00077318 /* ovaultTests */,
 				07C532512C38865300DC54C6 /* Products */,
 				07B523CA2C3AC96B002EEEEB /* Frameworks */,
 			);
@@ -111,24 +115,25 @@
 		07C532512C38865300DC54C6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				07C532502C38865300DC54C6 /* ovault-ui.app */,
-				071A79A52C3AA66A00077318 /* ovault-uiTests.xctest */,
+				07C532502C38865300DC54C6 /* ovault.app */,
+				071A79A52C3AA66A00077318 /* ovaultTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		07C532522C38865300DC54C6 /* ovault-ui */ = {
+		07C532522C38865300DC54C6 /* ovault */ = {
 			isa = PBXGroup;
 			children = (
-				07C532532C38865300DC54C6 /* ovaultuiApp.swift */,
+				07C532532C38865300DC54C6 /* ovaultApp.swift */,
 				07C532552C38865300DC54C6 /* ContentView.swift */,
 				071A799B2C3A989E00077318 /* Models */,
+				07F630F02C3B18E200A10485 /* Views */,
 				071A799E2C3AA08300077318 /* Utils */,
 				07C532592C38865300DC54C6 /* Assets.xcassets */,
-				07C5325B2C38865300DC54C6 /* ovault_ui.entitlements */,
+				07C5325B2C38865300DC54C6 /* ovault.entitlements */,
 				07C5325C2C38865300DC54C6 /* Preview Content */,
 			);
-			path = "ovault-ui";
+			path = ovault;
 			sourceTree = "<group>";
 		};
 		07C5325C2C38865300DC54C6 /* Preview Content */ = {
@@ -140,12 +145,21 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		07F630F02C3B18E200A10485 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				07F630F12C3B18FF00A10485 /* OtpEntryView.swift */,
+				07F630F32C3B28DC00A10485 /* CopyButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		071A79A42C3AA66A00077318 /* ovault-uiTests */ = {
+		071A79A42C3AA66A00077318 /* ovaultTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 071A79AB2C3AA66A00077318 /* Build configuration list for PBXNativeTarget "ovault-uiTests" */;
+			buildConfigurationList = 071A79AB2C3AA66A00077318 /* Build configuration list for PBXNativeTarget "ovaultTests" */;
 			buildPhases = (
 				071A79A12C3AA66A00077318 /* Sources */,
 				071A79A22C3AA66A00077318 /* Frameworks */,
@@ -156,14 +170,14 @@
 			dependencies = (
 				071A79AA2C3AA66A00077318 /* PBXTargetDependency */,
 			);
-			name = "ovault-uiTests";
-			productName = "ovault-uiTests";
-			productReference = 071A79A52C3AA66A00077318 /* ovault-uiTests.xctest */;
+			name = ovaultTests;
+			productName = ovaultTests;
+			productReference = 071A79A52C3AA66A00077318 /* ovaultTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		07C5324F2C38865300DC54C6 /* ovault-ui */ = {
+		07C5324F2C38865300DC54C6 /* ovault */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 07C532612C38865300DC54C6 /* Build configuration list for PBXNativeTarget "ovault-ui" */;
+			buildConfigurationList = 07C532612C38865300DC54C6 /* Build configuration list for PBXNativeTarget "ovault" */;
 			buildPhases = (
 				07C5324C2C38865300DC54C6 /* Sources */,
 				07C5324D2C38865300DC54C6 /* Frameworks */,
@@ -173,12 +187,12 @@
 			);
 			dependencies = (
 			);
-			name = "ovault-ui";
+			name = ovault;
 			packageProductDependencies = (
 				07B523CE2C3AC9C4002EEEEB /* Base32 */,
 			);
-			productName = "ovault-ui";
-			productReference = 07C532502C38865300DC54C6 /* ovault-ui.app */;
+			productName = ovault;
+			productReference = 07C532502C38865300DC54C6 /* ovault.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -200,7 +214,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 07C5324B2C38865300DC54C6 /* Build configuration list for PBXProject "ovault-ui" */;
+			buildConfigurationList = 07C5324B2C38865300DC54C6 /* Build configuration list for PBXProject "ovault" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -216,8 +230,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				07C5324F2C38865300DC54C6 /* ovault-ui */,
-				071A79A42C3AA66A00077318 /* ovault-uiTests */,
+				07C5324F2C38865300DC54C6 /* ovault */,
+				071A79A42C3AA66A00077318 /* ovaultTests */,
 			);
 		};
 /* End PBXProject section */
@@ -246,7 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				071A79A82C3AA66A00077318 /* ovault_uiTests.swift in Sources */,
+				071A79A82C3AA66A00077318 /* ovaultTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,10 +269,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				071A799D2C3A9D0900077318 /* OtpEntry+From.swift in Sources */,
+				07F630F42C3B28DC00A10485 /* CopyButton.swift in Sources */,
 				07C532562C38865300DC54C6 /* ContentView.swift in Sources */,
 				0767D6CC2C3AAB8300E8462E /* OtpEntry+OTP.swift in Sources */,
 				07C532582C38865300DC54C6 /* OtpEntry.swift in Sources */,
-				07C532542C38865300DC54C6 /* ovaultuiApp.swift in Sources */,
+				07C532542C38865300DC54C6 /* ovaultApp.swift in Sources */,
+				07F630F22C3B18FF00A10485 /* OtpEntryView.swift in Sources */,
 				071A79A02C3AA08E00077318 /* URL+Query.swift in Sources */,
 				071A799A2C3A94F400077318 /* Extensions.swift in Sources */,
 			);
@@ -269,7 +285,7 @@
 /* Begin PBXTargetDependency section */
 		071A79AA2C3AA66A00077318 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 07C5324F2C38865300DC54C6 /* ovault-ui */;
+			target = 07C5324F2C38865300DC54C6 /* ovault */;
 			targetProxy = 071A79A92C3AA66A00077318 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -286,7 +302,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "net.ovault.ovault-uiTests";
+				PRODUCT_BUNDLE_IDENTIFIER = net.ovault.ovaultTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -296,7 +312,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ovault-ui.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ovault-ui";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ovault.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ovault";
 			};
 			name = Debug;
 		};
@@ -311,7 +327,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "net.ovault.ovault-uiTests";
+				PRODUCT_BUNDLE_IDENTIFIER = net.ovault.ovaultTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -321,7 +337,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ovault-ui.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ovault-ui";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ovault.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ovault";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -445,10 +461,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "ovault-ui/ovault_ui.entitlements";
+				CODE_SIGN_ENTITLEMENTS = ovault/ovault.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ovault-ui/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"ovault/Preview Content\"";
 				DEVELOPMENT_TEAM = KED4M385SL;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -468,7 +485,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "net.ovault.ovault-ui";
+				PRODUCT_BUNDLE_IDENTIFIER = net.ovault.ovault;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -483,10 +500,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "ovault-ui/ovault_ui.entitlements";
+				CODE_SIGN_ENTITLEMENTS = ovault/ovault.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ovault-ui/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"ovault/Preview Content\"";
 				DEVELOPMENT_TEAM = KED4M385SL;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -506,7 +524,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "net.ovault.ovault-ui";
+				PRODUCT_BUNDLE_IDENTIFIER = net.ovault.ovault;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -519,7 +537,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		071A79AB2C3AA66A00077318 /* Build configuration list for PBXNativeTarget "ovault-uiTests" */ = {
+		071A79AB2C3AA66A00077318 /* Build configuration list for PBXNativeTarget "ovaultTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				071A79AC2C3AA66A00077318 /* Debug */,
@@ -528,7 +546,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		07C5324B2C38865300DC54C6 /* Build configuration list for PBXProject "ovault-ui" */ = {
+		07C5324B2C38865300DC54C6 /* Build configuration list for PBXProject "ovault" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				07C5325F2C38865300DC54C6 /* Debug */,
@@ -537,7 +555,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		07C532612C38865300DC54C6 /* Build configuration list for PBXNativeTarget "ovault-ui" */ = {
+		07C532612C38865300DC54C6 /* Build configuration list for PBXNativeTarget "ovault" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				07C532622C38865300DC54C6 /* Debug */,

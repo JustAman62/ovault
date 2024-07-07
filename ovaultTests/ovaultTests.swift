@@ -1,7 +1,7 @@
 import XCTest
-@testable import ovault_ui
+@testable import ovault
 
-final class ovault_uiTests: XCTestCase {
+final class ovauliTests: XCTestCase {
     func testParseStandard() throws {
         // Arrange
         let input = URL(string: "otpauth://totp/Example:alice@google.com?secret=JBSWY3DPEHPK3PXP&issuer=Example")!

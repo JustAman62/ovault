@@ -4,7 +4,7 @@ import SwiftUI
 import SwiftData
 
 @main
-struct ovaultuiApp: App {
+struct ovaultApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             OtpEntry.self,
