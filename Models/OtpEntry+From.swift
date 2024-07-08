@@ -1,10 +1,10 @@
 import Foundation
 
-enum URLParseError: Error, LocalizedError {
+public enum URLParseError: Error, LocalizedError {
     case invalid(msg: String)
     case unsupported(msg: String)
     
-    var errorDescription: String? {
+    public var errorDescription: String? {
         switch self {
         case .invalid(msg: let msg):
             "URL was invalid: \(msg)"
@@ -13,11 +13,11 @@ enum URLParseError: Error, LocalizedError {
         }
     }
 
-    var failureReason: String? { "Unable to parse URL" }
+    public var failureReason: String? { "Unable to parse URL" }
 }
 
 extension OtpEntry {
-    static func from(url: URL) throws -> OtpEntry {
+    public static func from(url: URL) throws -> OtpEntry {
         guard url.scheme == "otpauth" || url.scheme == "ovault-otpauth" else { throw URLParseError.unsupported(msg: "Only otpauth URLs are supported.") }
         let components = url.pathComponents
 
@@ -54,3 +54,13 @@ extension OtpEntry {
     }
 }
 
+extension URL {
+    public var queryParameters: [String: String]? {
+        guard
+            let components = URLComponents(url: self, resolvingAgainstBaseURL: true),
+            let queryItems = components.queryItems else { return nil }
+        return queryItems.reduce(into: [String: String]()) { (result, item) in
+            result[item.name] = item.value
+        }
+    }
+}

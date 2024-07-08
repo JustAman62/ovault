@@ -1,7 +1,6 @@
-//
-
 import SwiftUI
 import SwiftData
+import Models
 
 @main
 struct ovaultApp: App {

@@ -1,4 +1,5 @@
 import SwiftUI
+import Models
 
 struct AddOtpEntryView: View {
     @State private var newEntry: OtpEntry = .blank()
@@ -56,6 +57,8 @@ struct AddOtpEntryView: View {
                 } label: {
                     Text("Counter")
                 }
+            @unknown default:
+                EmptyView()
             }
             
 #if os(macOS)

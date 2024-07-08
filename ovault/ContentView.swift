@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftData
+import Models
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext

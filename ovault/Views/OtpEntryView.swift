@@ -1,4 +1,5 @@
 import SwiftUI
+import Models
 
 struct OtpEntryView: View {
     @Bindable var otp: OtpEntry
