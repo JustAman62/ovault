@@ -14,6 +14,7 @@ final class OtpEntry {
     /// The number of digits in the OTP. Valid Values: `6` (Default), `7`, `8`.
     var digits: Int
     
+    // TODO: Store this secret in Keychain, and just store a path/identifier here instead
     /// Arbitrary value encoded in Base32.
     var secret: String
     
