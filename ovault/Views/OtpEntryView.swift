@@ -4,29 +4,39 @@ struct OtpEntryView: View {
     @Bindable var otp: OtpEntry
     
     @State private var calculated: String = ""
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) private var modelContext
     
     var expiresIn: Double { Date().timeIntervalSince1970.truncatingRemainder(dividingBy: Double(otp.period))
     }
     
     var body: some View {
         VStack {
-            HStack(alignment: .lastTextBaseline) {
+            HStack(alignment: .center) {
                 Text(otp.issuer)
                     .bold()
                 Spacer()
-                if let accountName = otp.accountName {
-                    Text(accountName)
-                        .font(.caption)
-                }
+                Text(otp.accountName)
+                    .font(.caption)
                 
+                Menu {
+                    menu()
+                } label: {
+                    Label("Menu", systemImage: "ellipsis")
+                        .labelStyle(.iconOnly)
+                        .contentShape(.circle)
+                }
+                .menuStyle(.borderlessButton)
+                .frame(width: 30)
             }
             
             HStack {
                 Text(calculated)
                     .font(.title)
                     .textSelection(.enabled)
+                    
                 Spacer()
-                CopyButton(value: calculated)
+                CopyButton("Copy", value: calculated)
                     .font(.caption)
 #if os(macOS)
                     .controlSize(.large)
@@ -39,14 +49,43 @@ struct OtpEntryView: View {
                 .onChange(of: otp.timeStep, initial: true) {
                     calculated = otp.getOtp()
                 }
+                .onChange(of: otp.counter, initial: true) {
+                    calculated = otp.getOtp()
+                }
             }
         }
-        .padding()
+        .contentShape(.rect)
+        .contextMenu(
+            ContextMenu {
+                menu()
+            }
+        )
+    }
+    
+    @ViewBuilder
+    private func menu() -> some View {
+        NavigationLink {
+            EditOtpEntryView(otp: otp)
+        } label: {
+            Label("Edit", systemImage: "pencil")
+        }
+        
+        Button("Delete", systemImage: "trash", role: .destructive) {
+            do {
+                modelContext.delete(otp)
+                try modelContext.save()
+                DispatchQueue.main.async { dismiss() }
+            } catch {
+                // TODO: Alert on this error
+            }
+        }
     }
 }
 
 #if DEBUG
 #Preview {
-    OtpEntryView(otp: .testTotp15sec)
+    NavigationStack {
+        OtpEntryView(otp: .testTotp15sec)
+    }
 }
 #endif

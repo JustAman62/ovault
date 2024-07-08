@@ -1,9 +1,16 @@
 import SwiftUI
 
 struct CopyButton: View {
+    var title: String
     var value: String
     
-    @State private var title: String = "Copy"
+    @State private var internalTitle: String
+    
+    init(_ title: String, value: String) {
+        self.title = title
+        self._internalTitle = State(initialValue: title)
+        self.value = value
+    }
     
 #if os(macOS)
     private func copy() {
@@ -21,25 +28,25 @@ struct CopyButton: View {
             copy()
             
             withAnimation {
-                title = "Copied!"
+                internalTitle = "Copied!"
                 DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .seconds(2))) {
                     withAnimation {
-                        title = "Copy"
+                        internalTitle = title
                     }
                 }
             }
         } label: {
             HStack {
                 Image(systemName: "rectangle.portrait.on.rectangle.portrait.fill")
-                Text(title)
+                Text(internalTitle)
                     .fixedSize()
             }
         }
         .buttonStyle(.borderedProminent)
-        .disabled(title != "Copy")
+        .disabled(internalTitle != title)
     }
 }
 
 #Preview {
-    CopyButton(value: "123456")
+    CopyButton("Copy!", value: "123456")
 }

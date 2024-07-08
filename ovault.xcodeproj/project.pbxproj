@@ -13,6 +13,10 @@
 		071A79A82C3AA66A00077318 /* ovaultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071A79A72C3AA66A00077318 /* ovaultTests.swift */; };
 		0767D6CC2C3AAB8300E8462E /* OtpEntry+OTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0767D6CB2C3AAB8300E8462E /* OtpEntry+OTP.swift */; };
 		07B523CF2C3AC9C4002EEEEB /* Base32 in Frameworks */ = {isa = PBXBuildFile; productRef = 07B523CE2C3AC9C4002EEEEB /* Base32 */; };
+		07BF2A212C3C3EFE00CB1FF5 /* AddOtpEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BF2A202C3C3EFE00CB1FF5 /* AddOtpEntryView.swift */; };
+		07BF2A232C3C3F3900CB1FF5 /* OtpEntry+Blank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BF2A222C3C3F3900CB1FF5 /* OtpEntry+Blank.swift */; };
+		07BF2A252C3C441E00CB1FF5 /* OVTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BF2A242C3C441E00CB1FF5 /* OVTextField.swift */; };
+		07BF2A272C3C4A8E00CB1FF5 /* EditOtpEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BF2A262C3C4A8E00CB1FF5 /* EditOtpEntryView.swift */; };
 		07C532542C38865300DC54C6 /* ovaultApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C532532C38865300DC54C6 /* ovaultApp.swift */; };
 		07C532562C38865300DC54C6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C532552C38865300DC54C6 /* ContentView.swift */; };
 		07C532582C38865300DC54C6 /* OtpEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C532572C38865300DC54C6 /* OtpEntry.swift */; };
@@ -39,6 +43,11 @@
 		071A79A52C3AA66A00077318 /* ovaultTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ovaultTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		071A79A72C3AA66A00077318 /* ovaultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ovaultTests.swift; sourceTree = "<group>"; };
 		0767D6CB2C3AAB8300E8462E /* OtpEntry+OTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OtpEntry+OTP.swift"; sourceTree = "<group>"; };
+		07BF2A202C3C3EFE00CB1FF5 /* AddOtpEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOtpEntryView.swift; sourceTree = "<group>"; };
+		07BF2A222C3C3F3900CB1FF5 /* OtpEntry+Blank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OtpEntry+Blank.swift"; sourceTree = "<group>"; };
+		07BF2A242C3C441E00CB1FF5 /* OVTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OVTextField.swift; sourceTree = "<group>"; };
+		07BF2A262C3C4A8E00CB1FF5 /* EditOtpEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditOtpEntryView.swift; sourceTree = "<group>"; };
+		07BF2A2A2C3C59A500CB1FF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		07C532502C38865300DC54C6 /* ovault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ovault.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07C532532C38865300DC54C6 /* ovaultApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ovaultApp.swift; sourceTree = "<group>"; };
 		07C532552C38865300DC54C6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				07C532572C38865300DC54C6 /* OtpEntry.swift */,
+				07BF2A222C3C3F3900CB1FF5 /* OtpEntry+Blank.swift */,
 				071A799C2C3A9D0900077318 /* OtpEntry+From.swift */,
 				0767D6CB2C3AAB8300E8462E /* OtpEntry+OTP.swift */,
 			);
@@ -124,6 +134,7 @@
 		07C532522C38865300DC54C6 /* ovault */ = {
 			isa = PBXGroup;
 			children = (
+				07BF2A2A2C3C59A500CB1FF5 /* Info.plist */,
 				07C532532C38865300DC54C6 /* ovaultApp.swift */,
 				07C532552C38865300DC54C6 /* ContentView.swift */,
 				071A799B2C3A989E00077318 /* Models */,
@@ -149,7 +160,10 @@
 			isa = PBXGroup;
 			children = (
 				07F630F12C3B18FF00A10485 /* OtpEntryView.swift */,
+				07BF2A202C3C3EFE00CB1FF5 /* AddOtpEntryView.swift */,
+				07BF2A262C3C4A8E00CB1FF5 /* EditOtpEntryView.swift */,
 				07F630F32C3B28DC00A10485 /* CopyButton.swift */,
+				07BF2A242C3C441E00CB1FF5 /* OVTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -272,7 +286,11 @@
 				07F630F42C3B28DC00A10485 /* CopyButton.swift in Sources */,
 				07C532562C38865300DC54C6 /* ContentView.swift in Sources */,
 				0767D6CC2C3AAB8300E8462E /* OtpEntry+OTP.swift in Sources */,
+				07BF2A252C3C441E00CB1FF5 /* OVTextField.swift in Sources */,
+				07BF2A272C3C4A8E00CB1FF5 /* EditOtpEntryView.swift in Sources */,
+				07BF2A232C3C3F3900CB1FF5 /* OtpEntry+Blank.swift in Sources */,
 				07C532582C38865300DC54C6 /* OtpEntry.swift in Sources */,
+				07BF2A212C3C3EFE00CB1FF5 /* AddOtpEntryView.swift in Sources */,
 				07C532542C38865300DC54C6 /* ovaultApp.swift in Sources */,
 				07F630F22C3B18FF00A10485 /* OtpEntryView.swift in Sources */,
 				071A79A02C3AA08E00077318 /* URL+Query.swift in Sources */,
@@ -470,6 +488,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ovault/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -509,6 +528,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ovault/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

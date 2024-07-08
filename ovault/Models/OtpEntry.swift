@@ -7,7 +7,7 @@ final class OtpEntry {
     /// The provider this credential is associated with.
     var issuer: String
     /// The name of the account (or any useful identifier) which this credential is associated with.
-    var accountName: String?
+    var accountName: String
     
     /// The hashing algorithm to generate the OTP with. Valid Values: `SHA1` (Default), `SHA256`, `SHA512`.
     var algorithm: HashAlgorithm
@@ -24,7 +24,7 @@ final class OtpEntry {
     /// The period parameter for `OtpType.totp` credentials, in seconds. Defaults to 30 seconds.
     var period: Int
     
-    init(issuer: String, accountName: String? = nil, algorithm: HashAlgorithm, digits: Int, secret: String, type: OtpType, counter: Int64, period: Int) {
+    init(issuer: String, accountName: String, algorithm: HashAlgorithm, digits: Int, secret: String, type: OtpType, counter: Int64, period: Int) {
         self.issuer = issuer
         self.accountName = accountName
         self.algorithm = algorithm
@@ -43,10 +43,11 @@ final class OtpEntry {
     }
 }
 
-enum OtpType: String, Codable {
+enum OtpType: String, CaseIterable, Hashable, Codable {
     case totp, hotp
 }
 
-enum HashAlgorithm: String, Codable {
+enum HashAlgorithm: String, CaseIterable, Identifiable, Hashable, Codable {
     case SHA1, SHA256, SHA512
+    var id: String { self.rawValue }
 }
