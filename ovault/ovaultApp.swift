@@ -21,6 +21,7 @@ struct ovaultApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .withNotifierSupport()
         }
         .modelContainer(sharedModelContainer)
     }

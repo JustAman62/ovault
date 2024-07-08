@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		070F9A792C3C706E00FB4297 /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F9A782C3C706E00FB4297 /* Notifier.swift */; };
 		071A799A2C3A94F400077318 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071A79992C3A94F400077318 /* Extensions.swift */; };
 		071A799D2C3A9D0900077318 /* OtpEntry+From.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071A799C2C3A9D0900077318 /* OtpEntry+From.swift */; };
 		071A79A02C3AA08E00077318 /* URL+Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071A799F2C3AA08E00077318 /* URL+Query.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		070F9A782C3C706E00FB4297 /* Notifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifier.swift; sourceTree = "<group>"; };
 		071A79992C3A94F400077318 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		071A799C2C3A9D0900077318 /* OtpEntry+From.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OtpEntry+From.swift"; sourceTree = "<group>"; };
 		071A799F2C3AA08E00077318 /* URL+Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Query.swift"; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				071A799B2C3A989E00077318 /* Models */,
 				07F630F02C3B18E200A10485 /* Views */,
 				071A799E2C3AA08300077318 /* Utils */,
+				070F9A782C3C706E00FB4297 /* Notifier.swift */,
 				07C532592C38865300DC54C6 /* Assets.xcassets */,
 				07C5325B2C38865300DC54C6 /* ovault.entitlements */,
 				07C5325C2C38865300DC54C6 /* Preview Content */,
@@ -293,6 +296,7 @@
 				07BF2A212C3C3EFE00CB1FF5 /* AddOtpEntryView.swift in Sources */,
 				07C532542C38865300DC54C6 /* ovaultApp.swift in Sources */,
 				07F630F22C3B18FF00A10485 /* OtpEntryView.swift in Sources */,
+				070F9A792C3C706E00FB4297 /* Notifier.swift in Sources */,
 				071A79A02C3AA08E00077318 /* URL+Query.swift in Sources */,
 				071A799A2C3A94F400077318 /* Extensions.swift in Sources */,
 			);

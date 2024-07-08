@@ -1,10 +1,10 @@
-//
-
 import SwiftUI
 import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.notifier) private var notifier
+    
     @Query private var items: [OtpEntry]
 
     var body: some View {
@@ -60,12 +60,10 @@ struct ContentView: View {
             }
             .navigationTitle("OVault")
             .onOpenURL { url in
-                do {
+                notifier.execute {
                     let entry = try OtpEntry.from(url: url)
                     modelContext.insert(entry)
                     try modelContext.save()
-                } catch {
-                    // TODO: Handle this with an error alert
                 }
             }
         }

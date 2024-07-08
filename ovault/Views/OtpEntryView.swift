@@ -6,6 +6,7 @@ struct OtpEntryView: View {
     @State private var calculated: String = ""
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.notifier) private var notifier
     
     var expiresIn: Double { Date().timeIntervalSince1970.truncatingRemainder(dividingBy: Double(otp.period))
     }
@@ -71,12 +72,10 @@ struct OtpEntryView: View {
         }
         
         Button("Delete", systemImage: "trash", role: .destructive) {
-            do {
+            notifier.execute {
                 modelContext.delete(otp)
                 try modelContext.save()
                 DispatchQueue.main.async { dismiss() }
-            } catch {
-                // TODO: Alert on this error
             }
         }
     }

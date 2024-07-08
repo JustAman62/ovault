@@ -5,14 +5,13 @@ struct AddOtpEntryView: View {
     
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.notifier) private var notifier
     
     private func save() {
-        do {
+        notifier.execute {
             modelContext.insert(newEntry)
             try modelContext.save()
             DispatchQueue.main.async { dismiss() }
-        } catch {
-            // TODO: Handle this with an alert
         }
     }
     

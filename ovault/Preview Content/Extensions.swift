@@ -13,6 +13,7 @@ extension View {
                     setupData(container: try! res.get())
                 }
             )
+            .withNotifierSupport()
     }
     
     @MainActor
