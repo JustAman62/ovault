@@ -2,7 +2,7 @@ import SwiftUI
 import Models
 
 struct OtpEntryView: View {
-    @Bindable var otp: OtpEntry
+    @Bindable var otp: OtpMetadata
     
     @State private var calculated: String = ""
     @Environment(\.dismiss) private var dismiss

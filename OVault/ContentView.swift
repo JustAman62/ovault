@@ -6,7 +6,7 @@ struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.notifier) private var notifier
     
-    @Query private var items: [OtpEntry]
+    @Query private var items: [OtpMetadata]
 
     var body: some View {
         NavigationStack {
@@ -62,7 +62,7 @@ struct ContentView: View {
             .navigationTitle("OVault")
             .onOpenURL { url in
                 notifier.execute {
-                    let entry = try OtpEntry.from(url: url)
+                    let entry = try OtpMetadata.from(url: url)
                     modelContext.insert(entry)
                     try modelContext.save()
                 }

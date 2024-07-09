@@ -3,10 +3,10 @@ import SwiftData
 import Models
 
 @main
-struct ovaultApp: App {
+struct OVaultApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            OtpEntry.self,
+            OtpMetadata.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 

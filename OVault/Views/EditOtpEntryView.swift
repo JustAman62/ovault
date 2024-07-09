@@ -2,7 +2,7 @@ import SwiftUI
 import Models
 
 struct EditOtpEntryView: View {
-    @Bindable var otp: OtpEntry
+    @Bindable var otp: OtpMetadata
     
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext

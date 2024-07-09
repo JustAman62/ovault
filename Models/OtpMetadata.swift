@@ -3,7 +3,7 @@ import SwiftData
 import SwiftUI
 
 @Model
-public final class OtpEntry: Identifiable {
+public final class OtpMetadata: Identifiable {
     public var id: UUID
     
     /// The provider this credential is associated with.

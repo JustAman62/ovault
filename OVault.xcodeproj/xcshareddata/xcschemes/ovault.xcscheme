@@ -18,7 +18,7 @@
                BlueprintIdentifier = "07C5324F2C38865300DC54C6"
                BuildableName = "OVault.app"
                BlueprintName = "OVault"
-               ReferencedContainer = "container:ovault.xcodeproj">
+               ReferencedContainer = "container:OVault.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -38,7 +38,7 @@
                BlueprintIdentifier = "071A79A42C3AA66A00077318"
                BuildableName = "OVaultTests.xctest"
                BlueprintName = "OVaultTests"
-               ReferencedContainer = "container:ovault.xcodeproj">
+               ReferencedContainer = "container:OVault.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -60,7 +60,7 @@
             BlueprintIdentifier = "07C5324F2C38865300DC54C6"
             BuildableName = "OVault.app"
             BlueprintName = "OVault"
-            ReferencedContainer = "container:ovault.xcodeproj">
+            ReferencedContainer = "container:OVault.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -77,7 +77,7 @@
             BlueprintIdentifier = "07C5324F2C38865300DC54C6"
             BuildableName = "OVault.app"
             BlueprintName = "OVault"
-            ReferencedContainer = "container:ovault.xcodeproj">
+            ReferencedContainer = "container:OVault.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

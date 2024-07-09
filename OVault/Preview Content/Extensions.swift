@@ -8,7 +8,7 @@ extension View {
     func previewEnvironment() -> some View {
         return self
             .modelContainer(
-                for: OtpEntry.self,
+                for: OtpMetadata.self,
                 inMemory: true,
                 onSetup: { res in
                     setupData(container: try! res.get())
@@ -20,9 +20,9 @@ extension View {
     @MainActor
     private func setupData(container: ModelContainer) {
         let ctx = container.mainContext
-        ctx.insert(OtpEntry.testTotp15sec)
-        ctx.insert(OtpEntry.testTotp30sec)
-        ctx.insert(OtpEntry.testTotp60sec)
+        ctx.insert(OtpMetadata.testTotp15sec)
+        ctx.insert(OtpMetadata.testTotp30sec)
+        ctx.insert(OtpMetadata.testTotp60sec)
         try! ctx.save()
     }
 }

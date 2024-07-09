@@ -2,7 +2,7 @@ import Foundation
 import CryptoKit
 import Base32
 
-extension OtpEntry {  
+extension OtpMetadata {  
     public func getOtp() -> String {
         let number = switch self.type {
         case .totp: calculateOtp(alg: self.algorithm, key: self.secret, counter: timeStep, digits: self.digits)

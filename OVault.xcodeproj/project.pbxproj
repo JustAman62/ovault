@@ -16,13 +16,13 @@
 		07C43BB22C3C830100BE0F34 /* Models.h in Headers */ = {isa = PBXBuildFile; fileRef = 07C43BB12C3C830100BE0F34 /* Models.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07C43BB52C3C830100BE0F34 /* Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07C43BAF2C3C830100BE0F34 /* Models.framework */; };
 		07C43BB72C3C830100BE0F34 /* Models.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 07C43BAF2C3C830100BE0F34 /* Models.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		07C43BBD2C3C832800BE0F34 /* OtpEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C532572C38865300DC54C6 /* OtpEntry.swift */; };
-		07C43BBE2C3C832800BE0F34 /* OtpEntry+From.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071A799C2C3A9D0900077318 /* OtpEntry+From.swift */; };
-		07C43BBF2C3C832800BE0F34 /* OtpEntry+Blank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BF2A222C3C3F3900CB1FF5 /* OtpEntry+Blank.swift */; };
-		07C43BC02C3C832800BE0F34 /* OtpEntry+OTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0767D6CB2C3AAB8300E8462E /* OtpEntry+OTP.swift */; };
+		07C43BBD2C3C832800BE0F34 /* OtpMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C532572C38865300DC54C6 /* OtpMetadata.swift */; };
+		07C43BBE2C3C832800BE0F34 /* OtpMetadata+From.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071A799C2C3A9D0900077318 /* OtpMetadata+From.swift */; };
+		07C43BBF2C3C832800BE0F34 /* OtpMetadata+Blank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BF2A222C3C3F3900CB1FF5 /* OtpMetadata+Blank.swift */; };
+		07C43BC02C3C832800BE0F34 /* OtpMetadata+OTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0767D6CB2C3AAB8300E8462E /* OtpMetadata+OTP.swift */; };
 		07C43BC32C3C837500BE0F34 /* Base32 in Frameworks */ = {isa = PBXBuildFile; productRef = 07C43BC22C3C837500BE0F34 /* Base32 */; };
-		07C43BC72C3C89D300BE0F34 /* OtpEntry+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C43BC62C3C89D300BE0F34 /* OtpEntry+Debug.swift */; };
-		07C532542C38865300DC54C6 /* ovaultApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C532532C38865300DC54C6 /* ovaultApp.swift */; };
+		07C43BC72C3C89D300BE0F34 /* OtpMetadata+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C43BC62C3C89D300BE0F34 /* OtpMetadata+Debug.swift */; };
+		07C532542C38865300DC54C6 /* OVaultApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C532532C38865300DC54C6 /* OVaultApp.swift */; };
 		07C532562C38865300DC54C6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C532552C38865300DC54C6 /* ContentView.swift */; };
 		07C5325A2C38865300DC54C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07C532592C38865300DC54C6 /* Assets.xcassets */; };
 		07C5325E2C38865300DC54C6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07C5325D2C38865300DC54C6 /* Preview Assets.xcassets */; };
@@ -76,24 +76,24 @@
 		070F9A7F2C3C7EB000FB4297 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		070F9A812C3C7EB000FB4297 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		071A79992C3A94F400077318 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		071A799C2C3A9D0900077318 /* OtpEntry+From.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OtpEntry+From.swift"; sourceTree = "<group>"; };
+		071A799C2C3A9D0900077318 /* OtpMetadata+From.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OtpMetadata+From.swift"; sourceTree = "<group>"; };
 		071A79A52C3AA66A00077318 /* OVaultTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OVaultTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		071A79A72C3AA66A00077318 /* ovaultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ovaultTests.swift; sourceTree = "<group>"; };
-		0767D6CB2C3AAB8300E8462E /* OtpEntry+OTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OtpEntry+OTP.swift"; sourceTree = "<group>"; };
+		0767D6CB2C3AAB8300E8462E /* OtpMetadata+OTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OtpMetadata+OTP.swift"; sourceTree = "<group>"; };
 		07BF2A202C3C3EFE00CB1FF5 /* AddOtpEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOtpEntryView.swift; sourceTree = "<group>"; };
-		07BF2A222C3C3F3900CB1FF5 /* OtpEntry+Blank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OtpEntry+Blank.swift"; sourceTree = "<group>"; };
+		07BF2A222C3C3F3900CB1FF5 /* OtpMetadata+Blank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OtpMetadata+Blank.swift"; sourceTree = "<group>"; };
 		07BF2A242C3C441E00CB1FF5 /* OVTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OVTextField.swift; sourceTree = "<group>"; };
 		07BF2A262C3C4A8E00CB1FF5 /* EditOtpEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditOtpEntryView.swift; sourceTree = "<group>"; };
 		07BF2A2A2C3C59A500CB1FF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		07C43BAF2C3C830100BE0F34 /* Models.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Models.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07C43BB12C3C830100BE0F34 /* Models.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Models.h; sourceTree = "<group>"; };
-		07C43BC62C3C89D300BE0F34 /* OtpEntry+Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OtpEntry+Debug.swift"; sourceTree = "<group>"; };
+		07C43BC62C3C89D300BE0F34 /* OtpMetadata+Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OtpMetadata+Debug.swift"; sourceTree = "<group>"; };
 		07C532502C38865300DC54C6 /* OVault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OVault.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		07C532532C38865300DC54C6 /* ovaultApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ovaultApp.swift; sourceTree = "<group>"; };
+		07C532532C38865300DC54C6 /* OVaultApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OVaultApp.swift; sourceTree = "<group>"; };
 		07C532552C38865300DC54C6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		07C532572C38865300DC54C6 /* OtpEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpEntry.swift; sourceTree = "<group>"; };
+		07C532572C38865300DC54C6 /* OtpMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpMetadata.swift; sourceTree = "<group>"; };
 		07C532592C38865300DC54C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		07C5325B2C38865300DC54C6 /* ovault.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ovault.entitlements; sourceTree = "<group>"; };
+		07C5325B2C38865300DC54C6 /* OVault.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OVault.entitlements; sourceTree = "<group>"; };
 		07C5325D2C38865300DC54C6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		07F630F12C3B18FF00A10485 /* OtpEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpEntryView.swift; sourceTree = "<group>"; };
 		07F630F32C3B28DC00A10485 /* CopyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyButton.swift; sourceTree = "<group>"; };
@@ -154,11 +154,11 @@
 		07C43BB02C3C830100BE0F34 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				07C532572C38865300DC54C6 /* OtpEntry.swift */,
-				07BF2A222C3C3F3900CB1FF5 /* OtpEntry+Blank.swift */,
-				071A799C2C3A9D0900077318 /* OtpEntry+From.swift */,
-				0767D6CB2C3AAB8300E8462E /* OtpEntry+OTP.swift */,
-				07C43BC62C3C89D300BE0F34 /* OtpEntry+Debug.swift */,
+				07C532572C38865300DC54C6 /* OtpMetadata.swift */,
+				07BF2A222C3C3F3900CB1FF5 /* OtpMetadata+Blank.swift */,
+				071A799C2C3A9D0900077318 /* OtpMetadata+From.swift */,
+				0767D6CB2C3AAB8300E8462E /* OtpMetadata+OTP.swift */,
+				07C43BC62C3C89D300BE0F34 /* OtpMetadata+Debug.swift */,
 				07C43BB12C3C830100BE0F34 /* Models.h */,
 			);
 			path = Models;
@@ -190,8 +190,8 @@
 			children = (
 				07C532592C38865300DC54C6 /* Assets.xcassets */,
 				07BF2A2A2C3C59A500CB1FF5 /* Info.plist */,
-				07C5325B2C38865300DC54C6 /* ovault.entitlements */,
-				07C532532C38865300DC54C6 /* ovaultApp.swift */,
+				07C5325B2C38865300DC54C6 /* OVault.entitlements */,
+				07C532532C38865300DC54C6 /* OVaultApp.swift */,
 				07C532552C38865300DC54C6 /* ContentView.swift */,
 				073BF6B92C3DB6DD00DCA0A1 /* Services */,
 				07F630F02C3B18E200A10485 /* Views */,
@@ -380,11 +380,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07C43BC02C3C832800BE0F34 /* OtpEntry+OTP.swift in Sources */,
-				07C43BBE2C3C832800BE0F34 /* OtpEntry+From.swift in Sources */,
-				07C43BC72C3C89D300BE0F34 /* OtpEntry+Debug.swift in Sources */,
-				07C43BBD2C3C832800BE0F34 /* OtpEntry.swift in Sources */,
-				07C43BBF2C3C832800BE0F34 /* OtpEntry+Blank.swift in Sources */,
+				07C43BC02C3C832800BE0F34 /* OtpMetadata+OTP.swift in Sources */,
+				07C43BBE2C3C832800BE0F34 /* OtpMetadata+From.swift in Sources */,
+				07C43BC72C3C89D300BE0F34 /* OtpMetadata+Debug.swift in Sources */,
+				07C43BBD2C3C832800BE0F34 /* OtpMetadata.swift in Sources */,
+				07C43BBF2C3C832800BE0F34 /* OtpMetadata+Blank.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,7 +397,7 @@
 				07BF2A252C3C441E00CB1FF5 /* OVTextField.swift in Sources */,
 				07BF2A272C3C4A8E00CB1FF5 /* EditOtpEntryView.swift in Sources */,
 				07BF2A212C3C3EFE00CB1FF5 /* AddOtpEntryView.swift in Sources */,
-				07C532542C38865300DC54C6 /* ovaultApp.swift in Sources */,
+				07C532542C38865300DC54C6 /* OVaultApp.swift in Sources */,
 				07F630F22C3B18FF00A10485 /* OtpEntryView.swift in Sources */,
 				070F9A792C3C706E00FB4297 /* Notifier.swift in Sources */,
 				071A799A2C3A94F400077318 /* Extensions.swift in Sources */,
@@ -666,16 +666,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = ovault/ovault.entitlements;
+				CODE_SIGN_ENTITLEMENTS = OVault/OVault.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ovault/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"OVault/Preview Content\"";
 				DEVELOPMENT_TEAM = KED4M385SL;
 				ENABLE_HARDENED_RUNTIME = YES;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ovault/Info.plist;
+				INFOPLIST_FILE = OVault/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -707,16 +708,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = ovault/ovault.entitlements;
+				CODE_SIGN_ENTITLEMENTS = OVault/OVault.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ovault/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"OVault/Preview Content\"";
 				DEVELOPMENT_TEAM = KED4M385SL;
 				ENABLE_HARDENED_RUNTIME = YES;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ovault/Info.plist;
+				INFOPLIST_FILE = OVault/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

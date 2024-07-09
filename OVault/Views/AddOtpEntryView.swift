@@ -2,7 +2,7 @@ import SwiftUI
 import Models
 
 struct AddOtpEntryView: View {
-    @State private var newEntry: OtpEntry = .blank()
+    @State private var newEntry: OtpMetadata = .blank()
     
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext

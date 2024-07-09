@@ -16,8 +16,8 @@ public enum URLParseError: Error, LocalizedError {
     public var failureReason: String? { "Unable to parse URL" }
 }
 
-extension OtpEntry {
-    public static func from(url: URL) throws -> OtpEntry {
+extension OtpMetadata {
+    public static func from(url: URL) throws -> OtpMetadata {
         guard url.scheme == "otpauth" || url.scheme == "ovault-otpauth" else { throw URLParseError.unsupported(msg: "Only otpauth URLs are supported.") }
         let components = url.pathComponents
 
