@@ -134,6 +134,14 @@
 			path = OVaultTests;
 			sourceTree = "<group>";
 		};
+		073BF6B92C3DB6DD00DCA0A1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				070F9A782C3C706E00FB4297 /* Notifier.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		07B523CA2C3AC96B002EEEEB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,8 +158,8 @@
 				07BF2A222C3C3F3900CB1FF5 /* OtpEntry+Blank.swift */,
 				071A799C2C3A9D0900077318 /* OtpEntry+From.swift */,
 				0767D6CB2C3AAB8300E8462E /* OtpEntry+OTP.swift */,
-				07C43BB12C3C830100BE0F34 /* Models.h */,
 				07C43BC62C3C89D300BE0F34 /* OtpEntry+Debug.swift */,
+				07C43BB12C3C830100BE0F34 /* Models.h */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -180,13 +188,13 @@
 		07C532522C38865300DC54C6 /* OVault */ = {
 			isa = PBXGroup;
 			children = (
+				07C532592C38865300DC54C6 /* Assets.xcassets */,
 				07BF2A2A2C3C59A500CB1FF5 /* Info.plist */,
+				07C5325B2C38865300DC54C6 /* ovault.entitlements */,
 				07C532532C38865300DC54C6 /* ovaultApp.swift */,
 				07C532552C38865300DC54C6 /* ContentView.swift */,
+				073BF6B92C3DB6DD00DCA0A1 /* Services */,
 				07F630F02C3B18E200A10485 /* Views */,
-				070F9A782C3C706E00FB4297 /* Notifier.swift */,
-				07C532592C38865300DC54C6 /* Assets.xcassets */,
-				07C5325B2C38865300DC54C6 /* ovault.entitlements */,
 				07C5325C2C38865300DC54C6 /* Preview Content */,
 			);
 			path = OVault;

@@ -3,6 +3,7 @@ import Foundation
 #if DEBUG
 public extension OtpEntry {
     static var testTotp30sec: OtpEntry = .init(
+        id: UUID(),
         issuer: "Test Issuer",
         accountName: "30sec Account",
         algorithm: .SHA1,
@@ -13,6 +14,7 @@ public extension OtpEntry {
         period: 30)
     
     static var testTotp15sec: OtpEntry = .init(
+        id: UUID(),
         issuer: "Test Issuer",
         accountName: "15sec Account",
         algorithm: .SHA1,
@@ -23,6 +25,7 @@ public extension OtpEntry {
         period: 15)
     
     static var testTotp60sec: OtpEntry = .init(
+        id: UUID(), 
         issuer: "Test Issuer",
         accountName: "60sec 8digit Account",
         algorithm: .SHA1,

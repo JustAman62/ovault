@@ -3,7 +3,9 @@ import SwiftData
 import SwiftUI
 
 @Model
-public final class OtpEntry {
+public final class OtpEntry: Identifiable {
+    public var id: UUID
+    
     /// The provider this credential is associated with.
     public var issuer: String
     /// The name of the account (or any useful identifier) which this credential is associated with.
@@ -25,7 +27,8 @@ public final class OtpEntry {
     /// The period parameter for `OtpType.totp` credentials, in seconds. Defaults to 30 seconds.
     public var period: Int
     
-    public init(issuer: String, accountName: String, algorithm: HashAlgorithm, digits: Int, secret: String, type: OtpType, counter: Int64, period: Int) {
+    public init(id: UUID, issuer: String, accountName: String, algorithm: HashAlgorithm, digits: Int, secret: String, type: OtpType, counter: Int64, period: Int) {
+        self.id = id
         self.issuer = issuer
         self.accountName = accountName
         self.algorithm = algorithm

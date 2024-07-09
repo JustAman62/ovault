@@ -44,10 +44,10 @@ extension OtpEntry {
         
         if type == "totp" {
             let period = Int(query["period"] ?? "30") ?? 30
-            return .init(issuer: issuer, accountName: accountName, algorithm: algorithm ?? .SHA1, digits: digits, secret: secret, type: .totp, counter: 0, period: period)
+            return .init(id: UUID(), issuer: issuer, accountName: accountName, algorithm: algorithm ?? .SHA1, digits: digits, secret: secret, type: .totp, counter: 0, period: period)
         } else if type == "hotp" {
             guard let counterString = query["counter"], let counter = Int64(counterString) else { throw URLParseError.invalid(msg: "HOTP codes require a initial counter value to be specified.") }
-            return .init(issuer: issuer, accountName: accountName, algorithm: algorithm ?? .SHA1, digits: digits, secret: secret, type: .hotp, counter: counter, period: 0)
+            return .init(id: UUID(), issuer: issuer, accountName: accountName, algorithm: algorithm ?? .SHA1, digits: digits, secret: secret, type: .hotp, counter: counter, period: 0)
         }
         
         throw URLParseError.unsupported(msg: "Unknown error occured.")
