@@ -5,13 +5,15 @@ import Models
 
 extension View {
     @MainActor
-    func previewEnvironment() -> some View {
+    func previewEnvironment(withData: Bool = true) -> some View {
         return self
             .modelContainer(
                 for: OtpMetadata.self,
                 inMemory: true,
                 onSetup: { res in
-                    setupData(container: try! res.get())
+                    if withData {
+                        setupData(container: try! res.get())
+                    }
                 }
             )
             .withNotifierSupport()

@@ -45,7 +45,7 @@ struct OtpEntryView: View {
 #endif
             }
             
-            TimelineView(.periodic(from: Date(), by: 0.05)) { _ in
+            TimelineView(.periodic(from: Date(), by: 0.025)) { _ in
                 ProgressView(value: Double(otp.expiresIn), total: Double(otp.period))
                     .progressViewStyle(.linear)
                 .onChange(of: otp.timeStep, initial: true) {

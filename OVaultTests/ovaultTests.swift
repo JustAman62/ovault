@@ -1,5 +1,6 @@
 import XCTest
-@testable import ovault
+@testable import OVault
+@testable import Models
 
 final class ovauliTests: XCTestCase {
     func testParseStandard() throws {
@@ -7,7 +8,7 @@ final class ovauliTests: XCTestCase {
         let input = URL(string: "otpauth://totp/Example:alice@google.com?secret=JBSWY3DPEHPK3PXP&issuer=Example")!
         
         // Act
-        let entry = try? OtpEntry.from(url: input)
+        let entry = try? OtpMetadata.from(url: input)
         
         // Assert
         XCTAssertNotNil(entry)
@@ -26,7 +27,8 @@ final class ovauliTests: XCTestCase {
     
     private func hotpTest(counter: Int64, digits: Int, expected: String) {
         let secret = "GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ"
-        let entry = OtpEntry(
+        let entry = OtpMetadata(
+            id: UUID(),
             issuer: "Issuer",
             accountName: "Account Name",
             algorithm: .SHA1,

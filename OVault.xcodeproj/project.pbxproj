@@ -26,6 +26,8 @@
 		07C532562C38865300DC54C6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C532552C38865300DC54C6 /* ContentView.swift */; };
 		07C5325A2C38865300DC54C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07C532592C38865300DC54C6 /* Assets.xcassets */; };
 		07C5325E2C38865300DC54C6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07C5325D2C38865300DC54C6 /* Preview Assets.xcassets */; };
+		07EF0ED82C3DBBF900F61BDF /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 07EF0ED72C3DBBF900F61BDF /* CodeScanner */; };
+		07EF0EDA2C3DBC1400F61BDF /* OtpQrScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EF0ED92C3DBC1400F61BDF /* OtpQrScannerView.swift */; };
 		07F630F22C3B18FF00A10485 /* OtpEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F630F12C3B18FF00A10485 /* OtpEntryView.swift */; };
 		07F630F42C3B28DC00A10485 /* CopyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F630F32C3B28DC00A10485 /* CopyButton.swift */; };
 /* End PBXBuildFile section */
@@ -95,6 +97,7 @@
 		07C532592C38865300DC54C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07C5325B2C38865300DC54C6 /* OVault.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OVault.entitlements; sourceTree = "<group>"; };
 		07C5325D2C38865300DC54C6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		07EF0ED92C3DBC1400F61BDF /* OtpQrScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpQrScannerView.swift; sourceTree = "<group>"; };
 		07F630F12C3B18FF00A10485 /* OtpEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpEntryView.swift; sourceTree = "<group>"; };
 		07F630F32C3B28DC00A10485 /* CopyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07EF0ED82C3DBBF900F61BDF /* CodeScanner in Frameworks */,
 				07C43BB52C3C830100BE0F34 /* Models.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,6 +221,7 @@
 				07BF2A262C3C4A8E00CB1FF5 /* EditOtpEntryView.swift */,
 				07F630F32C3B28DC00A10485 /* CopyButton.swift */,
 				07BF2A242C3C441E00CB1FF5 /* OVTextField.swift */,
+				07EF0ED92C3DBC1400F61BDF /* OtpQrScannerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -291,6 +296,7 @@
 			);
 			name = OVault;
 			packageProductDependencies = (
+				07EF0ED72C3DBBF900F61BDF /* CodeScanner */,
 			);
 			productName = ovault;
 			productReference = 07C532502C38865300DC54C6 /* OVault.app */;
@@ -329,6 +335,7 @@
 			mainGroup = 07C532472C38865300DC54C6;
 			packageReferences = (
 				07C43BC12C3C837500BE0F34 /* XCRemoteSwiftPackageReference "Base32" */,
+				07EF0ED62C3DBBF900F61BDF /* XCRemoteSwiftPackageReference "CodeScanner" */,
 			);
 			productRefGroup = 07C532512C38865300DC54C6 /* Products */;
 			projectDirPath = "";
@@ -400,6 +407,7 @@
 				07C532542C38865300DC54C6 /* OVaultApp.swift in Sources */,
 				07F630F22C3B18FF00A10485 /* OtpEntryView.swift in Sources */,
 				070F9A792C3C706E00FB4297 /* Notifier.swift in Sources */,
+				07EF0EDA2C3DBC1400F61BDF /* OtpQrScannerView.swift in Sources */,
 				071A799A2C3A94F400077318 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -794,6 +802,14 @@
 				minimumVersion = 0.9.0;
 			};
 		};
+		07EF0ED62C3DBBF900F61BDF /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:twostraws/CodeScanner.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -801,6 +817,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 07C43BC12C3C837500BE0F34 /* XCRemoteSwiftPackageReference "Base32" */;
 			productName = Base32;
+		};
+		07EF0ED72C3DBBF900F61BDF /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 07EF0ED62C3DBBF900F61BDF /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

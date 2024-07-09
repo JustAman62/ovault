@@ -3,6 +3,8 @@ import SwiftData
 import Models
 
 struct ContentView: View {
+    @State private var isOtpScanPresented: Bool = false
+    
     @Environment(\.modelContext) private var modelContext
     @Environment(\.notifier) private var notifier
     
@@ -26,7 +28,7 @@ struct ContentView: View {
                         }
                         
                         Button("Scan QR Code", systemImage: "qrcode.viewfinder") {
-                            // TODO: Implement in-app scanner
+                            isOtpScanPresented = true
                         }
                     })
             }
@@ -52,7 +54,7 @@ struct ContentView: View {
                         }
                         
                         Button("Scan QR Code", systemImage: "qrcode.viewfinder") {
-                            // TODO: Implement in-app scanner
+                            isOtpScanPresented = true
                         }
                     } label: {
                         Label("New OTP", systemImage: "plus")
@@ -67,6 +69,10 @@ struct ContentView: View {
                     try modelContext.save()
                 }
             }
+            .sheet(isPresented: $isOtpScanPresented) {
+                OtpQrScannerView()
+                    .withNotifierSupport()
+            }
         }
     }
 }
@@ -79,5 +85,6 @@ struct ContentView: View {
 
 #Preview("Empty") {
     ContentView()
+        .previewEnvironment(withData: false)
 }
 #endif
