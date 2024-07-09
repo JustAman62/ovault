@@ -8,12 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		070F9A792C3C706E00FB4297 /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F9A782C3C706E00FB4297 /* Notifier.swift */; };
-		070F9A992C3C7FF700FB4297 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 070F9A7F2C3C7EB000FB4297 /* WidgetKit.framework */; };
-		070F9A9A2C3C7FF700FB4297 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 070F9A812C3C7EB000FB4297 /* SwiftUI.framework */; };
-		070F9A9D2C3C7FF700FB4297 /* WidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F9A9C2C3C7FF700FB4297 /* WidgetsBundle.swift */; };
-		070F9A9F2C3C7FF700FB4297 /* Widgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F9A9E2C3C7FF700FB4297 /* Widgets.swift */; };
-		070F9AA12C3C7FF800FB4297 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 070F9AA02C3C7FF800FB4297 /* Assets.xcassets */; };
-		070F9AA52C3C7FF800FB4297 /* WidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 070F9A982C3C7FF700FB4297 /* WidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		071A799A2C3A94F400077318 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071A79992C3A94F400077318 /* Extensions.swift */; };
 		071A79A82C3AA66A00077318 /* ovaultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071A79A72C3AA66A00077318 /* ovaultTests.swift */; };
 		07BF2A212C3C3EFE00CB1FF5 /* AddOtpEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BF2A202C3C3EFE00CB1FF5 /* AddOtpEntryView.swift */; };
@@ -27,6 +21,7 @@
 		07C43BBF2C3C832800BE0F34 /* OtpEntry+Blank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BF2A222C3C3F3900CB1FF5 /* OtpEntry+Blank.swift */; };
 		07C43BC02C3C832800BE0F34 /* OtpEntry+OTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0767D6CB2C3AAB8300E8462E /* OtpEntry+OTP.swift */; };
 		07C43BC32C3C837500BE0F34 /* Base32 in Frameworks */ = {isa = PBXBuildFile; productRef = 07C43BC22C3C837500BE0F34 /* Base32 */; };
+		07C43BC72C3C89D300BE0F34 /* OtpEntry+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C43BC62C3C89D300BE0F34 /* OtpEntry+Debug.swift */; };
 		07C532542C38865300DC54C6 /* ovaultApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C532532C38865300DC54C6 /* ovaultApp.swift */; };
 		07C532562C38865300DC54C6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C532552C38865300DC54C6 /* ContentView.swift */; };
 		07C5325A2C38865300DC54C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07C532592C38865300DC54C6 /* Assets.xcassets */; };
@@ -50,20 +45,6 @@
 			remoteGlobalIDString = 07C43BAE2C3C830100BE0F34;
 			remoteInfo = Models;
 		};
-		07C43BBB2C3C830B00BE0F34 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 07C532482C38865300DC54C6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 070F9A972C3C7FF700FB4297;
-			remoteInfo = WidgetsExtension;
-		};
-		07C43BC42C3C83BC00BE0F34 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 07C532482C38865300DC54C6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 07C43BAE2C3C830100BE0F34;
-			remoteInfo = Models;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -73,7 +54,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				070F9AA52C3C7FF800FB4297 /* WidgetsExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,12 +75,6 @@
 		070F9A782C3C706E00FB4297 /* Notifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifier.swift; sourceTree = "<group>"; };
 		070F9A7F2C3C7EB000FB4297 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		070F9A812C3C7EB000FB4297 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		070F9A982C3C7FF700FB4297 /* WidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		070F9A9C2C3C7FF700FB4297 /* WidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsBundle.swift; sourceTree = "<group>"; };
-		070F9A9E2C3C7FF700FB4297 /* Widgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widgets.swift; sourceTree = "<group>"; };
-		070F9AA02C3C7FF800FB4297 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		070F9AA22C3C7FF800FB4297 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		070F9AA92C3C806700FB4297 /* WidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetsExtension.entitlements; sourceTree = "<group>"; };
 		071A79992C3A94F400077318 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		071A799C2C3A9D0900077318 /* OtpEntry+From.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OtpEntry+From.swift"; sourceTree = "<group>"; };
 		071A79A52C3AA66A00077318 /* ovaultTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ovaultTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +87,7 @@
 		07BF2A2A2C3C59A500CB1FF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		07C43BAF2C3C830100BE0F34 /* Models.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Models.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07C43BB12C3C830100BE0F34 /* Models.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Models.h; sourceTree = "<group>"; };
+		07C43BC62C3C89D300BE0F34 /* OtpEntry+Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OtpEntry+Debug.swift"; sourceTree = "<group>"; };
 		07C532502C38865300DC54C6 /* ovault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ovault.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07C532532C38865300DC54C6 /* ovaultApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ovaultApp.swift; sourceTree = "<group>"; };
 		07C532552C38865300DC54C6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -125,15 +100,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		070F9A952C3C7FF700FB4297 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				070F9A9A2C3C7FF700FB4297 /* SwiftUI.framework in Frameworks */,
-				070F9A992C3C7FF700FB4297 /* WidgetKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		071A79A22C3AA66A00077318 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -160,17 +126,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		070F9A9B2C3C7FF700FB4297 /* Widgets */ = {
-			isa = PBXGroup;
-			children = (
-				070F9A9C2C3C7FF700FB4297 /* WidgetsBundle.swift */,
-				070F9A9E2C3C7FF700FB4297 /* Widgets.swift */,
-				070F9AA02C3C7FF800FB4297 /* Assets.xcassets */,
-				070F9AA22C3C7FF800FB4297 /* Info.plist */,
-			);
-			path = Widgets;
-			sourceTree = "<group>";
-		};
 		071A79A62C3AA66A00077318 /* ovaultTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +151,7 @@
 				071A799C2C3A9D0900077318 /* OtpEntry+From.swift */,
 				0767D6CB2C3AAB8300E8462E /* OtpEntry+OTP.swift */,
 				07C43BB12C3C830100BE0F34 /* Models.h */,
+				07C43BC62C3C89D300BE0F34 /* OtpEntry+Debug.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -203,10 +159,8 @@
 		07C532472C38865300DC54C6 = {
 			isa = PBXGroup;
 			children = (
-				070F9AA92C3C806700FB4297 /* WidgetsExtension.entitlements */,
 				07C532522C38865300DC54C6 /* ovault */,
 				071A79A62C3AA66A00077318 /* ovaultTests */,
-				070F9A9B2C3C7FF700FB4297 /* Widgets */,
 				07C43BB02C3C830100BE0F34 /* Models */,
 				07C532512C38865300DC54C6 /* Products */,
 				07B523CA2C3AC96B002EEEEB /* Frameworks */,
@@ -218,7 +172,6 @@
 			children = (
 				07C532502C38865300DC54C6 /* ovault.app */,
 				071A79A52C3AA66A00077318 /* ovaultTests.xctest */,
-				070F9A982C3C7FF700FB4297 /* WidgetsExtension.appex */,
 				07C43BAF2C3C830100BE0F34 /* Models.framework */,
 			);
 			name = Products;
@@ -274,24 +227,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		070F9A972C3C7FF700FB4297 /* WidgetsExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 070F9AA62C3C7FF800FB4297 /* Build configuration list for PBXNativeTarget "WidgetsExtension" */;
-			buildPhases = (
-				070F9A942C3C7FF700FB4297 /* Sources */,
-				070F9A952C3C7FF700FB4297 /* Frameworks */,
-				070F9A962C3C7FF700FB4297 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				07C43BC52C3C83BC00BE0F34 /* PBXTargetDependency */,
-			);
-			name = WidgetsExtension;
-			productName = WidgetsExtension;
-			productReference = 070F9A982C3C7FF700FB4297 /* WidgetsExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		071A79A42C3AA66A00077318 /* ovaultTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 071A79AB2C3AA66A00077318 /* Build configuration list for PBXNativeTarget "ovaultTests" */;
@@ -344,7 +279,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				07C43BBC2C3C830B00BE0F34 /* PBXTargetDependency */,
 				07C43BB42C3C830100BE0F34 /* PBXTargetDependency */,
 			);
 			name = ovault;
@@ -364,9 +298,6 @@
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
-					070F9A972C3C7FF700FB4297 = {
-						CreatedOnToolsVersion = 15.4;
-					};
 					071A79A42C3AA66A00077318 = {
 						CreatedOnToolsVersion = 15.4;
 						TestTargetID = 07C5324F2C38865300DC54C6;
@@ -397,21 +328,12 @@
 			targets = (
 				07C5324F2C38865300DC54C6 /* ovault */,
 				071A79A42C3AA66A00077318 /* ovaultTests */,
-				070F9A972C3C7FF700FB4297 /* WidgetsExtension */,
 				07C43BAE2C3C830100BE0F34 /* Models */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		070F9A962C3C7FF700FB4297 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				070F9AA12C3C7FF800FB4297 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		071A79A32C3AA66A00077318 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -438,15 +360,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		070F9A942C3C7FF700FB4297 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				070F9A9D2C3C7FF700FB4297 /* WidgetsBundle.swift in Sources */,
-				070F9A9F2C3C7FF700FB4297 /* Widgets.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		071A79A12C3AA66A00077318 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -461,6 +374,7 @@
 			files = (
 				07C43BC02C3C832800BE0F34 /* OtpEntry+OTP.swift in Sources */,
 				07C43BBE2C3C832800BE0F34 /* OtpEntry+From.swift in Sources */,
+				07C43BC72C3C89D300BE0F34 /* OtpEntry+Debug.swift in Sources */,
 				07C43BBD2C3C832800BE0F34 /* OtpEntry.swift in Sources */,
 				07C43BBF2C3C832800BE0F34 /* OtpEntry+Blank.swift in Sources */,
 			);
@@ -495,80 +409,9 @@
 			target = 07C43BAE2C3C830100BE0F34 /* Models */;
 			targetProxy = 07C43BB32C3C830100BE0F34 /* PBXContainerItemProxy */;
 		};
-		07C43BBC2C3C830B00BE0F34 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 070F9A972C3C7FF700FB4297 /* WidgetsExtension */;
-			targetProxy = 07C43BBB2C3C830B00BE0F34 /* PBXContainerItemProxy */;
-		};
-		07C43BC52C3C83BC00BE0F34 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 07C43BAE2C3C830100BE0F34 /* Models */;
-			targetProxy = 07C43BC42C3C83BC00BE0F34 /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		070F9AA72C3C7FF800FB4297 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = WidgetsExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KED4M385SL;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Widgets/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Widgets;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.ovault.ovault.Widgets;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		070F9AA82C3C7FF800FB4297 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = WidgetsExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KED4M385SL;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Widgets/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Widgets;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.ovault.ovault.Widgets;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		071A79AC2C3AA66A00077318 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -894,15 +737,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		070F9AA62C3C7FF800FB4297 /* Build configuration list for PBXNativeTarget "WidgetsExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				070F9AA72C3C7FF800FB4297 /* Debug */,
-				070F9AA82C3C7FF800FB4297 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		071A79AB2C3AA66A00077318 /* Build configuration list for PBXNativeTarget "ovaultTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
