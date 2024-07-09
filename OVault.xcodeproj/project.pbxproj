@@ -77,7 +77,7 @@
 		070F9A812C3C7EB000FB4297 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		071A79992C3A94F400077318 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		071A799C2C3A9D0900077318 /* OtpEntry+From.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OtpEntry+From.swift"; sourceTree = "<group>"; };
-		071A79A52C3AA66A00077318 /* ovaultTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ovaultTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		071A79A52C3AA66A00077318 /* OVaultTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OVaultTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		071A79A72C3AA66A00077318 /* ovaultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ovaultTests.swift; sourceTree = "<group>"; };
 		0767D6CB2C3AAB8300E8462E /* OtpEntry+OTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OtpEntry+OTP.swift"; sourceTree = "<group>"; };
 		07BF2A202C3C3EFE00CB1FF5 /* AddOtpEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOtpEntryView.swift; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 		07C43BAF2C3C830100BE0F34 /* Models.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Models.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07C43BB12C3C830100BE0F34 /* Models.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Models.h; sourceTree = "<group>"; };
 		07C43BC62C3C89D300BE0F34 /* OtpEntry+Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OtpEntry+Debug.swift"; sourceTree = "<group>"; };
-		07C532502C38865300DC54C6 /* ovault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ovault.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		07C532502C38865300DC54C6 /* OVault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OVault.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07C532532C38865300DC54C6 /* ovaultApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ovaultApp.swift; sourceTree = "<group>"; };
 		07C532552C38865300DC54C6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		07C532572C38865300DC54C6 /* OtpEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpEntry.swift; sourceTree = "<group>"; };
@@ -126,12 +126,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		071A79A62C3AA66A00077318 /* ovaultTests */ = {
+		071A79A62C3AA66A00077318 /* OVaultTests */ = {
 			isa = PBXGroup;
 			children = (
 				071A79A72C3AA66A00077318 /* ovaultTests.swift */,
 			);
-			path = ovaultTests;
+			path = OVaultTests;
 			sourceTree = "<group>";
 		};
 		07B523CA2C3AC96B002EEEEB /* Frameworks */ = {
@@ -159,8 +159,8 @@
 		07C532472C38865300DC54C6 = {
 			isa = PBXGroup;
 			children = (
-				07C532522C38865300DC54C6 /* ovault */,
-				071A79A62C3AA66A00077318 /* ovaultTests */,
+				07C532522C38865300DC54C6 /* OVault */,
+				071A79A62C3AA66A00077318 /* OVaultTests */,
 				07C43BB02C3C830100BE0F34 /* Models */,
 				07C532512C38865300DC54C6 /* Products */,
 				07B523CA2C3AC96B002EEEEB /* Frameworks */,
@@ -170,14 +170,14 @@
 		07C532512C38865300DC54C6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				07C532502C38865300DC54C6 /* ovault.app */,
-				071A79A52C3AA66A00077318 /* ovaultTests.xctest */,
+				07C532502C38865300DC54C6 /* OVault.app */,
+				071A79A52C3AA66A00077318 /* OVaultTests.xctest */,
 				07C43BAF2C3C830100BE0F34 /* Models.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		07C532522C38865300DC54C6 /* ovault */ = {
+		07C532522C38865300DC54C6 /* OVault */ = {
 			isa = PBXGroup;
 			children = (
 				07BF2A2A2C3C59A500CB1FF5 /* Info.plist */,
@@ -189,7 +189,7 @@
 				07C5325B2C38865300DC54C6 /* ovault.entitlements */,
 				07C5325C2C38865300DC54C6 /* Preview Content */,
 			);
-			path = ovault;
+			path = OVault;
 			sourceTree = "<group>";
 		};
 		07C5325C2C38865300DC54C6 /* Preview Content */ = {
@@ -227,9 +227,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		071A79A42C3AA66A00077318 /* ovaultTests */ = {
+		071A79A42C3AA66A00077318 /* OVaultTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 071A79AB2C3AA66A00077318 /* Build configuration list for PBXNativeTarget "ovaultTests" */;
+			buildConfigurationList = 071A79AB2C3AA66A00077318 /* Build configuration list for PBXNativeTarget "OVaultTests" */;
 			buildPhases = (
 				071A79A12C3AA66A00077318 /* Sources */,
 				071A79A22C3AA66A00077318 /* Frameworks */,
@@ -240,9 +240,9 @@
 			dependencies = (
 				071A79AA2C3AA66A00077318 /* PBXTargetDependency */,
 			);
-			name = ovaultTests;
+			name = OVaultTests;
 			productName = ovaultTests;
-			productReference = 071A79A52C3AA66A00077318 /* ovaultTests.xctest */;
+			productReference = 071A79A52C3AA66A00077318 /* OVaultTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		07C43BAE2C3C830100BE0F34 /* Models */ = {
@@ -266,9 +266,9 @@
 			productReference = 07C43BAF2C3C830100BE0F34 /* Models.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		07C5324F2C38865300DC54C6 /* ovault */ = {
+		07C5324F2C38865300DC54C6 /* OVault */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 07C532612C38865300DC54C6 /* Build configuration list for PBXNativeTarget "ovault" */;
+			buildConfigurationList = 07C532612C38865300DC54C6 /* Build configuration list for PBXNativeTarget "OVault" */;
 			buildPhases = (
 				07C5324C2C38865300DC54C6 /* Sources */,
 				07C5324D2C38865300DC54C6 /* Frameworks */,
@@ -281,11 +281,11 @@
 			dependencies = (
 				07C43BB42C3C830100BE0F34 /* PBXTargetDependency */,
 			);
-			name = ovault;
+			name = OVault;
 			packageProductDependencies = (
 			);
 			productName = ovault;
-			productReference = 07C532502C38865300DC54C6 /* ovault.app */;
+			productReference = 07C532502C38865300DC54C6 /* OVault.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -310,7 +310,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 07C5324B2C38865300DC54C6 /* Build configuration list for PBXProject "ovault" */;
+			buildConfigurationList = 07C5324B2C38865300DC54C6 /* Build configuration list for PBXProject "OVault" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -326,8 +326,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				07C5324F2C38865300DC54C6 /* ovault */,
-				071A79A42C3AA66A00077318 /* ovaultTests */,
+				07C5324F2C38865300DC54C6 /* OVault */,
+				071A79A42C3AA66A00077318 /* OVaultTests */,
 				07C43BAE2C3C830100BE0F34 /* Models */,
 			);
 		};
@@ -401,7 +401,7 @@
 /* Begin PBXTargetDependency section */
 		071A79AA2C3AA66A00077318 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 07C5324F2C38865300DC54C6 /* ovault */;
+			target = 07C5324F2C38865300DC54C6 /* OVault */;
 			targetProxy = 071A79A92C3AA66A00077318 /* PBXContainerItemProxy */;
 		};
 		07C43BB42C3C830100BE0F34 /* PBXTargetDependency */ = {
@@ -433,7 +433,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ovault.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ovault";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OVault.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OVault";
 			};
 			name = Debug;
 		};
@@ -458,7 +458,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ovault.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ovault";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OVault.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OVault";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -737,7 +737,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		071A79AB2C3AA66A00077318 /* Build configuration list for PBXNativeTarget "ovaultTests" */ = {
+		071A79AB2C3AA66A00077318 /* Build configuration list for PBXNativeTarget "OVaultTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				071A79AC2C3AA66A00077318 /* Debug */,
@@ -755,7 +755,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		07C5324B2C38865300DC54C6 /* Build configuration list for PBXProject "ovault" */ = {
+		07C5324B2C38865300DC54C6 /* Build configuration list for PBXProject "OVault" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				07C5325F2C38865300DC54C6 /* Debug */,
@@ -764,7 +764,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		07C532612C38865300DC54C6 /* Build configuration list for PBXNativeTarget "ovault" */ = {
+		07C532612C38865300DC54C6 /* Build configuration list for PBXNativeTarget "OVault" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				07C532622C38865300DC54C6 /* Debug */,

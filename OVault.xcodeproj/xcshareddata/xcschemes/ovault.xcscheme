@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "07C5324F2C38865300DC54C6"
-               BuildableName = "ovault.app"
-               BlueprintName = "ovault"
+               BuildableName = "OVault.app"
+               BlueprintName = "OVault"
                ReferencedContainer = "container:ovault.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -36,8 +36,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "071A79A42C3AA66A00077318"
-               BuildableName = "ovaultTests.xctest"
-               BlueprintName = "ovaultTests"
+               BuildableName = "OVaultTests.xctest"
+               BlueprintName = "OVaultTests"
                ReferencedContainer = "container:ovault.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -58,8 +58,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "07C5324F2C38865300DC54C6"
-            BuildableName = "ovault.app"
-            BlueprintName = "ovault"
+            BuildableName = "OVault.app"
+            BlueprintName = "OVault"
             ReferencedContainer = "container:ovault.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -75,8 +75,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "07C5324F2C38865300DC54C6"
-            BuildableName = "ovault.app"
-            BlueprintName = "ovault"
+            BuildableName = "OVault.app"
+            BlueprintName = "OVault"
             ReferencedContainer = "container:ovault.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
