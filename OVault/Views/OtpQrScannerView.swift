@@ -2,6 +2,7 @@ import SwiftUI
 import CodeScanner
 import Models
 
+#if !os(macOS)
 struct OtpQrScannerView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
@@ -49,4 +50,5 @@ struct OtpQrScannerView: View {
     OtpQrScannerView()
         .previewEnvironment()
 }
+#endif
 #endif

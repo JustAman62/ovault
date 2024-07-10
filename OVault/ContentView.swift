@@ -28,9 +28,11 @@ struct ContentView: View {
                             Label("Add Manually", systemImage: "plus")
                         }
                         
+                        #if !os(macOS)
                         Button("Scan QR Code", systemImage: "qrcode.viewfinder") {
                             isOtpScanPresented = true
                         }
+                        #endif
                     })
             }
             
@@ -54,9 +56,11 @@ struct ContentView: View {
                             Label("Manual", systemImage: "plus")
                         }
                         
+                        #if !os(macOS)
                         Button("Scan QR Code", systemImage: "qrcode.viewfinder") {
                             isOtpScanPresented = true
                         }
+                        #endif
                     } label: {
                         Label("New OTP", systemImage: "plus")
                     }
@@ -71,10 +75,12 @@ struct ContentView: View {
                     try modelContext.save()
                 }
             }
+            #if !os(macOS)
             .sheet(isPresented: $isOtpScanPresented) {
                 OtpQrScannerView()
                     .withNotifierSupport()
             }
+            #endif
         }
     }
 }
