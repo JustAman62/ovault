@@ -4,9 +4,12 @@ import Models
 struct EditOtpEntryView: View {
     @Bindable var otp: OtpMetadata
     
+    @State private var secret: String?
+    
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
     @Environment(\.notifier) private var notifier
+    @Environment(\.keychain) private var keychain
     
     private func save() {
         notifier.execute {
@@ -20,6 +23,20 @@ struct EditOtpEntryView: View {
             Section {
                 OVTextField("Account Name", text: $otp.accountName)
                 OVTextField("Issuer", text: $otp.issuer)
+            }
+            
+            Section {
+                LabeledContent("Secret", content: {
+                    if let secret {
+                        Text(secret)
+                    } else {
+                        Button("Reveal Secret") {
+                            notifier.execute {
+                                self.secret = try keychain.getSecret(metadata: otp)
+                            }
+                        }
+                    }
+                })
             }
             
 #if os(macOS)
@@ -41,6 +58,9 @@ struct EditOtpEntryView: View {
             ToolbarItem(placement: .confirmationAction) {
                 Button("Save", action: save)
             }
+        }
+        .onDisappear {
+            self.secret = nil
         }
 #endif
     }

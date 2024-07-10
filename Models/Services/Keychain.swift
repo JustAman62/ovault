@@ -22,6 +22,7 @@ enum KeychainError: Error, LocalizedError {
 public protocol KeychainProtocol {
     func storeSecret(metadata: OtpMetadata, secret: String) throws -> Void
     func getOtp(metadata: OtpMetadata) throws -> String
+    func getSecret(metadata: OtpMetadata) throws -> String
 }
 
 public final class Keychain: KeychainProtocol {
@@ -42,7 +43,7 @@ public final class Keychain: KeychainProtocol {
     }
     
     /// Fetches the secret stored for the provided `metadata` from the Keychain
-    private func getSecret(metadata: OtpMetadata) throws -> String {
+    public func getSecret(metadata: OtpMetadata) throws -> String {
         let name = "\(metadata.accountName)-\(metadata.id.uuidString)"
         
         let getquery: [String: Any] = [kSecClass as String: kSecClassKey,
@@ -74,6 +75,10 @@ public final class FakeKeychain: KeychainProtocol {
     
     public func getOtp(metadata: OtpMetadata) throws -> String {
         return try metadata.getOtp(secret: "sharedsecret")
+    }
+    
+    public func getSecret(metadata: OtpMetadata) throws -> String {
+        return "sharedsecret"
     }
 }
 #endif
