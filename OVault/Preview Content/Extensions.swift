@@ -17,6 +17,7 @@ extension View {
                 }
             )
             .withNotifierSupport()
+            .environment(\.keychain, FakeKeychain())
     }
     
     @MainActor

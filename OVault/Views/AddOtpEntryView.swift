@@ -3,13 +3,16 @@ import Models
 
 struct AddOtpEntryView: View {
     @State private var newEntry: OtpMetadata = .blank()
+    @State private var secret: String = ""
     
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
     @Environment(\.notifier) private var notifier
+    @Environment(\.keychain) private var keychain
     
     private func save() {
         notifier.execute {
+            try keychain.storeSecret(metadata: newEntry, secret: secret)
             modelContext.insert(newEntry)
             try modelContext.save()
             DispatchQueue.main.async { dismiss() }
@@ -23,7 +26,7 @@ struct AddOtpEntryView: View {
                 OVTextField("Issuer", text: $newEntry.issuer)
             }
             
-            OVTextField("Secret", text: $newEntry.secret)
+            OVTextField("Secret", text: $secret)
             
             Picker("Algorithm", selection: $newEntry.algorithm) {
                 ForEach(HashAlgorithm.allCases) { alg in

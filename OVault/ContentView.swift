@@ -7,6 +7,7 @@ struct ContentView: View {
     
     @Environment(\.modelContext) private var modelContext
     @Environment(\.notifier) private var notifier
+    @Environment(\.keychain) private var keychain
     
     @Query private var items: [OtpMetadata]
 
@@ -64,8 +65,9 @@ struct ContentView: View {
             .navigationTitle("OVault")
             .onOpenURL { url in
                 notifier.execute {
-                    let entry = try OtpMetadata.from(url: url)
-                    modelContext.insert(entry)
+                    let (otp, secret) = try OtpMetadata.from(url: url)
+                    try keychain.storeSecret(metadata: otp, secret: secret)
+                    modelContext.insert(otp)
                     try modelContext.save()
                 }
             }

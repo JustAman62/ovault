@@ -8,7 +8,6 @@ public extension OtpMetadata {
         accountName: "30sec Account",
         algorithm: .SHA1,
         digits: 6,
-        secret: "sharedsecret",
         type: .totp,
         counter: 0,
         period: 30)
@@ -19,7 +18,6 @@ public extension OtpMetadata {
         accountName: "15sec Account",
         algorithm: .SHA1,
         digits: 6,
-        secret: "sharedsecret",
         type: .totp,
         counter: 0,
         period: 15)
@@ -30,7 +28,6 @@ public extension OtpMetadata {
         accountName: "60sec 8digit Account",
         algorithm: .SHA1,
         digits: 8,
-        secret: "sharedsecret",
         type: .totp,
         counter: 0,
         period: 60)

@@ -8,6 +8,7 @@ struct OtpEntryView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
     @Environment(\.notifier) private var notifier
+    @Environment(\.keychain) private var keychain
     
     var expiresIn: Double { Date().timeIntervalSince1970.truncatingRemainder(dividingBy: Double(otp.period))
     }
@@ -49,10 +50,14 @@ struct OtpEntryView: View {
                 ProgressView(value: Double(otp.expiresIn), total: Double(otp.period))
                     .progressViewStyle(.linear)
                 .onChange(of: otp.timeStep, initial: true) {
-                    calculated = otp.getOtp()
+                    notifier.execute {
+                        try calculated = keychain.getOtp(metadata: otp)
+                    }
                 }
                 .onChange(of: otp.counter, initial: true) {
-                    calculated = otp.getOtp()
+                    notifier.execute {
+                        try calculated = keychain.getOtp(metadata: otp)
+                    }
                 }
             }
         }
@@ -87,5 +92,6 @@ struct OtpEntryView: View {
     NavigationStack {
         OtpEntryView(otp: .testTotp15sec)
     }
+    .previewEnvironment()
 }
 #endif

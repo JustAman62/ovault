@@ -2,13 +2,23 @@ import Foundation
 import CryptoKit
 import Base32
 
-extension OtpMetadata {  
-    public func getOtp() -> String {
-        let number = switch self.type {
-        case .totp: calculateOtp(alg: self.algorithm, key: self.secret, counter: timeStep, digits: self.digits)
-        case .hotp: calculateOtp(alg: self.algorithm, key: self.secret, counter: self.counter, digits: self.digits)
+public enum OtpError: Error, LocalizedError {
+    case unexpectedSecretFormat
+    
+    public var errorDescription: String? {
+        switch self {
+        case .unexpectedSecretFormat:
+            "Secret was in an unexpected format, unable to decode"
         }
-        return number.description.padding(toLength: self.digits, withPad: "0", startingAt: 0)
+    }
+}
+
+extension OtpMetadata {  
+    internal func getOtp(secret: String) throws -> String {
+        return switch self.type {
+        case .totp: try calculateOtp(alg: self.algorithm, key: secret, counter: timeStep, digits: self.digits)
+        case .hotp: try calculateOtp(alg: self.algorithm, key: secret, counter: self.counter, digits: self.digits)
+        }
     }
     
     /// - Parameters:
@@ -17,8 +27,8 @@ extension OtpMetadata {
     ///     - `counter`: The data to hash with the key
     ///     - `digits`: The number of digits to be extracted
     ///
-    private func calculateOtp(alg: HashAlgorithm, key: String, counter: Int64, digits: Int) -> Int {
-        guard let decodedKey = Base32.base32DecodeToData(key) else { return 0 }
+    private func calculateOtp(alg: HashAlgorithm, key: String, counter: Int64, digits: Int) throws -> String {
+        guard let decodedKey = Base32.base32DecodeToData(key) else { throw OtpError.unexpectedSecretFormat }
         let counterBytes = withUnsafeBytes(of: counter.bigEndian, { Data($0) })
         
         let hmac: Data = switch alg {
@@ -36,7 +46,14 @@ extension OtpMetadata {
         // Ignore the first bit of the data
         let number = UInt64(truncatedHash.base16EncodedString, radix: 16)! & 0x7FFFFFFF
         
-        // Return the remainder of modulo as the OTP
-        return Int(number % UInt64(pow(10, Double(digits))))
+        // Calculate the remainder of modulo as the OTP
+        let otpDigits = Int(number % UInt64(pow(10, Double(digits))))
+        
+        let otpString = otpDigits.description
+        
+        let paddingDigits = digits - otpString.count
+        let padding = String(repeating: "0", count: paddingDigits)
+        
+        return padding + otpString
     }
 }

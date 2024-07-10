@@ -6,6 +6,7 @@ struct OtpQrScannerView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
     @Environment(\.notifier) private var notifier
+    @Environment(\.keychain) private var keychain
     
     private func onCodeScan(res: Result<ScanResult, ScanError>) {
         switch res {
@@ -14,8 +15,9 @@ struct OtpQrScannerView: View {
         case .success(let result):
             notifier.execute {
                 if let url = URL(string: result.string) {
-                    let new = try OtpMetadata.from(url: url)
-                    modelContext.insert(new)
+                    let (otp, secret) = try OtpMetadata.from(url: url)
+                    try keychain.storeSecret(metadata: otp, secret: secret)
+                    modelContext.insert(otp)
                     try modelContext.save()
                 } else {
                     notifier.show(msg: .inApp(title: "Unable to parse URL", msg: "Unable to parse the URL in the QR code"))

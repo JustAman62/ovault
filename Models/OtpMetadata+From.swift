@@ -17,7 +17,7 @@ public enum URLParseError: Error, LocalizedError {
 }
 
 extension OtpMetadata {
-    public static func from(url: URL) throws -> OtpMetadata {
+    public static func from(url: URL) throws -> (OtpMetadata, String) {
         guard url.scheme == "otpauth" || url.scheme == "ovault-otpauth" else { throw URLParseError.unsupported(msg: "Only otpauth URLs are supported.") }
         let components = url.pathComponents
 
@@ -44,10 +44,16 @@ extension OtpMetadata {
         
         if type == "totp" {
             let period = Int(query["period"] ?? "30") ?? 30
-            return .init(id: UUID(), issuer: issuer, accountName: accountName, algorithm: algorithm ?? .SHA1, digits: digits, secret: secret, type: .totp, counter: 0, period: period)
+            return (
+                .init(id: UUID(), issuer: issuer, accountName: accountName, algorithm: algorithm ?? .SHA1, digits: digits, type: .totp, counter: 0, period: period),
+                secret
+            )
         } else if type == "hotp" {
             guard let counterString = query["counter"], let counter = Int64(counterString) else { throw URLParseError.invalid(msg: "HOTP codes require a initial counter value to be specified.") }
-            return .init(id: UUID(), issuer: issuer, accountName: accountName, algorithm: algorithm ?? .SHA1, digits: digits, secret: secret, type: .hotp, counter: counter, period: 0)
+            return (
+                .init(id: UUID(), issuer: issuer, accountName: accountName, algorithm: algorithm ?? .SHA1, digits: digits, type: .hotp, counter: counter, period: 0),
+                secret
+            )
         }
         
         throw URLParseError.unsupported(msg: "Unknown error occured.")

@@ -8,14 +8,14 @@ final class ovauliTests: XCTestCase {
         let input = URL(string: "otpauth://totp/Example:alice@google.com?secret=JBSWY3DPEHPK3PXP&issuer=Example")!
         
         // Act
-        let entry = try? OtpMetadata.from(url: input)
+        let (entry, secret) = try OtpMetadata.from(url: input)
         
         // Assert
         XCTAssertNotNil(entry)
-        XCTAssertEqual(.totp, entry!.type)
-        XCTAssertEqual("Example", entry!.issuer)
-        XCTAssertEqual("alice@google.com", entry!.accountName)
-        XCTAssertEqual("JBSWY3DPEHPK3PXP", entry!.secret)
+        XCTAssertEqual(.totp, entry.type)
+        XCTAssertEqual("Example", entry.issuer)
+        XCTAssertEqual("alice@google.com", entry.accountName)
+        XCTAssertEqual("JBSWY3DPEHPK3PXP", secret)
     }
     
     func testGenerator6DigitHexSHA1() {
@@ -33,10 +33,9 @@ final class ovauliTests: XCTestCase {
             accountName: "Account Name",
             algorithm: .SHA1,
             digits: digits,
-            secret: secret,
             type: .hotp,
             counter: counter,
             period: 0)
-        XCTAssertEqual(entry.getOtp(), expected)
+        XCTAssertEqual(try entry.getOtp(secret: secret), expected)
     }
 }
