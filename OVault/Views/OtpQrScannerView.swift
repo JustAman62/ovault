@@ -22,10 +22,10 @@ struct OtpQrScannerView: View {
                 } else {
                     notifier.show(msg: .inApp(title: "Unable to parse URL", msg: "Unable to parse the URL in the QR code"))
                 }
+                
+                DispatchQueue.main.async { dismiss() }
             }
         }
-        
-        DispatchQueue.main.async { dismiss() }
     }
     
     var body: some View {

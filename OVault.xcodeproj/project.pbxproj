@@ -11,6 +11,7 @@
 		071A799A2C3A94F400077318 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071A79992C3A94F400077318 /* Extensions.swift */; };
 		071A79A82C3AA66A00077318 /* ovaultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071A79A72C3AA66A00077318 /* ovaultTests.swift */; };
 		072049582C3F097C00CA12B9 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072049562C3F02B400CA12B9 /* Keychain.swift */; };
+		0720495B2C3F170000CA12B9 /* Logger+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0720495A2C3F170000CA12B9 /* Logger+Init.swift */; };
 		07BF2A212C3C3EFE00CB1FF5 /* AddOtpEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BF2A202C3C3EFE00CB1FF5 /* AddOtpEntryView.swift */; };
 		07BF2A252C3C441E00CB1FF5 /* OVTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BF2A242C3C441E00CB1FF5 /* OVTextField.swift */; };
 		07BF2A272C3C4A8E00CB1FF5 /* EditOtpEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BF2A262C3C4A8E00CB1FF5 /* EditOtpEntryView.swift */; };
@@ -83,6 +84,7 @@
 		071A79A52C3AA66A00077318 /* OVaultTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OVaultTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		071A79A72C3AA66A00077318 /* ovaultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ovaultTests.swift; sourceTree = "<group>"; };
 		072049562C3F02B400CA12B9 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		0720495A2C3F170000CA12B9 /* Logger+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+Init.swift"; sourceTree = "<group>"; };
 		0767D6CB2C3AAB8300E8462E /* OtpMetadata+OTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OtpMetadata+OTP.swift"; sourceTree = "<group>"; };
 		07BF2A202C3C3EFE00CB1FF5 /* AddOtpEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOtpEntryView.swift; sourceTree = "<group>"; };
 		07BF2A222C3C3F3900CB1FF5 /* OtpMetadata+Blank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OtpMetadata+Blank.swift"; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				072049562C3F02B400CA12B9 /* Keychain.swift */,
+				0720495A2C3F170000CA12B9 /* Logger+Init.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				07C43BC72C3C89D300BE0F34 /* OtpMetadata+Debug.swift in Sources */,
 				07C43BBD2C3C832800BE0F34 /* OtpMetadata.swift in Sources */,
 				07C43BBF2C3C832800BE0F34 /* OtpMetadata+Blank.swift in Sources */,
+				0720495B2C3F170000CA12B9 /* Logger+Init.swift in Sources */,
 				072049582C3F097C00CA12B9 /* Keychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

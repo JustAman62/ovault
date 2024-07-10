@@ -1,21 +1,33 @@
 import Foundation
 import SwiftUI
 import Models
+import OSLog
 
 enum Message {
     case inAppError(error: Error)
     case inApp(title: String, msg: String)
+    
+    var description: String {
+        switch self {
+        case .inApp(title: let title, msg: let msg):
+            "In App Message: \(title), \(msg)"
+        case .inAppError(error: let error):
+            "In App Error: \(error.localizedDescription)"
+        }
+    }
 }
 
 @Observable
 final class Notifier {
     static let shared: Notifier = .init()
-    
+        
+    private let logger: Logger = .init(Notifier.self)
     private var _message: Message?
 
     var message: Message? { get { _message } }
     
     func show(msg: Message, duration: DispatchTimeInterval) {
+        self.logger.error("Alerting user: \(msg.description)")
         self._message = msg
         DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: duration)) {
             self._message = nil
@@ -23,6 +35,7 @@ final class Notifier {
     }
     
     func show(msg: Message) {
+        self.logger.error("Alerting user: \(msg.description)")
         self._message = msg
     }
     
