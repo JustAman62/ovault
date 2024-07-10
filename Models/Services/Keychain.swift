@@ -10,7 +10,7 @@ enum KeychainError: Error, LocalizedError {
         switch self {
         case .addFailure(let status): "Failed to save the secret in the Keychain: \(getStatusDescription(status))"
         case .fetchFailure(let status): "Failed to fetch the secret from the Keychain: \(getStatusDescription(status))"
-        case .fetchUnexpectedResult: "Unexpected result returned from the Keychgain"
+        case .fetchUnexpectedResult: "Unexpected result returned from the Keychain"
         }
     }
     
@@ -29,9 +29,10 @@ public final class Keychain: KeychainProtocol {
     /// Stores the given `secret` in the Keychain, identified using information from the provided `metadata`
     public func storeSecret(metadata: OtpMetadata, secret: String) throws {
         let name = "\(metadata.accountName)-\(metadata.id.uuidString)"
-        let addquery: [String: Any] = [kSecClass as String: kSecClassKey,
-                                       kSecAttrApplicationTag as String: name,
-                                       kSecValueRef as String: secret]
+        let secretData = secret.data(using: .utf8)!
+        let addquery: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
+                                       kSecAttrAccount as String: name,
+                                       kSecValueData as String: secretData]
         
         let status = SecItemAdd(addquery as CFDictionary, nil)
         guard status == errSecSuccess else { throw KeychainError.addFailure(status) }
@@ -46,16 +47,15 @@ public final class Keychain: KeychainProtocol {
     public func getSecret(metadata: OtpMetadata) throws -> String {
         let name = "\(metadata.accountName)-\(metadata.id.uuidString)"
         
-        let getquery: [String: Any] = [kSecClass as String: kSecClassKey,
-                                       kSecAttrApplicationTag as String: name,
+        let getquery: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
+                                       kSecAttrAccount as String: name,
                                        kSecReturnData as String: true]
         
         var item: CFTypeRef?
         let status = SecItemCopyMatching(getquery as CFDictionary, &item)
         guard status == errSecSuccess else { throw KeychainError.fetchFailure(status) }
         
-        guard let existingItem = item as? [String : Any],
-            let secretData = existingItem[kSecValueData as String] as? Data,
+        guard let secretData = item as? Data,
             let secret = String(data: secretData, encoding: String.Encoding.utf8)
         else {
             throw KeychainError.fetchUnexpectedResult

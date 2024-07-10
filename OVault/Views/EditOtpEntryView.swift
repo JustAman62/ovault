@@ -29,6 +29,9 @@ struct EditOtpEntryView: View {
                 LabeledContent("Secret", content: {
                     if let secret {
                         Text(secret)
+                            .onTapGesture {
+                                self.secret = nil
+                            }
                     } else {
                         Button("Reveal Secret") {
                             notifier.execute {
