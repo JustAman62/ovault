@@ -16,7 +16,7 @@ public enum OtpError: Error, LocalizedError {
 extension OtpMetadata {  
     internal func getOtp(secret: String) throws -> String {
         return switch self.type {
-        case .totp: try calculateOtp(alg: self.algorithm, key: secret, counter: timeStep, digits: self.digits)
+        case .totp: try calculateOtp(alg: self.algorithm, key: secret, counter: self.timeStep, digits: self.digits)
         case .hotp: try calculateOtp(alg: self.algorithm, key: secret, counter: self.counter, digits: self.digits)
         }
     }

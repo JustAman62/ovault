@@ -23,14 +23,14 @@ public final class OtpMetadata: Identifiable {
     /// The period parameter for `OtpType.totp` credentials, in seconds. Defaults to 30 seconds.
     public var period: Int
     
-    public init(id: UUID, issuer: String, accountName: String, algorithm: HashAlgorithm, digits: Int, type: OtpType, counter: Int64, period: Int) {
+    public init(id: UUID, issuer: String, accountName: String, algorithm: HashAlgorithm, digits: Int, period: Int) {
         self.id = id
         self.issuer = issuer
         self.accountName = accountName
         self.algorithm = algorithm
         self.digits = digits
-        self.type = type
-        self.counter = counter
+        self.type = .totp
+        self.counter = 0
         self.period = period
     }
     

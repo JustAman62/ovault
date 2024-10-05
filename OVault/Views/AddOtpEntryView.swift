@@ -69,12 +69,6 @@ struct AddOtpEntryView: View {
                         Text("8").tag(8)
                     }
                     
-                    Picker("Type", selection: $newEntry.type) {
-                        ForEach(OtpType.allCases, id: \.rawValue) { type in
-                            Text(type.rawValue.uppercased()).tag(type)
-                        }
-                    }
-                    
                     switch newEntry.type {
                     case .totp:
                         Picker("Period", selection: $newEntry.period) {
@@ -84,11 +78,8 @@ struct AddOtpEntryView: View {
                             Text("60 Seconds").tag(60)
                         }
                     case .hotp:
-                        LabeledContent {
-                            TextField(value: $newEntry.counter, format: .number, label: { EmptyView() })
-                        } label: {
-                            Text("Counter")
-                        }
+                        // NOTSUPPORTED: HOTP Codes not supported
+                        EmptyView()
                     @unknown default:
                         EmptyView()
                     }

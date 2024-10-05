@@ -42,21 +42,11 @@ extension OtpMetadata {
         let algorithm = if let queryAlgorithm = query["algorithm"] { HashAlgorithm(rawValue: queryAlgorithm) } else { HashAlgorithm.SHA1 }
         let digits = Int(query["digits"] ?? "6") ?? 6
         
-        if type == "totp" {
-            let period = Int(query["period"] ?? "30") ?? 30
-            return (
-                .init(id: UUID(), issuer: issuer, accountName: accountName, algorithm: algorithm ?? .SHA1, digits: digits, type: .totp, counter: 0, period: period),
-                secret
-            )
-        } else if type == "hotp" {
-            guard let counterString = query["counter"], let counter = Int64(counterString) else { throw URLParseError.invalid(msg: "HOTP codes require a initial counter value to be specified.") }
-            return (
-                .init(id: UUID(), issuer: issuer, accountName: accountName, algorithm: algorithm ?? .SHA1, digits: digits, type: .hotp, counter: counter, period: 0),
-                secret
-            )
-        }
-        
-        throw URLParseError.unsupported(msg: "Unknown error occured.")
+        let period = Int(query["period"] ?? "30") ?? 30
+        return (
+            .init(id: UUID(), issuer: issuer, accountName: accountName, algorithm: algorithm ?? .SHA1, digits: digits, period: period),
+            secret
+        )
     }
 }
 

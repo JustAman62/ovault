@@ -55,11 +55,6 @@ struct OtpEntryView: View {
                             try calculated = keychain.getOtp(metadata: otp)
                         }
                     }
-                    .onChange(of: otp.counter) {
-                        notifier.execute {
-                            try calculated = keychain.getOtp(metadata: otp)
-                        }
-                    }
             }
         }
         .contentShape(.rect)

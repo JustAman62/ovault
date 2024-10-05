@@ -8,8 +8,6 @@ public extension OtpMetadata {
         accountName: "30sec Account",
         algorithm: .SHA1,
         digits: 6,
-        type: .totp,
-        counter: 0,
         period: 30)
     
     static var testTotp15sec: OtpMetadata = .init(
@@ -18,8 +16,6 @@ public extension OtpMetadata {
         accountName: "15sec Account",
         algorithm: .SHA1,
         digits: 6,
-        type: .totp,
-        counter: 0,
         period: 15)
     
     static var testTotp60sec: OtpMetadata = .init(
@@ -28,8 +24,6 @@ public extension OtpMetadata {
         accountName: "60sec 8digit Account",
         algorithm: .SHA1,
         digits: 8,
-        type: .totp,
-        counter: 0,
         period: 60)
 }
 #endif
