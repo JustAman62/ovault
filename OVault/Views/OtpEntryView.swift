@@ -5,6 +5,8 @@ struct OtpEntryView: View {
     @Bindable var otp: OtpMetadata
     
     @State private var calculated: String = ""
+    @State private var expiresIn: Double = 0.0
+    
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
     @Environment(\.notifier) private var notifier
@@ -34,7 +36,8 @@ struct OtpEntryView: View {
                 Text(calculated)
                     .font(.title)
                     .textSelection(.enabled)
-                    
+                    .animation(.easeInOut, value: calculated)
+                
                 Spacer()
                 CopyButton("Copy", value: calculated)
                     .font(.caption)
@@ -46,17 +49,17 @@ struct OtpEntryView: View {
             TimelineView(.animation) { _ in
                 ProgressView(value: otp.expiresIn, total: Double(otp.period))
                     .progressViewStyle(.linear)
-                .onChange(of: otp.timeStep, initial: true) {
-                    notifier.execute {
-                        try calculated = keychain.getOtp(metadata: otp)
+                    .onChange(of: otp.timeStep, initial: true) {
+                        notifier.execute {
+                            try calculated = keychain.getOtp(metadata: otp)
+                        }
                     }
-                }
-                .onChange(of: otp.counter, initial: true) {
-                    notifier.execute {
-                        try calculated = keychain.getOtp(metadata: otp)
+                    .onChange(of: otp.counter) {
+                        notifier.execute {
+                            try calculated = keychain.getOtp(metadata: otp)
+                        }
                     }
-                }
-                .animation(.linear, value: otp.expiresIn)
+                    .animation(.linear, value: otp.expiresIn)
             }
         }
         .contentShape(.rect)

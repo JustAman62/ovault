@@ -10,9 +10,9 @@ enum Message {
     var description: String {
         switch self {
         case .inApp(title: let title, msg: let msg):
-            "In App Message: \(title), \(msg)"
+            "Message: \(title), \(msg)"
         case .inAppError(error: let error):
-            "In App Error: \(error.localizedDescription)"
+            "Error: \(error.localizedDescription)"
         }
     }
 }

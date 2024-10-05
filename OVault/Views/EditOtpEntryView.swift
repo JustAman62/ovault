@@ -19,27 +19,30 @@ struct EditOtpEntryView: View {
     }
     
     var body: some View {
-        Form {
-            Section {
-                OVTextField("Account Name", text: $otp.accountName)
-                OVTextField("Issuer", text: $otp.issuer)
-            }
-            
-            Section {
-                LabeledContent("Secret") {
-                    if let secret {
-                        Text(secret)
-                            .textSelection(.enabled)
-                    } else {
-                        Button("Reveal Secret") {
-                            notifier.execute {
-                                self.secret = try keychain.getSecret(metadata: otp)
+        VStack {
+            Form {
+                Section {
+                    OVTextField("Account Name", text: $otp.accountName)
+                    OVTextField("Issuer", text: $otp.issuer)
+                }
+                
+                Section {
+                    LabeledContent("Secret") {
+                        if let secret {
+                            Text(secret)
+                                .textSelection(.enabled)
+                        } else {
+                            Button("Reveal Secret") {
+                                notifier.execute {
+                                    self.secret = try keychain.getSecret(metadata: otp)
+                                }
                             }
                         }
                     }
                 }
             }
-            
+            .formStyle(.grouped)
+
 #if os(macOS)
             HStack {
                 Button("Cancel", role: .cancel) {
@@ -48,13 +51,11 @@ struct EditOtpEntryView: View {
                 Spacer()
                 Button("Save", action: save)
             }
-            .padding(.vertical)
+            .padding()
 #endif
         }
         .navigationTitle("Edit OTP")
-#if os(macOS)
-        .padding()
-#else
+#if !os(macOS)
         .toolbar {
             ToolbarItem(placement: .confirmationAction) {
                 Button("Save", action: save)
