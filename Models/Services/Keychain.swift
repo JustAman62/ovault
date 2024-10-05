@@ -28,10 +28,13 @@ public protocol KeychainProtocol {
 public final class Keychain: KeychainProtocol {
     /// Stores the given `secret` in the Keychain, identified using information from the provided `metadata`
     public func storeSecret(metadata: OtpMetadata, secret: String) throws {
-        let name = "\(metadata.accountName)-\(metadata.id.uuidString)"
+        let name = "net.ovault.\(metadata.id.uuidString)"
+        let service = "net.ovault.\(metadata.issuer)"
         let secretData = secret.data(using: .utf8)!
         let addquery: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                                        kSecAttrAccount as String: name,
+                                       kSecAttrService as String: service,
+                                       kSecAttrSynchronizable as String: kCFBooleanTrue as CFBoolean,
                                        kSecValueData as String: secretData]
         
         let status = SecItemAdd(addquery as CFDictionary, nil)
@@ -45,10 +48,11 @@ public final class Keychain: KeychainProtocol {
     
     /// Fetches the secret stored for the provided `metadata` from the Keychain
     public func getSecret(metadata: OtpMetadata) throws -> String {
-        let name = "\(metadata.accountName)-\(metadata.id.uuidString)"
+        let name = "net.ovault.\(metadata.id.uuidString)"
         
         let getquery: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                                        kSecAttrAccount as String: name,
+                                       kSecAttrSynchronizable as String: kCFBooleanTrue as CFBoolean,
                                        kSecReturnData as String: true]
         
         var item: CFTypeRef?

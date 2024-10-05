@@ -33,8 +33,6 @@ final class ovauliTests: XCTestCase {
             accountName: "Account Name",
             algorithm: .SHA1,
             digits: digits,
-            type: .hotp,
-            counter: counter,
             period: 0)
         XCTAssertEqual(try entry.getOtp(secret: secret), expected)
     }
