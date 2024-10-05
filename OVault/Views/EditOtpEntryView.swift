@@ -26,12 +26,10 @@ struct EditOtpEntryView: View {
             }
             
             Section {
-                LabeledContent("Secret", content: {
+                LabeledContent("Secret") {
                     if let secret {
                         Text(secret)
-                            .onTapGesture {
-                                self.secret = nil
-                            }
+                            .textSelection(.enabled)
                     } else {
                         Button("Reveal Secret") {
                             notifier.execute {
@@ -39,7 +37,7 @@ struct EditOtpEntryView: View {
                             }
                         }
                     }
-                })
+                }
             }
             
 #if os(macOS)

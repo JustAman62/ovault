@@ -1,6 +1,6 @@
 import Foundation
 import CryptoKit
-import Base32
+internal import Base32
 
 public enum OtpError: Error, LocalizedError {
     case unexpectedSecretFormat

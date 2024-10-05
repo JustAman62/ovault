@@ -4,6 +4,7 @@ import Models
 struct AddOtpEntryView: View {
     @State private var newEntry: OtpMetadata = .blank()
     @State private var secret: String = ""
+    @State private var expanded: Bool = false
     
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
@@ -22,46 +23,48 @@ struct AddOtpEntryView: View {
     var body: some View {
         Form {
             Section {
-                OVTextField("Account Name", text: $newEntry.accountName)
-                OVTextField("Issuer", text: $newEntry.issuer)
+                OVTextField("Account Name", text: $newEntry.accountName, placeholder: "Acme Corp")
+                OVTextField("Issuer", text: $newEntry.issuer, placeholder: "Acme Corp")
             }
             
             OVTextField("Secret", text: $secret)
             
-            Picker("Algorithm", selection: $newEntry.algorithm) {
-                ForEach(HashAlgorithm.allCases) { alg in
-                    Text(alg.rawValue).tag(alg)
+            DisclosureGroup("Advanced") {
+                Picker("Algorithm", selection: $newEntry.algorithm) {
+                    ForEach(HashAlgorithm.allCases) { alg in
+                        Text(alg.rawValue).tag(alg)
+                    }
                 }
-            }
-            
-            Picker("Length", selection: $newEntry.digits) {
-                Text("6").tag(6)
-                Text("7").tag(7)
-                Text("8").tag(8)
-            }
-            
-            Picker("Type", selection: $newEntry.type) {
-                ForEach(OtpType.allCases, id: \.rawValue) { type in
-                    Text(type.rawValue.uppercased()).tag(type)
+                
+                Picker("Length", selection: $newEntry.digits) {
+                    Text("6").tag(6)
+                    Text("7").tag(7)
+                    Text("8").tag(8)
                 }
-            }
-            
-            switch newEntry.type {
-            case .totp:
-                Picker("Period", selection: $newEntry.period) {
-                    Text("15 Seconds").tag(15)
-                    Text("30 Seconds").tag(30)
-                    Text("45 Seconds").tag(45)
-                    Text("60 Seconds").tag(60)
+                
+                Picker("Type", selection: $newEntry.type) {
+                    ForEach(OtpType.allCases, id: \.rawValue) { type in
+                        Text(type.rawValue.uppercased()).tag(type)
+                    }
                 }
-            case .hotp:
-                LabeledContent {
-                    TextField(value: $newEntry.counter, format: .number, label: { EmptyView() })
-                } label: {
-                    Text("Counter")
+                
+                switch newEntry.type {
+                case .totp:
+                    Picker("Period", selection: $newEntry.period) {
+                        Text("15 Seconds").tag(15)
+                        Text("30 Seconds").tag(30)
+                        Text("45 Seconds").tag(45)
+                        Text("60 Seconds").tag(60)
+                    }
+                case .hotp:
+                    LabeledContent {
+                        TextField(value: $newEntry.counter, format: .number, label: { EmptyView() })
+                    } label: {
+                        Text("Counter")
+                    }
+                @unknown default:
+                    EmptyView()
                 }
-            @unknown default:
-                EmptyView()
             }
             
 #if os(macOS)

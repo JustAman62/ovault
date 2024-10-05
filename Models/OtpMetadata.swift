@@ -36,9 +36,7 @@ public final class OtpMetadata: Identifiable {
     
     public var timeStep: Int64 { Int64(Date().timeIntervalSince1970) / Int64(self.period) }
     public var expiresIn: Double {
-        withAnimation {
-            Double(self.period) - Date().timeIntervalSince1970.truncatingRemainder(dividingBy: Double(self.period))
-        }
+        Double(self.period) - Date().timeIntervalSince1970.truncatingRemainder(dividingBy: Double(self.period))
     }
 }
 

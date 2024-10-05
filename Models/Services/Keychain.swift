@@ -56,7 +56,7 @@ public final class Keychain: KeychainProtocol {
         guard status == errSecSuccess else { throw KeychainError.fetchFailure(status) }
         
         guard let secretData = item as? Data,
-            let secret = String(data: secretData, encoding: String.Encoding.utf8)
+            let secret = String(data: secretData, encoding: .utf8)
         else {
             throw KeychainError.fetchUnexpectedResult
         }

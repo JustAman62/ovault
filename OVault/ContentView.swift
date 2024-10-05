@@ -44,6 +44,7 @@ struct ContentView: View {
                     #else
                     .padding(.top, 2)
                     .padding(.bottom, 6)
+                    .labelStyle(.titleAndIcon)
                     #endif
                 }
             }
@@ -82,6 +83,7 @@ struct ContentView: View {
             }
             #endif
         }
+        .scrollDismissesKeyboard(.interactively)
     }
 }
 

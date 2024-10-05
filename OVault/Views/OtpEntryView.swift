@@ -10,9 +10,6 @@ struct OtpEntryView: View {
     @Environment(\.notifier) private var notifier
     @Environment(\.keychain) private var keychain
     
-    var expiresIn: Double { Date().timeIntervalSince1970.truncatingRemainder(dividingBy: Double(otp.period))
-    }
-    
     var body: some View {
         VStack {
             HStack(alignment: .center) {
@@ -46,8 +43,8 @@ struct OtpEntryView: View {
 #endif
             }
             
-            TimelineView(.periodic(from: Date(), by: 0.025)) { _ in
-                ProgressView(value: Double(otp.expiresIn), total: Double(otp.period))
+            TimelineView(.animation) { _ in
+                ProgressView(value: otp.expiresIn, total: Double(otp.period))
                     .progressViewStyle(.linear)
                 .onChange(of: otp.timeStep, initial: true) {
                     notifier.execute {
@@ -59,6 +56,7 @@ struct OtpEntryView: View {
                         try calculated = keychain.getOtp(metadata: otp)
                     }
                 }
+                .animation(.linear, value: otp.expiresIn)
             }
         }
         .contentShape(.rect)
@@ -76,6 +74,8 @@ struct OtpEntryView: View {
         } label: {
             Label("Edit", systemImage: "pencil")
         }
+        
+        CopyButton("Copy", value: calculated)
         
         Button("Delete", systemImage: "trash", role: .destructive) {
             notifier.execute {

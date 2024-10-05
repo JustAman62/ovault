@@ -36,11 +36,8 @@ struct CopyButton: View {
                 }
             }
         } label: {
-            HStack {
-                Image(systemName: "rectangle.portrait.on.rectangle.portrait.fill")
-                Text(internalTitle)
-                    .fixedSize()
-            }
+            Label(internalTitle, systemImage: "rectangle.portrait.on.rectangle.portrait.fill")
+                .fixedSize()
         }
         .buttonStyle(.borderedProminent)
         .disabled(internalTitle != title)
