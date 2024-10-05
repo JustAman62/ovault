@@ -46,9 +46,10 @@ struct OtpEntryView: View {
 #endif
             }
             
-            TimelineView(.animation) { _ in
-                ProgressView(value: otp.expiresIn, total: Double(otp.period))
+            TimelineView(.periodic(from: otp.lastExpiryDate, by: Double(otp.period))) { _ in
+                ProgressView(timerInterval: otp.lastExpiryDate...otp.nextExpiryDate)
                     .progressViewStyle(.linear)
+                    .labelsHidden()
                     .onChange(of: otp.timeStep, initial: true) {
                         notifier.execute {
                             try calculated = keychain.getOtp(metadata: otp)
@@ -59,7 +60,6 @@ struct OtpEntryView: View {
                             try calculated = keychain.getOtp(metadata: otp)
                         }
                     }
-                    .animation(.linear, value: otp.expiresIn)
             }
         }
         .contentShape(.rect)

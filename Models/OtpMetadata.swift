@@ -38,6 +38,13 @@ public final class OtpMetadata: Identifiable {
     public var expiresIn: Double {
         Double(self.period) - Date().timeIntervalSince1970.truncatingRemainder(dividingBy: Double(self.period))
     }
+    
+    public var lastExpiryDate: Date {
+        Date(timeIntervalSince1970: Double(self.timeStep * Int64(self.period)))
+    }
+    public var nextExpiryDate: Date {
+        Date(timeIntervalSince1970: Double((self.timeStep + 1) * Int64(self.period)))
+    }
 }
 
 public enum OtpType: String, CaseIterable, Hashable, Codable {
