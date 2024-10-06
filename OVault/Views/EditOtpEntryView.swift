@@ -8,6 +8,7 @@ struct EditOtpEntryView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.notifier) private var notifier
     @Environment(\.keychain) private var keychain
+    @Environment(\.refresh) private var refresh
     
     init(otp: Otp) {
         self._otp = State(initialValue: otp)
@@ -17,6 +18,7 @@ struct EditOtpEntryView: View {
     private func save() async {
         await notifier.execute {
             try await keychain.update(otp: otp)
+            await refresh?()
             DispatchQueue.main.async { dismiss() }
         }
     }

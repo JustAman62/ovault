@@ -11,6 +11,7 @@ struct OtpEntryView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.notifier) private var notifier
     @Environment(\.keychain) private var keychain
+    @Environment(\.refresh) private var refresh
     
     var body: some View {
         VStack {
@@ -63,6 +64,9 @@ struct OtpEntryView: View {
                 menu()
             }
         )
+        .swipeActions(edge: .trailing) {
+            menu()
+        }
     }
     
     @ViewBuilder
@@ -78,6 +82,7 @@ struct OtpEntryView: View {
         AsyncButton("Delete", systemImage: "trash", role: .destructive) {
             await notifier.execute {
                 try await keychain.delete(otp: otp)
+                await refresh?()
                 DispatchQueue.main.async { dismiss() }
             }
         }

@@ -8,6 +8,12 @@ struct ContentView: View {
     @Environment(\.notifier) private var notifier
     @Environment(\.keychain) private var keychain
     
+    private func load() async {
+        await notifier.execute {
+            self.items = try await keychain.getAll()
+        }
+    }
+    
     @ViewBuilder private func otpList(items: [Otp]) -> some View {
         if items.count == 0 {
             ContentUnavailableView(
@@ -24,31 +30,34 @@ struct ContentView: View {
                         Label("Add Manually", systemImage: "plus")
                     }
                     
-                    #if !os(macOS)
+#if !os(macOS)
                     Button("Scan QR Code", systemImage: "qrcode.viewfinder") {
                         isOtpScanPresented = true
                     }
-                    #endif
+#endif
                 })
         }
         
         List {
             ForEach(items) { item in
                 OtpEntryView(otp: item)
-                #if os(macOS)
-                .padding()
-                #else
-                .padding(.top, 2)
-                .padding(.bottom, 6)
-                .labelStyle(.titleAndIcon)
-                #endif
+                    .refreshable {
+                        await load()
+                    }
+#if os(macOS)
+                    .padding()
+#else
+                    .padding(.top, 2)
+                    .padding(.bottom, 6)
+                    .labelStyle(.titleAndIcon)
+#endif
             }
         }
     }
-
+    
     var body: some View {
         NavigationStack {
-            Group {
+            VStack {
                 switch items {
                 case .none:
                     ProgressView("Loading OTPs")
@@ -65,11 +74,11 @@ struct ContentView: View {
                             Label("Manual", systemImage: "plus")
                         }
                         
-                        #if !os(macOS)
+#if !os(macOS)
                         Button("Scan QR Code", systemImage: "qrcode.viewfinder") {
                             isOtpScanPresented = true
                         }
-                        #endif
+#endif
                     } label: {
                         Label("New OTP", systemImage: "plus")
                     }
@@ -85,18 +94,19 @@ struct ContentView: View {
                 }
             }
             .task {
-                await notifier.execute {
-                    self.items = try await keychain.getAll()
-                }
+                await load()
             }
-            #if !os(macOS)
+#if !os(macOS)
             .sheet(isPresented: $isOtpScanPresented) {
                 OtpQrScannerView()
                     .withNotifierSupport()
             }
-            #endif
+#endif
         }
         .scrollDismissesKeyboard(.interactively)
+        .refreshable {
+            await load()
+        }
     }
 }
 
@@ -104,10 +114,12 @@ struct ContentView: View {
 #Preview("With items") {
     ContentView()
         .previewEnvironment()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
 }
 
 #Preview("Empty") {
     ContentView()
         .previewEnvironment(withData: false)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
 }
 #endif

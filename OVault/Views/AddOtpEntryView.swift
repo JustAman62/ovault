@@ -10,6 +10,7 @@ struct AddOtpEntryView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.notifier) private var notifier
     @Environment(\.keychain) private var keychain
+    @Environment(\.refresh) private var refresh
     
     enum PageType {
         case manual, byUrl
@@ -37,6 +38,8 @@ struct AddOtpEntryView: View {
             if newEntry.secret.isEmpty { throw ValidationError.SecretRequired }
 
             try await keychain.store(otp: self.newEntry)
+            
+            await refresh?()
 
             DispatchQueue.main.async { dismiss() }
         }
