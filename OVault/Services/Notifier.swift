@@ -50,6 +50,14 @@ extension Notifier {
             self.show(msg: .inAppError(error: error))
         }
     }
+    
+    func execute(_ action: () async throws -> Void) async {
+        do {
+            try await action()
+        } catch {
+            self.show(msg: .inAppError(error: error))
+        }
+    }
 }
 
 struct NotifierKey: EnvironmentKey {

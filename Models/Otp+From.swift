@@ -16,8 +16,8 @@ public enum URLParseError: Error, LocalizedError {
     public var failureReason: String? { "Unable to parse URL" }
 }
 
-extension OtpMetadata {
-    public static func from(url: URL) throws -> (OtpMetadata, String) {
+extension Otp {
+    public static func from(url: URL) throws -> Otp {
         guard url.scheme == "otpauth" || url.scheme == "ovault-otpauth" else { throw URLParseError.unsupported(msg: "Only otpauth URLs are supported.") }
         let components = url.pathComponents
 
@@ -43,10 +43,7 @@ extension OtpMetadata {
         let digits = Int(query["digits"] ?? "6") ?? 6
         
         let period = Int(query["period"] ?? "30") ?? 30
-        return (
-            .init(id: UUID(), issuer: issuer, accountName: accountName, algorithm: algorithm ?? .SHA1, digits: digits, period: period),
-            secret
-        )
+        return .init(id: UUID(), issuer: issuer, accountName: accountName, algorithm: algorithm ?? .SHA1, digits: digits, secret: secret, period: period)
     }
 }
 

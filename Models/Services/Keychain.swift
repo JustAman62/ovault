@@ -4,12 +4,14 @@ import SwiftUI
 enum KeychainError: Error, LocalizedError {
     case addFailure(_ status: OSStatus)
     case fetchFailure(_ status: OSStatus)
+    case unexpectedData(_ description: String)
     case fetchUnexpectedResult
     
     var errorDescription: String? {
         switch self {
         case .addFailure(let status): "Failed to save the secret in the Keychain: \(getStatusDescription(status))"
         case .fetchFailure(let status): "Failed to fetch the secret from the Keychain: \(getStatusDescription(status))"
+        case .unexpectedData(let description): "Unexpected data found in Keychain: \(description)"
         case .fetchUnexpectedResult: "Unexpected result returned from the Keychain"
         }
     }
@@ -20,69 +22,132 @@ enum KeychainError: Error, LocalizedError {
 }
 
 public protocol KeychainProtocol {
-    func storeSecret(metadata: OtpMetadata, secret: String) throws -> Void
-    func getOtp(metadata: OtpMetadata) throws -> String
-    func getSecret(metadata: OtpMetadata) throws -> String
+    func store(otp: Otp) async throws -> Void
+    func update(otp: Otp) async throws -> Void
+    func getAll() async throws -> [Otp]
+    func delete(otp: Otp) async throws -> Void
 }
 
-public final class Keychain: KeychainProtocol {
-    /// Stores the given `secret` in the Keychain, identified using information from the provided `metadata`
-    public func storeSecret(metadata: OtpMetadata, secret: String) throws {
-        let name = "net.ovault.\(metadata.id.uuidString)"
-        let service = "net.ovault.\(metadata.issuer)"
-        let secretData = secret.data(using: .utf8)!
-        let addquery: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
-                                       kSecAttrAccount as String: name,
-                                       kSecAttrService as String: service,
-                                       kSecAttrSynchronizable as String: kCFBooleanTrue as CFBoolean,
-                                       kSecValueData as String: secretData]
+public actor Keychain: KeychainProtocol {
+    
+    public func store(otp: Otp) throws {
+        let addQuery = try createAddOrUpdateQuery(otp: otp)
         
-        let status = SecItemAdd(addquery as CFDictionary, nil)
+        let status = SecItemAdd(addQuery, nil)
         guard status == errSecSuccess else { throw KeychainError.addFailure(status) }
     }
     
-    public func getOtp(metadata: OtpMetadata) throws -> String {
-        let secret = try self.getSecret(metadata: metadata)
-        return try metadata.getOtp(secret: secret)
+    public func update(otp: Otp) throws {
+        let getQuery = createGetQuery(otp: otp)
+        let updateQuery = try createAddOrUpdateQuery(otp: otp)
+        
+        let status = SecItemUpdate(getQuery, updateQuery)
+        guard status == errSecSuccess else { throw KeychainError.addFailure(status) }
     }
     
-    /// Fetches the secret stored for the provided `metadata` from the Keychain
-    public func getSecret(metadata: OtpMetadata) throws -> String {
-        let name = "net.ovault.\(metadata.id.uuidString)"
+    public func getAll() throws -> [Otp] {
+        let getAllQuery = createGetAllQuery()
         
-        let getquery: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
-                                       kSecAttrAccount as String: name,
-                                       kSecAttrSynchronizable as String: kCFBooleanTrue as CFBoolean,
-                                       kSecReturnData as String: true]
-        
-        var item: CFTypeRef?
-        let status = SecItemCopyMatching(getquery as CFDictionary, &item)
+        var result: CFTypeRef?
+        let status = SecItemCopyMatching(getAllQuery as CFDictionary, &result)
         guard status == errSecSuccess else { throw KeychainError.fetchFailure(status) }
         
-        guard let secretData = item as? Data,
-            let secret = String(data: secretData, encoding: .utf8)
-        else {
-            throw KeychainError.fetchUnexpectedResult
+        // Result is an array of dictionaries, where each dictionary is all the response attributes
+        guard let results = result as? [[String : Any]] else { throw KeychainError.fetchUnexpectedResult }
+
+        return try results.map({ try convertResultToOtp($0) })
+    }
+    
+    public func delete(otp: Otp) throws {
+        let getQuery = createGetQuery(otp: otp)
+        
+        let status = SecItemDelete(getQuery)
+        guard status == errSecSuccess else { throw KeychainError.fetchFailure(status) }
+    }
+    
+    func createGetQuery(otp: Otp) -> CFDictionary {
+        let name = "net.ovault.otp.\(otp.id.uuidString)"
+        return [kSecClass as String: kSecClassGenericPassword,
+                kSecAttrAccount as String: name,
+                kSecAttrSynchronizable as String: kCFBooleanTrue as CFBoolean,
+                kSecMatchLimit as String: kSecMatchLimitOne,
+                kSecReturnAttributes as String: true,
+                kSecReturnData as String: true] as CFDictionary
+    }
+    
+    func createGetAllQuery() -> CFDictionary {
+        let service = "net.ovault.otp"
+        return [kSecClass as String: kSecClassGenericPassword,
+                kSecAttrService as String: service,
+                kSecAttrSynchronizable as String: kCFBooleanTrue as CFBoolean,
+                kSecMatchLimit as String: 50 as CFNumber,
+                kSecReturnAttributes as String: true,
+                kSecReturnData as String: true] as CFDictionary
+    }
+    
+    func createAddOrUpdateQuery(otp: Otp) throws -> CFDictionary {
+        let name = "net.ovault.otp.\(otp.id.uuidString)"
+        let service = "net.ovault.otp"
+        let secretData = otp.secret.data(using: .utf8)!
+        
+        let data = KeychainData(from: otp)
+        let encodedData = try JSONEncoder().encode(data)
+        
+        return [kSecClass as String: kSecClassGenericPassword,
+                kSecAttrAccount as String: name,
+                kSecAttrService as String: service,
+                kSecAttrSynchronizable as String: kCFBooleanTrue as CFBoolean,
+                kSecAttrGeneric as String: encodedData as CFData,
+                kSecValueData as String: secretData] as CFDictionary
+    }
+    
+    func convertResultToOtp(_ result: [String : Any]) throws -> Otp {
+        let name = result[kSecAttrAccount as String] as! String
+        guard let id = UUID(uuidString: name.replacing("net.ovault.otp.", with: "", maxReplacements: 1)) else {
+            throw KeychainError.unexpectedData("Unable to parse ID from Name")
         }
         
-        return secret
+        let secretData = result[kSecValueData as String] as! Data
+        guard let secret = String(data: secretData, encoding: .utf8) else {
+            throw KeychainError.unexpectedData("Unable to parse secret")
+        }
+        
+        
+        let encodedData = result[kSecAttrGeneric as String] as! Data
+        let data = try JSONDecoder().decode(KeychainData.self, from: encodedData)
+        
+        return .init(from: data, id: id, secret: secret)
     }
 }
 
 #if DEBUG
-public final class FakeKeychain: KeychainProtocol {
-    public init() { }
-    
-    public func storeSecret(metadata: OtpMetadata, secret: String) throws {
-        // Do Nothing
+public actor FakeKeychain: KeychainProtocol {
+    private var otps: [Otp]
+
+    public init(withData: Bool) {
+        if withData {
+            self.otps = [.testTotp15sec, .testTotp30sec, .testTotp60sec]
+        } else {
+            self.otps = []
+        }
     }
     
-    public func getOtp(metadata: OtpMetadata) throws -> String {
-        return try metadata.getOtp(secret: "sharedsecret")
+    public func store(otp: Otp) async throws {
+        otps.append(otp)
     }
     
-    public func getSecret(metadata: OtpMetadata) throws -> String {
-        return "sharedsecret"
+    public func update(otp: Otp) async throws {
+        let otpToUpdate = otps.firstIndex(where: { $0.id == otp.id })!
+        otps.replaceSubrange(otpToUpdate...otpToUpdate, with: [otp])
+    }
+    
+    public func getAll() async throws -> [Otp] {
+        return otps
+    }
+    
+    public func delete(otp: Otp) async throws {
+        let otpToDelete = otps.firstIndex(where: { $0.id == otp.id })!
+        otps.remove(at: otpToDelete)
     }
 }
 #endif

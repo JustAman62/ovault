@@ -2,14 +2,12 @@ import SwiftUI
 import Models
 
 struct AddOtpEntryView: View {
-    @State private var newEntry: OtpMetadata = .blank()
-    @State private var secret: String = ""
+    @State private var newEntry: Otp = .blank()
     @State private var url: String = ""
     @State private var advancedExpanded: Bool = false
     @State private var tab: PageType = .manual
     
     @Environment(\.dismiss) private var dismiss
-    @Environment(\.modelContext) private var modelContext
     @Environment(\.notifier) private var notifier
     @Environment(\.keychain) private var keychain
     
@@ -24,24 +22,22 @@ struct AddOtpEntryView: View {
         case SecretRequired
     }
     
-    private func save() {
-        notifier.execute {
+    private func save() async {
+        await notifier.execute {
             if tab == .byUrl {
                 if url.isEmpty { throw ValidationError.URLRequired }
                 if let url = URL(string: url) {
-                    let (otp, secret) = try OtpMetadata.from(url: url)
+                    let otp = try Otp.from(url: url)
                     self.newEntry = otp
-                    self.secret = secret
                 }
             }
             
             if newEntry.accountName.isEmpty { throw ValidationError.AccountNameRequired }
             if newEntry.issuer.isEmpty { throw ValidationError.IssuerRequired }
-            if secret.isEmpty { throw ValidationError.SecretRequired }
+            if newEntry.secret.isEmpty { throw ValidationError.SecretRequired }
 
-            try keychain.storeSecret(metadata: newEntry, secret: secret)
-            modelContext.insert(newEntry)
-            try modelContext.save()
+            try await keychain.store(otp: self.newEntry)
+
             DispatchQueue.main.async { dismiss() }
         }
     }
@@ -53,7 +49,7 @@ struct AddOtpEntryView: View {
                 OVTextField("Issuer", text: $newEntry.issuer, placeholder: "Acme Corp")
             }
             
-            OVTextField("Secret", text: $secret)
+            OVTextField("Secret", text: $newEntry.secret, placeholder: "ABCDEFGHIJKLMNOP")
             
             Section {
                 DisclosureGroup("Advanced") {
@@ -125,7 +121,7 @@ struct AddOtpEntryView: View {
                     DispatchQueue.main.async { dismiss() }
                 }
                 Spacer()
-                Button("Save", action: save)
+                AsyncButton("Save", action: save)
             }
             .padding()
 #endif
@@ -136,7 +132,7 @@ struct AddOtpEntryView: View {
         .background(Color(uiColor: .systemGroupedBackground))
         .toolbar {
             ToolbarItem(placement: .confirmationAction) {
-                Button("Save", action: save)
+                AsyncButton("Save", action: save)
             }
         }
 #endif

@@ -13,11 +13,11 @@ public enum OtpError: Error, LocalizedError {
     }
 }
 
-extension OtpMetadata {  
-    internal func getOtp(secret: String) throws -> String {
+extension Otp {
+    public func getOtp() throws -> String {
         return switch self.type {
-        case .totp: try calculateOtp(alg: self.algorithm, key: secret, counter: self.timeStep, digits: self.digits)
-        case .hotp: try calculateOtp(alg: self.algorithm, key: secret, counter: self.counter, digits: self.digits)
+        case .totp: try calculateOtp(alg: self.algorithm, key: self.secret, counter: self.timeStep, digits: self.digits)
+        case .hotp: try calculateOtp(alg: self.algorithm, key: self.secret, counter: self.counter, digits: self.digits)
         }
     }
     
@@ -42,7 +42,7 @@ extension OtpMetadata {
         
         // This offset becomes the start point of the 4 bytes we want from the hash
         let truncatedHash = hmac[offset...offset + 3]
-
+        
         // Ignore the first bit of the data
         let number = UInt64(truncatedHash.base16EncodedString, radix: 16)! & 0x7FFFFFFF
         

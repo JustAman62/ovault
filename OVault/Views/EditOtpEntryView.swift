@@ -2,18 +2,21 @@ import SwiftUI
 import Models
 
 struct EditOtpEntryView: View {
-    @Bindable var otp: OtpMetadata
-    
-    @State private var secret: String?
+    @State private var otp: Otp
+    @State private var secretShown: Bool
     
     @Environment(\.dismiss) private var dismiss
-    @Environment(\.modelContext) private var modelContext
     @Environment(\.notifier) private var notifier
     @Environment(\.keychain) private var keychain
     
-    private func save() {
-        notifier.execute {
-            try modelContext.save()
+    init(otp: Otp) {
+        self._otp = State(initialValue: otp)
+        self.secretShown = false
+    }
+    
+    private func save() async {
+        await notifier.execute {
+            try await keychain.update(otp: otp)
             DispatchQueue.main.async { dismiss() }
         }
     }
@@ -28,14 +31,12 @@ struct EditOtpEntryView: View {
                 
                 Section {
                     LabeledContent("Secret") {
-                        if let secret {
-                            Text(secret)
+                        if secretShown {
+                            Text(otp.secret)
                                 .textSelection(.enabled)
                         } else {
                             Button("Reveal Secret") {
-                                notifier.execute {
-                                    self.secret = try keychain.getSecret(metadata: otp)
-                                }
+                                secretShown.toggle()
                             }
                         }
                     }
@@ -49,7 +50,7 @@ struct EditOtpEntryView: View {
                     DispatchQueue.main.async { dismiss() }
                 }
                 Spacer()
-                Button("Save", action: save)
+                AsyncButton("Save", action: save)
             }
             .padding()
 #endif
@@ -58,11 +59,8 @@ struct EditOtpEntryView: View {
 #if !os(macOS)
         .toolbar {
             ToolbarItem(placement: .confirmationAction) {
-                Button("Save", action: save)
+                AsyncButton("Save", action: save)
             }
-        }
-        .onDisappear {
-            self.secret = nil
         }
 #endif
     }

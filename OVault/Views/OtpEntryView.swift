@@ -2,7 +2,7 @@ import SwiftUI
 import Models
 
 struct OtpEntryView: View {
-    @Bindable var otp: OtpMetadata
+    var otp: Otp
     
     @State private var calculated: String = ""
     @State private var expiresIn: Double = 0.0
@@ -52,7 +52,7 @@ struct OtpEntryView: View {
                     .labelsHidden()
                     .onChange(of: otp.timeStep, initial: true) {
                         notifier.execute {
-                            try calculated = keychain.getOtp(metadata: otp)
+                            try calculated = otp.getOtp()
                         }
                     }
             }
@@ -75,10 +75,9 @@ struct OtpEntryView: View {
         
         CopyButton("Copy", value: calculated)
         
-        Button("Delete", systemImage: "trash", role: .destructive) {
-            notifier.execute {
-                modelContext.delete(otp)
-                try modelContext.save()
+        AsyncButton("Delete", systemImage: "trash", role: .destructive) {
+            await notifier.execute {
+                try await keychain.delete(otp: otp)
                 DispatchQueue.main.async { dismiss() }
             }
         }
