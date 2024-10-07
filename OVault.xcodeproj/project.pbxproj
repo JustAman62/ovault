@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		071A79A82C3AA66A00077318 /* ovaultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071A79A72C3AA66A00077318 /* ovaultTests.swift */; };
 		072049582C3F097C00CA12B9 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072049562C3F02B400CA12B9 /* Keychain.swift */; };
 		0720495B2C3F170000CA12B9 /* Logger+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0720495A2C3F170000CA12B9 /* Logger+Init.swift */; };
+		0767728B2CB3CF1E00F3A70F /* Models.h in Headers */ = {isa = PBXBuildFile; fileRef = 0767728A2CB3CF1E00F3A70F /* Models.h */; };
 		07BF2A212C3C3EFE00CB1FF5 /* AddOtpEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BF2A202C3C3EFE00CB1FF5 /* AddOtpEntryView.swift */; };
 		07BF2A252C3C441E00CB1FF5 /* OVTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BF2A242C3C441E00CB1FF5 /* OVTextField.swift */; };
 		07BF2A272C3C4A8E00CB1FF5 /* EditOtpEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BF2A262C3C4A8E00CB1FF5 /* EditOtpEntryView.swift */; };
@@ -29,6 +30,10 @@
 		07C5325E2C38865300DC54C6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07C5325D2C38865300DC54C6 /* Preview Assets.xcassets */; };
 		07C600802CB2DBD1005F19B2 /* KeychainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C6007F2CB2DBCD005F19B2 /* KeychainData.swift */; };
 		07C600912CB2E948005F19B2 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C600902CB2E948005F19B2 /* AsyncButton.swift */; };
+		07C600972CB2FB7A005F19B2 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 070F9A7F2C3C7EB000FB4297 /* WidgetKit.framework */; };
+		07C600982CB2FB7A005F19B2 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 070F9A812C3C7EB000FB4297 /* SwiftUI.framework */; };
+		07C600A72CB2FB7A005F19B2 /* WidgetExtensionExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 07C600962CB2FB7A005F19B2 /* WidgetExtensionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		07C600AC2CB30AE5005F19B2 /* Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07C43BAF2C3C830100BE0F34 /* Models.framework */; };
 		07EF0ED82C3DBBF900F61BDF /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 07EF0ED72C3DBBF900F61BDF /* CodeScanner */; };
 		07EF0EDA2C3DBC1400F61BDF /* OtpQrScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EF0ED92C3DBC1400F61BDF /* OtpQrScannerView.swift */; };
 		07F630F22C3B18FF00A10485 /* OtpEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F630F12C3B18FF00A10485 /* OtpEntryView.swift */; };
@@ -50,6 +55,20 @@
 			remoteGlobalIDString = 07C43BAE2C3C830100BE0F34;
 			remoteInfo = Models;
 		};
+		07C600A52CB2FB7A005F19B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07C532482C38865300DC54C6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07C600952CB2FB7A005F19B2;
+			remoteInfo = WidgetExtensionExtension;
+		};
+		07C600AE2CB30AE5005F19B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07C532482C38865300DC54C6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07C43BAE2C3C830100BE0F34;
+			remoteInfo = Models;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -59,6 +78,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				07C600A72CB2FB7A005F19B2 /* WidgetExtensionExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,6 +106,8 @@
 		071A79A72C3AA66A00077318 /* ovaultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ovaultTests.swift; sourceTree = "<group>"; };
 		072049562C3F02B400CA12B9 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		0720495A2C3F170000CA12B9 /* Logger+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+Init.swift"; sourceTree = "<group>"; };
+		0767728A2CB3CF1E00F3A70F /* Models.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Models.h; sourceTree = "<group>"; };
+		0767729D2CB40D5B00F3A70F /* WidgetExtensionExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtensionExtension.entitlements; sourceTree = "<group>"; };
 		0767D6CB2C3AAB8300E8462E /* Otp+OTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Otp+OTP.swift"; sourceTree = "<group>"; };
 		07BF2A202C3C3EFE00CB1FF5 /* AddOtpEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOtpEntryView.swift; sourceTree = "<group>"; };
 		07BF2A222C3C3F3900CB1FF5 /* Otp+Blank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Otp+Blank.swift"; sourceTree = "<group>"; };
@@ -103,12 +125,27 @@
 		07C5325D2C38865300DC54C6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		07C6007F2CB2DBCD005F19B2 /* KeychainData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainData.swift; sourceTree = "<group>"; };
 		07C600902CB2E948005F19B2 /* AsyncButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
+		07C600962CB2FB7A005F19B2 /* WidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		07EF0ED92C3DBC1400F61BDF /* OtpQrScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpQrScannerView.swift; sourceTree = "<group>"; };
 		07EF0EDB2C3DC62800F61BDF /* example-qr-code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "example-qr-code.png"; sourceTree = "<group>"; };
 		07EF0EDC2C3DC62800F61BDF /* Examples.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Examples.md; sourceTree = "<group>"; };
 		07F630F12C3B18FF00A10485 /* OtpEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpEntryView.swift; sourceTree = "<group>"; };
 		07F630F32C3B28DC00A10485 /* CopyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		07C600A82CB2FB7A005F19B2 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 07C600952CB2FB7A005F19B2 /* WidgetExtensionExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		07C600992CB2FB7A005F19B2 /* WidgetExtension */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (07C600A82CB2FB7A005F19B2 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = WidgetExtension; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		071A79A22C3AA66A00077318 /* Frameworks */ = {
@@ -132,6 +169,16 @@
 			files = (
 				07EF0ED82C3DBBF900F61BDF /* CodeScanner in Frameworks */,
 				07C43BB52C3C830100BE0F34 /* Models.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07C600932CB2FB7A005F19B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07C600982CB2FB7A005F19B2 /* SwiftUI.framework in Frameworks */,
+				07C600972CB2FB7A005F19B2 /* WidgetKit.framework in Frameworks */,
+				07C600AC2CB30AE5005F19B2 /* Models.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +222,7 @@
 		07C43BB02C3C830100BE0F34 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0767728A2CB3CF1E00F3A70F /* Models.h */,
 				072049592C3F104600CA12B9 /* Services */,
 				07C6007F2CB2DBCD005F19B2 /* KeychainData.swift */,
 				07C532572C38865300DC54C6 /* Otp.swift */,
@@ -189,10 +237,12 @@
 		07C532472C38865300DC54C6 = {
 			isa = PBXGroup;
 			children = (
+				0767729D2CB40D5B00F3A70F /* WidgetExtensionExtension.entitlements */,
 				07EF0EDD2C3DC62800F61BDF /* Docs */,
 				07C532522C38865300DC54C6 /* OVault */,
 				071A79A62C3AA66A00077318 /* OVaultTests */,
 				07C43BB02C3C830100BE0F34 /* Models */,
+				07C600992CB2FB7A005F19B2 /* WidgetExtension */,
 				07C532512C38865300DC54C6 /* Products */,
 				07B523CA2C3AC96B002EEEEB /* Frameworks */,
 			);
@@ -204,6 +254,7 @@
 				07C532502C38865300DC54C6 /* OVault.app */,
 				071A79A52C3AA66A00077318 /* OVaultTests.xctest */,
 				07C43BAF2C3C830100BE0F34 /* Models.framework */,
+				07C600962CB2FB7A005F19B2 /* WidgetExtensionExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -245,10 +296,10 @@
 			isa = PBXGroup;
 			children = (
 				07C600902CB2E948005F19B2 /* AsyncButton.swift */,
+				07F630F32C3B28DC00A10485 /* CopyButton.swift */,
 				07F630F12C3B18FF00A10485 /* OtpEntryView.swift */,
 				07BF2A202C3C3EFE00CB1FF5 /* AddOtpEntryView.swift */,
 				07BF2A262C3C4A8E00CB1FF5 /* EditOtpEntryView.swift */,
-				07F630F32C3B28DC00A10485 /* CopyButton.swift */,
 				07BF2A242C3C441E00CB1FF5 /* OVTextField.swift */,
 				07EF0ED92C3DBC1400F61BDF /* OtpQrScannerView.swift */,
 			);
@@ -262,6 +313,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0767728B2CB3CF1E00F3A70F /* Models.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +373,7 @@
 			);
 			dependencies = (
 				07C43BB42C3C830100BE0F34 /* PBXTargetDependency */,
+				07C600A62CB2FB7A005F19B2 /* PBXTargetDependency */,
 			);
 			name = OVault;
 			packageProductDependencies = (
@@ -330,6 +383,29 @@
 			productReference = 07C532502C38865300DC54C6 /* OVault.app */;
 			productType = "com.apple.product-type.application";
 		};
+		07C600952CB2FB7A005F19B2 /* WidgetExtensionExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07C600A92CB2FB7A005F19B2 /* Build configuration list for PBXNativeTarget "WidgetExtensionExtension" */;
+			buildPhases = (
+				07C600922CB2FB7A005F19B2 /* Sources */,
+				07C600932CB2FB7A005F19B2 /* Frameworks */,
+				07C600942CB2FB7A005F19B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				07C600AF2CB30AE5005F19B2 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				07C600992CB2FB7A005F19B2 /* WidgetExtension */,
+			);
+			name = WidgetExtensionExtension;
+			packageProductDependencies = (
+			);
+			productName = WidgetExtensionExtension;
+			productReference = 07C600962CB2FB7A005F19B2 /* WidgetExtensionExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -337,7 +413,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1540;
+				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					071A79A42C3AA66A00077318 = {
@@ -349,6 +425,9 @@
 					};
 					07C5324F2C38865300DC54C6 = {
 						CreatedOnToolsVersion = 15.4;
+					};
+					07C600952CB2FB7A005F19B2 = {
+						CreatedOnToolsVersion = 16.0;
 					};
 				};
 			};
@@ -372,6 +451,7 @@
 				07C5324F2C38865300DC54C6 /* OVault */,
 				071A79A42C3AA66A00077318 /* OVaultTests */,
 				07C43BAE2C3C830100BE0F34 /* Models */,
+				07C600952CB2FB7A005F19B2 /* WidgetExtensionExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -397,6 +477,13 @@
 			files = (
 				07C5325E2C38865300DC54C6 /* Preview Assets.xcassets in Resources */,
 				07C5325A2C38865300DC54C6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07C600942CB2FB7A005F19B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +531,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		07C600922CB2FB7A005F19B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -456,6 +550,16 @@
 			isa = PBXTargetDependency;
 			target = 07C43BAE2C3C830100BE0F34 /* Models */;
 			targetProxy = 07C43BB32C3C830100BE0F34 /* PBXContainerItemProxy */;
+		};
+		07C600A62CB2FB7A005F19B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07C600952CB2FB7A005F19B2 /* WidgetExtensionExtension */;
+			targetProxy = 07C600A52CB2FB7A005F19B2 /* PBXContainerItemProxy */;
+		};
+		07C600AF2CB30AE5005F19B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07C43BAE2C3C830100BE0F34 /* Models */;
+			targetProxy = 07C600AE2CB30AE5005F19B2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -533,6 +637,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
@@ -575,6 +680,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
@@ -729,6 +835,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OVault/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Use the Camera to scan QR codes, for importing OTP codes";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -744,7 +851,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.ovault.ovault;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -773,6 +880,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OVault/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Use the Camera to scan QR codes, for importing OTP codes";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -788,7 +896,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.ovault.ovault;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -797,6 +905,79 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		07C600AA2CB2FB7A005F19B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WidgetExtensionExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KED4M385SL;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WidgetExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WidgetExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.ovault.ovault.WidgetExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = NO;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		07C600AB2CB2FB7A005F19B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WidgetExtensionExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KED4M385SL;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WidgetExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WidgetExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.ovault.ovault.WidgetExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = NO;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -835,6 +1016,15 @@
 			buildConfigurations = (
 				07C532622C38865300DC54C6 /* Debug */,
 				07C532632C38865300DC54C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07C600A92CB2FB7A005F19B2 /* Build configuration list for PBXNativeTarget "WidgetExtensionExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07C600AA2CB2FB7A005F19B2 /* Debug */,
+				07C600AB2CB2FB7A005F19B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

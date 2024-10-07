@@ -1,5 +1,6 @@
 import SwiftUI
 import Models
+import AppIntents
 
 @main
 struct OVaultApp: App {

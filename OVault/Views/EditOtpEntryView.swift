@@ -68,7 +68,9 @@ struct EditOtpEntryView: View {
     }
 }
 
+#if DEBUG
 #Preview {
     EditOtpEntryView(otp: .testTotp30sec)
         .previewEnvironment()
 }
+#endif

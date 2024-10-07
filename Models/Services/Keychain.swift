@@ -24,11 +24,13 @@ enum KeychainError: Error, LocalizedError {
 public protocol KeychainProtocol {
     func store(otp: Otp) async throws -> Void
     func update(otp: Otp) async throws -> Void
+    func get(id: String) async throws -> Otp
     func getAll() async throws -> [Otp]
     func delete(otp: Otp) async throws -> Void
 }
 
 public actor Keychain: KeychainProtocol {
+    public static var shared: KeychainProtocol = Keychain()
     
     public func store(otp: Otp) throws {
         let addQuery = try createAddQuery(otp: otp)
@@ -38,7 +40,7 @@ public actor Keychain: KeychainProtocol {
     }
     
     public func update(otp: Otp) throws {
-        let findQuery = createFindQuery(otp: otp)
+        let findQuery = createFindQuery(id: otp.id.uuidString)
         let updateQuery = try createUpdateQuery(otp: otp)
         
         let status = SecItemUpdate(findQuery, updateQuery)
@@ -59,15 +61,30 @@ public actor Keychain: KeychainProtocol {
         return try results.map({ try convertResultToOtp($0) })
     }
     
+    public func get(id: String) async throws -> Otp {
+        var getQuery = createFindQuery(id: id) as! [String: Any]
+        getQuery.updateValue(true, forKey: kSecReturnAttributes as String)
+        getQuery.updateValue(true, forKey: kSecReturnData as String)
+        
+        var result: CFTypeRef?
+        let status = SecItemCopyMatching(getQuery as CFDictionary, &result)
+        guard status == errSecSuccess else { throw KeychainError.fetchFailure(status) }
+        
+        // Result is an array of dictionaries, where each dictionary is all the response attributes
+        guard let result = result as? [String : Any] else { throw KeychainError.fetchUnexpectedResult }
+
+        return try convertResultToOtp(result)
+    }
+    
     public func delete(otp: Otp) throws {
-        let findQuery = createFindQuery(otp: otp)
+        let findQuery = createFindQuery(id: otp.id.uuidString)
         
         let status = SecItemDelete(findQuery)
         guard status == errSecSuccess || status == errSecItemNotFound else { throw KeychainError.fetchFailure(status) }
     }
     
-    func createFindQuery(otp: Otp) -> CFDictionary {
-        let name = "net.ovault.otp.\(otp.id.uuidString)"
+    func createFindQuery(id: String) -> CFDictionary {
+        let name = "net.ovault.otp.\(id)"
         let service = "net.ovault.otp"
         return [kSecClass as String: kSecClassGenericPassword,
                 kSecAttrService as String: service,
@@ -163,6 +180,11 @@ public actor FakeKeychain: KeychainProtocol {
         return otps
     }
     
+    public func get(id: String) async throws -> Otp {
+        guard let otp = otps.first(where: { $0.id.uuidString == id }) else { throw KeychainError.fetchFailure(-1) }
+        return otp
+    }
+    
     public func delete(otp: Otp) async throws {
         let otpToDelete = otps.firstIndex(where: { $0.id == otp.id })!
         otps.remove(at: otpToDelete)
@@ -171,7 +193,7 @@ public actor FakeKeychain: KeychainProtocol {
 #endif
 
 public struct KeychainKey: EnvironmentKey {
-    public static let defaultValue: KeychainProtocol = Keychain()
+    public static let defaultValue: KeychainProtocol = Keychain.shared
 }
 
 extension EnvironmentValues {
