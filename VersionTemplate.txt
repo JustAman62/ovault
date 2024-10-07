@@ -1,0 +1,8 @@
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// The marketing version, e.g. 0.1.0
+MARKETING_VERSION = 0.1.0
+
+// The build number, e.g 10
+CURRENT_PROJECT_VERSION = 10

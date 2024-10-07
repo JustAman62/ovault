@@ -13,6 +13,9 @@
 		072049582C3F097C00CA12B9 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072049562C3F02B400CA12B9 /* Keychain.swift */; };
 		0720495B2C3F170000CA12B9 /* Logger+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0720495A2C3F170000CA12B9 /* Logger+Init.swift */; };
 		0767728B2CB3CF1E00F3A70F /* Models.h in Headers */ = {isa = PBXBuildFile; fileRef = 0767728A2CB3CF1E00F3A70F /* Models.h */; };
+		07BEB9032CB415CA005FB272 /* UpdateVersion.sh in Resources */ = {isa = PBXBuildFile; fileRef = 07BEB9002CB415CA005FB272 /* UpdateVersion.sh */; };
+		07BEB9042CB415CA005FB272 /* VersionTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07BEB9022CB415CA005FB272 /* VersionTemplate.txt */; };
+		07BEB9052CB415CA005FB272 /* Version.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 07BEB9012CB415CA005FB272 /* Version.xcconfig */; };
 		07BF2A212C3C3EFE00CB1FF5 /* AddOtpEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BF2A202C3C3EFE00CB1FF5 /* AddOtpEntryView.swift */; };
 		07BF2A252C3C441E00CB1FF5 /* OVTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BF2A242C3C441E00CB1FF5 /* OVTextField.swift */; };
 		07BF2A272C3C4A8E00CB1FF5 /* EditOtpEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BF2A262C3C4A8E00CB1FF5 /* EditOtpEntryView.swift */; };
@@ -109,6 +112,9 @@
 		0767728A2CB3CF1E00F3A70F /* Models.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Models.h; sourceTree = "<group>"; };
 		0767729D2CB40D5B00F3A70F /* WidgetExtensionExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtensionExtension.entitlements; sourceTree = "<group>"; };
 		0767D6CB2C3AAB8300E8462E /* Otp+OTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Otp+OTP.swift"; sourceTree = "<group>"; };
+		07BEB9002CB415CA005FB272 /* UpdateVersion.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = UpdateVersion.sh; sourceTree = "<group>"; };
+		07BEB9012CB415CA005FB272 /* Version.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Version.xcconfig; sourceTree = "<group>"; };
+		07BEB9022CB415CA005FB272 /* VersionTemplate.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = VersionTemplate.txt; sourceTree = "<group>"; };
 		07BF2A202C3C3EFE00CB1FF5 /* AddOtpEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOtpEntryView.swift; sourceTree = "<group>"; };
 		07BF2A222C3C3F3900CB1FF5 /* Otp+Blank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Otp+Blank.swift"; sourceTree = "<group>"; };
 		07BF2A242C3C441E00CB1FF5 /* OVTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OVTextField.swift; sourceTree = "<group>"; };
@@ -237,6 +243,9 @@
 		07C532472C38865300DC54C6 = {
 			isa = PBXGroup;
 			children = (
+				07BEB9002CB415CA005FB272 /* UpdateVersion.sh */,
+				07BEB9012CB415CA005FB272 /* Version.xcconfig */,
+				07BEB9022CB415CA005FB272 /* VersionTemplate.txt */,
 				0767729D2CB40D5B00F3A70F /* WidgetExtensionExtension.entitlements */,
 				07EF0EDD2C3DC62800F61BDF /* Docs */,
 				07C532522C38865300DC54C6 /* OVault */,
@@ -484,6 +493,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07BEB9032CB415CA005FB272 /* UpdateVersion.sh in Resources */,
+				07BEB9042CB415CA005FB272 /* VersionTemplate.txt in Resources */,
+				07BEB9052CB415CA005FB272 /* Version.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -704,6 +716,7 @@
 		};
 		07C5325F2C38865300DC54C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07BEB9012CB415CA005FB272 /* Version.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -766,6 +779,7 @@
 		};
 		07C532602C38865300DC54C6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07BEB9012CB415CA005FB272 /* Version.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -915,7 +929,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = WidgetExtensionExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = "$(inherited)";
 				DEVELOPMENT_TEAM = KED4M385SL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WidgetExtension/Info.plist;
@@ -928,7 +942,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = net.ovault.ovault.WidgetExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = NO;
@@ -951,7 +965,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = WidgetExtensionExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = "$(inherited)";
 				DEVELOPMENT_TEAM = KED4M385SL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WidgetExtension/Info.plist;
@@ -964,7 +978,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = net.ovault.ovault.WidgetExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = NO;
