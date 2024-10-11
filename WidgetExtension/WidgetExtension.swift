@@ -72,7 +72,7 @@ struct WidgetExtensionEntryView : View {
         }
     }
     
-    var rows: [[Otp]] { entry.otps.chunked(into: columnCount) }
+    var rows: [[Otp]] { entry.otps.chunked(max: maxOtps, into: columnCount) }
     
     @ViewBuilder func buttonLabel(_ otp: Otp) -> some View {
         HStack(spacing: 0) {
@@ -101,21 +101,30 @@ struct WidgetExtensionEntryView : View {
                     .font(.footnote)
             }
         }
-        .padding(6)
+        .padding(.horizontal, 8)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(RoundedRectangle(cornerRadius: 16).fill(.accent.opacity(0.2)).stroke(.accent.secondary))
-        .foregroundStyle(.accent)
-        .tint(.accent)
-        .contentShape(.rect(cornerRadius: 16))
+        .background(Rectangle().fill(.accent))
+        .foregroundStyle(.white)
+        .tint(.white)
+        .contentShape(.rect)
     }
     
     var body: some View {
         Grid(horizontalSpacing: 4, verticalSpacing: 4) {
             if entry.otps.isEmpty {
-                Text("No OTPs selected")
+                Button(intent: GenerateOtpAppIntent(id: "")) {
+                    VStack(spacing: 12) {
+                        Image(systemName: "exclamationmark.arrow.trianglehead.2.clockwise.rotate.90")
+                        Text("No OTPs Found")
+                        Text("Tap to Reload")
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
+                .buttonStyle(.borderedProminent)
+                .buttonBorderShape(.roundedRectangle(radius: 16))
             } else {
                 ForEach(rows, id: \.first!.id) { row in
-                    GridRow {
+                    HStack(spacing: 4) {
                         ForEach(row) { otp in
                             Button(intent: GenerateOtpAppIntent(id: otp.id.uuidString)) {
                                 buttonLabel(otp)
@@ -127,7 +136,8 @@ struct WidgetExtensionEntryView : View {
                 }
             }
         }
-        .padding(8)
+        .clipShape(.rect(cornerRadius: 18))
+        .padding(4)
     }
 }
 
@@ -145,19 +155,34 @@ struct WidgetExtension: Widget {
 }
 
 extension Array {
-    func chunked(into size: Int) -> [[Element]] {
-        return stride(from: 0, to: count, by: size).map {
+    func chunked(max: Int, into size: Int) -> [[Element]] {
+        return stride(from: 0, to: Swift.min(max, count), by: size).map {
             Array(self[$0 ..< Swift.min($0 + size, count)])
         }
     }
 }
 
 #if DEBUG
-#Preview(as: .systemMedium) {
+#Preview("Populated", as: .systemMedium) {
     Keychain.shared = FakeKeychain(withData: true)
     return WidgetExtension()
 } timeline: {
-    SimpleEntry(date: Date(), otps: [.testTotp15sec], showCodeForId: nil, code: nil, expiryDate: nil)
+    SimpleEntry(date: Date(), otps: [.testTotp15sec, .testTotp30sec, .testTotp15sec, .testTotp15sec, .testTotp30sec], showCodeForId: nil, code: nil, expiryDate: nil)
     SimpleEntry(date: Date(), otps: [.testTotp15sec], showCodeForId: Otp.testTotp30sec.id.uuidString, code: "123456", expiryDate: .now.addingTimeInterval(5))
+}
+
+#Preview("Small", as: .systemSmall) {
+    Keychain.shared = FakeKeychain(withData: true)
+    return WidgetExtension()
+} timeline: {
+    SimpleEntry(date: Date(), otps: [.testTotp15sec, .testTotp30sec, .testTotp15sec, .testTotp15sec, .testTotp30sec, .testTotp15sec], showCodeForId: nil, code: nil, expiryDate: nil)
+    SimpleEntry(date: Date(), otps: [.testTotp15sec], showCodeForId: Otp.testTotp30sec.id.uuidString, code: "123456", expiryDate: .now.addingTimeInterval(5))
+}
+
+#Preview("Empty", as: .systemMedium) {
+    Keychain.shared = FakeKeychain(withData: true)
+    return WidgetExtension()
+} timeline: {
+    SimpleEntry(date: Date(), otps: [], showCodeForId: nil, code: nil, expiryDate: nil)
 }
 #endif

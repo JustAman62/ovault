@@ -59,6 +59,7 @@ struct GenerateOtpAppIntent: AppIntent {
     init() { }
     
     func perform() async throws -> some IntentResult & OpensIntent {
+        if id.isEmpty { return .result() }
         let otp = try await Keychain.shared.get(id: id)
 
         UserDefaults.standard.set(otp.id.uuidString, forKey: "WidgetShowCodeForId")
