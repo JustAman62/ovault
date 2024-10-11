@@ -113,14 +113,24 @@ struct WidgetExtensionEntryView : View {
         Grid(horizontalSpacing: 4, verticalSpacing: 4) {
             if entry.otps.isEmpty {
                 Button(intent: GenerateOtpAppIntent(id: "")) {
-                    VStack(spacing: 12) {
-                        Image(systemName: "exclamationmark.arrow.trianglehead.2.clockwise.rotate.90")
-                        Text("No OTPs Found")
-                        Text("Tap to Reload")
+                    ZStack {
+                        VStack(spacing: 8) {
+                            Image(systemName: "exclamationmark.arrow.trianglehead.2.clockwise.rotate.90")
+                            Text("No OTPs Found")
+                            Text("Tap to Reload")
+                            Spacer()
+                        }
+                        Text("Last Loaded: \(entry.date.formatted(date: .omitted, time: .shortened))")
+                            .font(.caption2)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
+                            .padding(.horizontal)
                     }
+                    .padding(.vertical)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Rectangle().fill(.accent))
+                    .foregroundStyle(.white)
                 }
-                .buttonStyle(.borderedProminent)
+                .buttonStyle(.plain)
                 .buttonBorderShape(.roundedRectangle(radius: 16))
             } else {
                 ForEach(rows, id: \.first!.id) { row in
@@ -151,6 +161,7 @@ struct WidgetExtension: Widget {
         }
         .contentMarginsDisabled()
         .containerBackgroundRemovable()
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .systemExtraLarge])
     }
 }
 

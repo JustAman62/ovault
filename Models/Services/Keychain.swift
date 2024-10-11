@@ -58,7 +58,7 @@ public actor Keychain: KeychainProtocol {
         // Result is an array of dictionaries, where each dictionary is all the response attributes
         guard let results = result as? [[String : Any]] else { throw KeychainError.fetchUnexpectedResult }
 
-        return try results.map({ try convertResultToOtp($0) })
+        return try results.map({ try convertResultToOtp($0) }).sorted(by: { $0.accountName < $1.accountName })
     }
     
     public func get(id: String) async throws -> Otp {
