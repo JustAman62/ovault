@@ -27,8 +27,27 @@ struct EditOtpEntryView: View {
         VStack {
             Form {
                 Section {
-                    OVTextField("Account Name", text: $otp.accountName)
-                    OVTextField("Issuer", text: $otp.issuer)
+                    OVTextField("Account Name", text: $otp.accountName, placeholder: "Gold Account")
+                    OVTextField("Issuer", text: $otp.issuer, placeholder: "Acme Corp")
+                    HStack {
+                        OVTextField("Domain", text: $otp.domainName, placeholder: "example.com")
+                            .keyboardType(.URL)
+                            .textInputAutocapitalization(.never)
+                        AsyncImage(url: otp.imageUrl) { image in
+                            image
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                                .clipShape(.circle)
+                        } placeholder: {
+                            Circle()
+                                .foregroundStyle(.gray)
+                                .frame(width: 30, height: 30)
+                        }
+                        // Giving the image a ID that changes when the URL changes means it always reloads
+                        .id(otp.imageUrl)
+                    }
+                } footer: {
+                    Text("Logos provided by [Logo.dev](https://logo.dev)")
                 }
                 
                 Section {
@@ -70,7 +89,7 @@ struct EditOtpEntryView: View {
 
 #if DEBUG
 #Preview {
-    EditOtpEntryView(otp: .testTotp30sec)
+    EditOtpEntryView(otp: .testTotp15sec)
         .previewEnvironment()
 }
 #endif

@@ -5,6 +5,7 @@ internal struct KeychainData: Codable {
     public var issuer: String
     /// The name of the account (or any useful identifier) which this credential is associated with.
     public var accountName: String
+    public var domainName: String
     
     /// The hashing algorithm to generate the OTP with. Valid Values: `SHA1` (Default), `SHA256`, `SHA512`.
     public var algorithm: HashAlgorithm
@@ -24,6 +25,7 @@ extension KeychainData {
         self.init(
             issuer: otp.issuer,
             accountName: otp.accountName,
+            domainName: otp.domainName,
             algorithm: otp.algorithm,
             digits: otp.digits,
             type: otp.type,
@@ -35,6 +37,6 @@ extension KeychainData {
 
 extension Otp {
     convenience init(from data: KeychainData, id: UUID, secret: String) {
-        self.init(id: id, issuer: data.issuer, accountName: data.accountName, algorithm: data.algorithm, digits: data.digits, secret: secret, period: data.period)
+        self.init(id: id, issuer: data.issuer, accountName: data.accountName, domainName: data.domainName, algorithm: data.algorithm, digits: data.digits, secret: secret, period: data.period)
     }
 }

@@ -50,6 +50,25 @@ struct AddOtpEntryView: View {
             Section {
                 OVTextField("Account Name", text: $newEntry.accountName, placeholder: "Gold Account")
                 OVTextField("Issuer", text: $newEntry.issuer, placeholder: "Acme Corp")
+                HStack {
+                    OVTextField("Domain", text: $newEntry.domainName, placeholder: "example.com")
+                        .keyboardType(.URL)
+                        .textInputAutocapitalization(.never)
+                    AsyncImage(url: newEntry.imageUrl) { image in
+                        image
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .clipShape(.circle)
+                    } placeholder: {
+                        Circle()
+                            .foregroundStyle(.gray.opacity(0.5))
+                            .frame(width: 30, height: 30)
+                    }
+                    // Giving the image a ID that changes when the URL changes means it always reloads
+                    .id(newEntry.imageUrl)
+                }
+            } footer: {
+                Text("Logos provided by [Logo.dev](https://logo.dev)")
             }
             
             OVTextField("Secret", text: $newEntry.secret, placeholder: "ABCDEFGHIJKLMNOP")

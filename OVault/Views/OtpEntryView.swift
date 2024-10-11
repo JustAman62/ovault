@@ -16,8 +16,21 @@ struct OtpEntryView: View {
     var body: some View {
         VStack {
             HStack(alignment: .center) {
-                Text(otp.issuer)
-                    .bold()
+                HStack {
+                    AsyncImage(url: otp.imageUrl) { image in
+                        image
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .clipShape(.circle)
+                    } placeholder: {
+                        Circle()
+                            .foregroundStyle(.gray)
+                            .frame(width: 30, height: 30)
+                    }
+
+                    Text(otp.issuer)
+                        .bold()
+                }
                 Spacer()
                 Text(otp.accountName)
                     .font(.caption)

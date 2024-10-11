@@ -9,6 +9,8 @@ public final class Otp: Identifiable {
     public var issuer: String
     /// The name of the account (or any useful identifier) which this credential is associated with.
     public var accountName: String
+    /// The doamin name the OTP is used for. This is used to populate the logo associated with the OTP.
+    public var domainName: String
     
     /// The hashing algorithm to generate the OTP with. Valid Values: `SHA1` (Default), `SHA256`, `SHA512`.
     public var algorithm: HashAlgorithm
@@ -26,10 +28,11 @@ public final class Otp: Identifiable {
     /// The period parameter for `OtpType.totp` credentials, in seconds. Defaults to 30 seconds.
     public var period: Int
     
-    public init(id: UUID, issuer: String, accountName: String, algorithm: HashAlgorithm, digits: Int, secret: String, period: Int) {
+    public init(id: UUID, issuer: String, accountName: String, domainName: String, algorithm: HashAlgorithm, digits: Int, secret: String, period: Int) {
         self.id = id
         self.issuer = issuer
         self.accountName = accountName
+        self.domainName = domainName
         self.algorithm = algorithm
         self.digits = digits
         self.secret = secret
@@ -49,6 +52,10 @@ extension Otp {
     public var nextExpiryDate: Date {
         Date(timeIntervalSince1970: Double((self.timeStep + 1) * Int64(self.period)))
     }
+}
+
+extension Otp {
+    public var imageUrl: URL { URL(string: "https://img.logo.dev/\(self.domainName)?format=png&token=pk_TM6KzUJ7SBWjyqpGWdWLmg")! }
 }
 
 public enum OtpType: String, CaseIterable, Hashable, Codable {

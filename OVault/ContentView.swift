@@ -39,18 +39,22 @@ struct ContentView: View {
         }
         
         List {
-            ForEach(items) { item in
-                OtpEntryView(otp: item)
-                    .refreshable {
-                        await load()
-                    }
+            Section {
+                ForEach(items) { item in
+                    OtpEntryView(otp: item)
+                        .refreshable {
+                            await load()
+                        }
 #if os(macOS)
-                    .padding()
+                        .padding()
 #else
-                    .padding(.top, 2)
-                    .padding(.bottom, 6)
-                    .labelStyle(.titleAndIcon)
+                        .padding(.top, 2)
+                        .padding(.bottom, 6)
+                        .labelStyle(.titleAndIcon)
 #endif
+                }
+            } footer: {
+                Text("Logos provided by [Logo.dev](https://logo.dev)")
             }
         }
     }
