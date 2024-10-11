@@ -60,6 +60,14 @@ struct GenerateOtpAppIntent: AppIntent {
     
     func perform() async throws -> some IntentResult & OpensIntent {
         if id.isEmpty { return .result() }
+        
+        let existingId = UserDefaults.standard.string(forKey: "WidgetShowCodeForId")
+        if existingId == id {
+            UserDefaults.standard.set("", forKey: "WidgetShowCodeForId")
+            UserDefaults.standard.set(Date(), forKey: "WidgetShowCodeExpiryDate")
+            return .result()
+        }
+
         let otp = try await Keychain.shared.get(id: id)
 
         UserDefaults.standard.set(otp.id.uuidString, forKey: "WidgetShowCodeForId")

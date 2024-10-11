@@ -43,7 +43,7 @@ struct OtpEntryView: View {
                         .contentShape(.circle)
                 }
                 .menuStyle(.borderlessButton)
-                .frame(width: 30)
+                .frame(width: 30, height: 30)
             }
             
             HStack {
