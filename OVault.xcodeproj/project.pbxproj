@@ -150,6 +150,7 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		0719B3C42CBBF67C0085A3CF /* Screenshots */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Screenshots; sourceTree = "<group>"; };
 		07C600992CB2FB7A005F19B2 /* WidgetExtension */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (07C600A82CB2FB7A005F19B2 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = WidgetExtension; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -295,6 +296,7 @@
 		07EF0EDD2C3DC62800F61BDF /* Docs */ = {
 			isa = PBXGroup;
 			children = (
+				0719B3C42CBBF67C0085A3CF /* Screenshots */,
 				07EF0EDB2C3DC62800F61BDF /* example-qr-code.png */,
 				07EF0EDC2C3DC62800F61BDF /* Examples.md */,
 			);

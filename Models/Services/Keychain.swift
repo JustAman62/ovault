@@ -30,7 +30,11 @@ public protocol KeychainProtocol {
 }
 
 public actor Keychain: KeychainProtocol {
+    #if DEBUG
+    public static var shared: KeychainProtocol = FakeKeychain(withData: true)
+    #else
     public static var shared: KeychainProtocol = Keychain()
+    #endif
     
     public func store(otp: Otp) throws {
         let addQuery = try createAddQuery(otp: otp)

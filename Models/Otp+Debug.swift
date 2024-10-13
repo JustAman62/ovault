@@ -4,9 +4,9 @@ import Foundation
 public extension Otp {
     static var testTotp30sec: Otp = .init(
         id: UUID(),
-        issuer: "Test Issuer",
-        accountName: "30sec Account",
-        domainName: "go-roam.co",
+        issuer: "Example Issuer",
+        accountName: "Account Name",
+        domainName: "example.com",
         algorithm: .SHA1,
         digits: 6,
         secret: "JBSWY3DPEHPK3PXP",
@@ -14,8 +14,8 @@ public extension Otp {
     
     static var testTotp15sec: Otp = .init(
         id: UUID(),
-        issuer: "Test Issuer",
-        accountName: "15sec Account",
+        issuer: "Google",
+        accountName: "My Email",
         domainName: "google.com",
         algorithm: .SHA1,
         digits: 6,
@@ -24,8 +24,8 @@ public extension Otp {
     
     static var testTotp60sec: Otp = .init(
         id: UUID(), 
-        issuer: "Test Issuer",
-        accountName: "60sec 8digit Account",
+        issuer: "GitHub",
+        accountName: "GitHub Account",
         domainName: "github.com",
         algorithm: .SHA1,
         digits: 8,
