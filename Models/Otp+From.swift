@@ -43,7 +43,7 @@ extension Otp {
         let digits = Int(query["digits"] ?? "6") ?? 6
         
         let period = Int(query["period"] ?? "30") ?? 30
-        let domainName = accountName.contains(".") ? accountName : "\(accountName).com"
+        let domainName = issuer.contains(".") ? issuer : "\(issuer).com"
         return .init(id: UUID(), issuer: issuer, accountName: accountName, domainName: domainName, algorithm: algorithm ?? .SHA1, digits: digits, secret: secret, period: period)
     }
 }
