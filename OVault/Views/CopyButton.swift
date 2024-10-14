@@ -38,6 +38,7 @@ struct CopyButton: View {
         } label: {
             Label(internalTitle, systemImage: "rectangle.portrait.on.rectangle.portrait.fill")
                 .fixedSize()
+                .foregroundStyle(.white)
         }
         .buttonStyle(.borderedProminent)
         .disabled(internalTitle != title)
