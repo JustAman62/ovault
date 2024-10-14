@@ -31,8 +31,10 @@ struct EditOtpEntryView: View {
                     OVTextField("Issuer", text: $otp.issuer, placeholder: "Acme Corp")
                     HStack {
                         OVTextField("Domain", text: $otp.domainName, placeholder: "example.com")
+#if !os(macOS)
                             .keyboardType(.URL)
                             .textInputAutocapitalization(.never)
+#endif
                         AsyncImage(url: otp.imageUrl) { image in
                             image
                                 .resizable()
@@ -64,7 +66,7 @@ struct EditOtpEntryView: View {
                 }
             }
             .formStyle(.grouped)
-
+            
 #if os(macOS)
             HStack {
                 Button("Cancel", role: .cancel) {

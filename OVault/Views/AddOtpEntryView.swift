@@ -36,11 +36,11 @@ struct AddOtpEntryView: View {
             if newEntry.accountName.isEmpty { throw ValidationError.AccountNameRequired }
             if newEntry.issuer.isEmpty { throw ValidationError.IssuerRequired }
             if newEntry.secret.isEmpty { throw ValidationError.SecretRequired }
-
+            
             try await keychain.store(otp: self.newEntry)
             
             await refresh?()
-
+            
             DispatchQueue.main.async { dismiss() }
         }
     }
@@ -52,8 +52,10 @@ struct AddOtpEntryView: View {
                 OVTextField("Issuer", text: $newEntry.issuer, placeholder: "Acme Corp")
                 HStack {
                     OVTextField("Domain", text: $newEntry.domainName, placeholder: "example.com")
+#if !os(macOS)
                         .keyboardType(.URL)
                         .textInputAutocapitalization(.never)
+#endif
                     AsyncImage(url: newEntry.imageUrl) { image in
                         image
                             .resizable()
