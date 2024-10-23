@@ -15,6 +15,7 @@
 		074CE3912CC95D5000E41942 /* Otp+DomainIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074CE3902CC95D4500E41942 /* Otp+DomainIcon.swift */; };
 		074CE3922CC95F6E00E41942 /* DomainIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074CE38E2CC9524E00E41942 /* DomainIcon.swift */; };
 		074CE3942CC9618700E41942 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074CE3932CC9618700E41942 /* SettingsView.swift */; };
+		0763EF412CC9AA2100610CF0 /* Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07C43BAF2C3C830100BE0F34 /* Models.framework */; };
 		0767728B2CB3CF1E00F3A70F /* Models.h in Headers */ = {isa = PBXBuildFile; fileRef = 0767728A2CB3CF1E00F3A70F /* Models.h */; };
 		07BEB9032CB415CA005FB272 /* UpdateVersion.sh in Resources */ = {isa = PBXBuildFile; fileRef = 07BEB9002CB415CA005FB272 /* UpdateVersion.sh */; };
 		07BEB9042CB415CA005FB272 /* VersionTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07BEB9022CB415CA005FB272 /* VersionTemplate.txt */; };
@@ -39,7 +40,6 @@
 		07C600972CB2FB7A005F19B2 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 070F9A7F2C3C7EB000FB4297 /* WidgetKit.framework */; };
 		07C600982CB2FB7A005F19B2 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 070F9A812C3C7EB000FB4297 /* SwiftUI.framework */; };
 		07C600A72CB2FB7A005F19B2 /* WidgetExtensionExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 07C600962CB2FB7A005F19B2 /* WidgetExtensionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		07C600AC2CB30AE5005F19B2 /* Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07C43BAF2C3C830100BE0F34 /* Models.framework */; };
 		07EF0ED82C3DBBF900F61BDF /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 07EF0ED72C3DBBF900F61BDF /* CodeScanner */; };
 		07EF0EDA2C3DBC1400F61BDF /* OtpQrScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EF0ED92C3DBC1400F61BDF /* OtpQrScannerView.swift */; };
 		07F630F22C3B18FF00A10485 /* OtpEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F630F12C3B18FF00A10485 /* OtpEntryView.swift */; };
@@ -189,9 +189,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0763EF412CC9AA2100610CF0 /* Models.framework in Frameworks */,
 				07C600982CB2FB7A005F19B2 /* SwiftUI.framework in Frameworks */,
 				07C600972CB2FB7A005F19B2 /* WidgetKit.framework in Frameworks */,
-				07C600AC2CB30AE5005F19B2 /* Models.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -954,6 +954,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
+					"@executable_path/../../../Frameworks",
+					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = "$(inherited)";
@@ -990,6 +992,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
+					"@executable_path/../../../Frameworks",
+					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = "$(inherited)";
