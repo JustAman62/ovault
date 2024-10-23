@@ -97,8 +97,7 @@ struct WidgetExtensionEntryView : View {
                         .lineLimit(1)
                 }
                 Spacer()
-                Image(systemName: "eye")
-                    .font(.footnote)
+                DomainIcon(otp: otp)
             }
         }
         .padding(.horizontal, 8)

@@ -1,21 +1,27 @@
 import SwiftUI
-import Models
 
-struct DomainIcon: View {
-    var otp: Otp
+
+public struct DomainIcon: View {
+    private var otp: Otp
+
+    private let size: CGFloat = 30
+    
+    public init(otp: Otp) {
+        self.otp = otp
+    }
     
     @State var previousTask: Task<Void, Never>?
 
-    var body: some View {
+    public var body: some View {
         Group {
             if let image = otp.domainIcon {
                 image
                     .resizable()
-                    .frame(width: 30, height: 30)
+                    .frame(width: size, height: size)
                     .clipShape(.circle)
             } else {
                 Text(otp.issuer.prefix(1).uppercased())
-                    .frame(width: 30, height: 30)
+                    .frame(width: size, height: size)
                     .background(.white)
                     .foregroundStyle(.black)
                     .clipShape(.circle)

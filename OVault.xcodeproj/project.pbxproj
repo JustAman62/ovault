@@ -12,8 +12,8 @@
 		071A79A82C3AA66A00077318 /* ovaultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071A79A72C3AA66A00077318 /* ovaultTests.swift */; };
 		072049582C3F097C00CA12B9 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072049562C3F02B400CA12B9 /* Keychain.swift */; };
 		0720495B2C3F170000CA12B9 /* Logger+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0720495A2C3F170000CA12B9 /* Logger+Init.swift */; };
-		074CE38F2CC9524E00E41942 /* DomainIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074CE38E2CC9524E00E41942 /* DomainIcon.swift */; };
 		074CE3912CC95D5000E41942 /* Otp+DomainIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074CE3902CC95D4500E41942 /* Otp+DomainIcon.swift */; };
+		074CE3922CC95F6E00E41942 /* DomainIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074CE38E2CC9524E00E41942 /* DomainIcon.swift */; };
 		0767728B2CB3CF1E00F3A70F /* Models.h in Headers */ = {isa = PBXBuildFile; fileRef = 0767728A2CB3CF1E00F3A70F /* Models.h */; };
 		07BEB9032CB415CA005FB272 /* UpdateVersion.sh in Resources */ = {isa = PBXBuildFile; fileRef = 07BEB9002CB415CA005FB272 /* UpdateVersion.sh */; };
 		07BEB9042CB415CA005FB272 /* VersionTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07BEB9022CB415CA005FB272 /* VersionTemplate.txt */; };
@@ -242,6 +242,7 @@
 				0767D6CB2C3AAB8300E8462E /* Otp+OTP.swift */,
 				074CE3902CC95D4500E41942 /* Otp+DomainIcon.swift */,
 				07C43BC62C3C89D300BE0F34 /* Otp+Debug.swift */,
+				074CE38E2CC9524E00E41942 /* DomainIcon.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -318,7 +319,6 @@
 				07BF2A262C3C4A8E00CB1FF5 /* EditOtpEntryView.swift */,
 				07BF2A242C3C441E00CB1FF5 /* OVTextField.swift */,
 				07EF0ED92C3DBC1400F61BDF /* OtpQrScannerView.swift */,
-				074CE38E2CC9524E00E41942 /* DomainIcon.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -522,6 +522,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				074CE3922CC95F6E00E41942 /* DomainIcon.swift in Sources */,
 				07C600802CB2DBD1005F19B2 /* KeychainData.swift in Sources */,
 				07C43BC02C3C832800BE0F34 /* Otp+OTP.swift in Sources */,
 				074CE3912CC95D5000E41942 /* Otp+DomainIcon.swift in Sources */,
@@ -542,7 +543,6 @@
 				07F630F42C3B28DC00A10485 /* CopyButton.swift in Sources */,
 				07C532562C38865300DC54C6 /* ContentView.swift in Sources */,
 				07BF2A252C3C441E00CB1FF5 /* OVTextField.swift in Sources */,
-				074CE38F2CC9524E00E41942 /* DomainIcon.swift in Sources */,
 				07BF2A272C3C4A8E00CB1FF5 /* EditOtpEntryView.swift in Sources */,
 				07BF2A212C3C3EFE00CB1FF5 /* AddOtpEntryView.swift in Sources */,
 				07C532542C38865300DC54C6 /* OVaultApp.swift in Sources */,
