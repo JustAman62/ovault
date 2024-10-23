@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @AppStorage("iconsEnabled") private var iconsEnabled: Bool = false
+    @AppStorage("iconsEnabled", store: UserDefaults(suiteName: "group.net.ovault")) private var iconsEnabled: Bool = false
     
     private var version: String {
         Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
