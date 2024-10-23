@@ -36,6 +36,7 @@ public struct DomainIcon: View {
     }
 }
 
+#if DEBUG
 #Preview("Not Loaded") {
     DomainIcon(otp: .testTotp30sec)
 }
@@ -46,3 +47,4 @@ public struct DomainIcon: View {
             await Otp.testTotp30sec.loadDomainIcon()
         }
 }
+#endif
