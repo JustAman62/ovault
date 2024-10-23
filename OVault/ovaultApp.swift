@@ -9,5 +9,10 @@ struct OVaultApp: App {
             ContentView()
                 .withNotifierSupport()
         }
+#if os(macOS)
+        Settings {
+            SettingsView()
+        }
+#endif
     }
 }

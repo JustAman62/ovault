@@ -3,6 +3,7 @@ import Models
 
 struct ContentView: View {
     @State private var isOtpScanPresented: Bool = false
+    @State private var isSettingsPresented: Bool = false
     @State private var items: [Otp]? = nil
     
     @Environment(\.notifier) private var notifier
@@ -70,7 +71,7 @@ struct ContentView: View {
                 }
             }
             .toolbar {
-                ToolbarItem {
+                ToolbarItem(placement: .primaryAction) {
                     Menu {
                         NavigationLink {
                             AddOtpEntryView()
@@ -86,6 +87,15 @@ struct ContentView: View {
                     } label: {
                         Label("New OTP", systemImage: "plus")
                     }
+                }
+                ToolbarItem(placement: .automatic) {
+#if os(macOS)
+                    SettingsLink()
+#else
+                    Button("Settings", systemImage: "gear") {
+                        isSettingsPresented.toggle()
+                    }
+#endif
                 }
             }
             .navigationTitle("OVault")
@@ -110,6 +120,19 @@ struct ContentView: View {
         .scrollDismissesKeyboard(.interactively)
         .refreshable {
             await load()
+        }
+        .sheet(isPresented: $isSettingsPresented) {
+            NavigationStack {
+                SettingsView()
+                    .navigationTitle("Settings")
+                    .toolbar {
+                        ToolbarItem(placement: .primaryAction) {
+                            Button("Close") {
+                                isSettingsPresented.toggle()
+                            }
+                        }
+                    }
+            }
         }
     }
 }

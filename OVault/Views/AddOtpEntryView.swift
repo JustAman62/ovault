@@ -59,7 +59,11 @@ struct AddOtpEntryView: View {
                     DomainIcon(otp: newEntry)
                 }
             } footer: {
-                Text("Logos provided by [Logo.dev](https://logo.dev)")
+                Text("""
+                     Logos provided by [Logo.dev](https://logo.dev)
+                     
+                     To prevent requests being made to [Logo.dev](https://logo.dev), you can either remove the Domain from this OTPs configuration, or disable Domain Icons in Settings.
+                     """)
             }
             
             OVTextField("Secret", text: $newEntry.secret, placeholder: "ABCDEFGHIJKLMNOP")
