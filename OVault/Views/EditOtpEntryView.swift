@@ -35,18 +35,7 @@ struct EditOtpEntryView: View {
                             .keyboardType(.URL)
                             .textInputAutocapitalization(.never)
 #endif
-                        AsyncImage(url: otp.imageUrl) { image in
-                            image
-                                .resizable()
-                                .frame(width: 30, height: 30)
-                                .clipShape(.circle)
-                        } placeholder: {
-                            Circle()
-                                .foregroundStyle(.gray)
-                                .frame(width: 30, height: 30)
-                        }
-                        // Giving the image a ID that changes when the URL changes means it always reloads
-                        .id(otp.imageUrl)
+                        DomainIcon(otp: otp)
                     }
                 } footer: {
                     Text("Logos provided by [Logo.dev](https://logo.dev)")

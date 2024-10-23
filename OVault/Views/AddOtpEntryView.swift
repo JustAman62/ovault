@@ -56,18 +56,7 @@ struct AddOtpEntryView: View {
                         .keyboardType(.URL)
                         .textInputAutocapitalization(.never)
 #endif
-                    AsyncImage(url: newEntry.imageUrl) { image in
-                        image
-                            .resizable()
-                            .frame(width: 30, height: 30)
-                            .clipShape(.circle)
-                    } placeholder: {
-                        Circle()
-                            .foregroundStyle(.gray.opacity(0.5))
-                            .frame(width: 30, height: 30)
-                    }
-                    // Giving the image a ID that changes when the URL changes means it always reloads
-                    .id(newEntry.imageUrl)
+                    DomainIcon(otp: newEntry)
                 }
             } footer: {
                 Text("Logos provided by [Logo.dev](https://logo.dev)")

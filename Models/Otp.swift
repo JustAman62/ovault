@@ -2,6 +2,7 @@ import Foundation
 import SwiftData
 import SwiftUI
 
+@Observable
 public final class Otp: Identifiable {
     public var id: UUID
     
@@ -9,7 +10,7 @@ public final class Otp: Identifiable {
     public var issuer: String
     /// The name of the account (or any useful identifier) which this credential is associated with.
     public var accountName: String
-    /// The doamin name the OTP is used for. This is used to populate the logo associated with the OTP.
+    /// The doamin name the OTP is used for. This is used to populate the logo associated with the OTP. This is allows to be empty.
     public var domainName: String
     
     /// The hashing algorithm to generate the OTP with. Valid Values: `SHA1` (Default), `SHA256`, `SHA512`.
@@ -28,7 +29,9 @@ public final class Otp: Identifiable {
     /// The period parameter for `OtpType.totp` credentials, in seconds. Defaults to 30 seconds.
     public var period: Int
     
-    public init(id: UUID, issuer: String, accountName: String, domainName: String, algorithm: HashAlgorithm, digits: Int, secret: String, period: Int) {
+    public var domainIcon: Image?
+    
+    public init(id: UUID, issuer: String, accountName: String, domainName: String, algorithm: HashAlgorithm, digits: Int, secret: String, period: Int, type: OtpType = .totp, counter: Int64 = 0) {
         self.id = id
         self.issuer = issuer
         self.accountName = accountName
@@ -36,8 +39,8 @@ public final class Otp: Identifiable {
         self.algorithm = algorithm
         self.digits = digits
         self.secret = secret
-        self.type = .totp
-        self.counter = 0
+        self.type = type
+        self.counter = counter
         self.period = period
     }
 }
@@ -48,14 +51,10 @@ extension Otp {
     public var lastExpiryDate: Date {
         Date(timeIntervalSince1970: Double(self.timeStep * Int64(self.period)))
     }
-
+    
     public var nextExpiryDate: Date {
         Date(timeIntervalSince1970: Double((self.timeStep + 1) * Int64(self.period)))
     }
-}
-
-extension Otp {
-    public var imageUrl: URL { URL(string: "https://img.logo.dev/\(self.domainName)?format=png&token=pk_TM6KzUJ7SBWjyqpGWdWLmg")! }
 }
 
 public enum OtpType: String, CaseIterable, Hashable, Codable {

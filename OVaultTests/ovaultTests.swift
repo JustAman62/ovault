@@ -31,10 +31,13 @@ final class ovauliTests: XCTestCase {
             id: UUID(),
             issuer: "Issuer",
             accountName: "Account Name",
+            domainName: "example.com",
             algorithm: .SHA1,
             digits: digits,
             secret: secret,
-            period: 0)
+            period: 0,
+            type: .hotp,
+            counter: counter)
         XCTAssertEqual(try entry.getOtp(), expected)
     }
 }

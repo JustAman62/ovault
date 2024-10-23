@@ -17,21 +17,14 @@ struct OtpEntryView: View {
         VStack {
             HStack(alignment: .center) {
                 HStack {
-                    AsyncImage(url: otp.imageUrl) { image in
-                        image
-                            .resizable()
-                            .frame(width: 30, height: 30)
-                            .clipShape(.circle)
-                    } placeholder: {
-                        Circle()
-                            .foregroundStyle(.gray)
-                            .frame(width: 30, height: 30)
-                    }
+                    DomainIcon(otp: otp)
 
                     Text(otp.issuer)
                         .bold()
                 }
+
                 Spacer()
+
                 Text(otp.accountName)
                     .font(.caption)
                 

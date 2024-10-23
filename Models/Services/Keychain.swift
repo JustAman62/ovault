@@ -51,7 +51,7 @@ public actor Keychain: KeychainProtocol {
         guard status == errSecSuccess else { throw KeychainError.addFailure(status) }
     }
     
-    public func getAll() throws -> [Otp] {
+    public func getAll() async throws -> [Otp] {
         let getAllQuery = createGetAllQuery()
         
         var result: CFTypeRef?
@@ -61,8 +61,14 @@ public actor Keychain: KeychainProtocol {
         
         // Result is an array of dictionaries, where each dictionary is all the response attributes
         guard let results = result as? [[String : Any]] else { throw KeychainError.fetchUnexpectedResult }
+        
+        var otps: [Otp] = []
+        for result in results {
+            let otp = try await convertResultToOtp(result)
+            otps.append(otp)
+        }
 
-        return try results.map({ try convertResultToOtp($0) }).sorted(by: { $0.accountName.uppercased() < $1.accountName.uppercased() })
+        return otps.sorted(by: { $0.accountName.uppercased() < $1.accountName.uppercased() })
     }
     
     public func get(id: String) async throws -> Otp {
@@ -77,7 +83,7 @@ public actor Keychain: KeychainProtocol {
         // Result is an array of dictionaries, where each dictionary is all the response attributes
         guard let result = result as? [String : Any] else { throw KeychainError.fetchUnexpectedResult }
 
-        return try convertResultToOtp(result)
+        return try await convertResultToOtp(result)
     }
     
     public func delete(otp: Otp) throws {
@@ -140,7 +146,7 @@ public actor Keychain: KeychainProtocol {
         ] as CFDictionary
     }
     
-    func convertResultToOtp(_ result: [String : Any]) throws -> Otp {
+    func convertResultToOtp(_ result: [String : Any]) async throws -> Otp {
         let name = result[kSecAttrAccount as String] as! String
         guard let id = UUID(uuidString: name.replacing("net.ovault.otp.", with: "", maxReplacements: 1)) else {
             throw KeychainError.unexpectedData("Unable to parse ID from Name")
@@ -155,7 +161,11 @@ public actor Keychain: KeychainProtocol {
         let encodedData = result[kSecAttrGeneric as String] as! Data
         let data = try JSONDecoder().decode(KeychainData.self, from: encodedData)
         
-        return .init(from: data, id: id, secret: secret)
+        let otp = Otp(from: data, id: id, secret: secret)
+        
+        await otp.loadDomainIcon()
+        
+        return otp
     }
 }
 
@@ -181,11 +191,17 @@ public actor FakeKeychain: KeychainProtocol {
     }
     
     public func getAll() async throws -> [Otp] {
-        return otps
+        for otp in otps {
+            await otp.loadDomainIcon()
+        }
+
+        return otps.sorted(by: { $0.accountName.uppercased() < $1.accountName.uppercased() })
     }
     
     public func get(id: String) async throws -> Otp {
         guard let otp = otps.first(where: { $0.id.uuidString == id }) else { throw KeychainError.fetchFailure(-1) }
+        await otp.loadDomainIcon()
+
         return otp
     }
     
