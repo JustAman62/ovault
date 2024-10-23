@@ -17,8 +17,10 @@ OVault is a super simple OTP app that lets you view and manage OTPs for all your
 
 ## Screenshots
 
-![iOS Main Screen](/Docs/Screenshots/ios-main-screen.png)
+<p float="left">
+  <img alt="iOS Main Screen" src="Docs/Screenshots/ios-main-screen.png" width="33%" />
 
-![iOS Widgets](/Docs/Screenshots/ios-widgets.png)
+  <img alt="iOS Widgets" src="Docs/Screenshots/ios-widgets.png" width="33%" />
 
-![iOS Add OTP](/Docs/Screenshots/ios-add-otp.png)
+  <img alt="iOS Add OTP" src="Docs/Screenshots/ios-add-otp.png" width="33%" />
+</p>
