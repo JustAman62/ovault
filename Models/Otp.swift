@@ -43,6 +43,21 @@ public final class Otp: Identifiable {
         self.counter = counter
         self.period = period
     }
+    
+    public func clone() -> Otp {
+        return Otp(
+            id: self.id,
+            issuer: self.issuer,
+            accountName: self.accountName,
+            domainName: self.domainName,
+            algorithm: self.algorithm,
+            digits: self.digits,
+            secret: self.secret,
+            period: self.period,
+            type: self.type,
+            counter: self.counter
+        )
+    }
 }
 
 extension Otp {

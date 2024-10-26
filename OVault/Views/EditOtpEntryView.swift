@@ -11,12 +11,29 @@ struct EditOtpEntryView: View {
     @Environment(\.refresh) private var refresh
     
     init(otp: Otp) {
-        self._otp = State(initialValue: otp)
+        self._otp = State(initialValue: otp.clone())
         self.secretShown = false
+    }
+    
+    enum ValidationError: Error, LocalizedError {
+        case AccountNameRequired
+        case IssuerRequired
+        
+        public var errorDescription: String? {
+            switch self {
+            case .AccountNameRequired:
+                "The Account Name field must not be empty"
+            case .IssuerRequired:
+                "The Issuer field must not be empty"
+            }
+        }
     }
     
     private func save() async {
         await notifier.execute {
+            if otp.accountName.isEmpty { throw ValidationError.AccountNameRequired }
+            if otp.issuer.isEmpty { throw ValidationError.IssuerRequired }
+
             try await keychain.update(otp: otp)
             await refresh?()
             DispatchQueue.main.async { dismiss() }

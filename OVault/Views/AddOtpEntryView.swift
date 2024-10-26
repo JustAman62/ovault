@@ -21,6 +21,19 @@ struct AddOtpEntryView: View {
         case AccountNameRequired
         case IssuerRequired
         case SecretRequired
+        
+        public var errorDescription: String? {
+            switch self {
+            case .URLRequired:
+                "A URL must be provided when adding an OTP by URL"
+            case .AccountNameRequired:
+                "The Account Name field must not be empty"
+            case .IssuerRequired:
+                "The Issuer field must not be empty"
+            case .SecretRequired:
+                "The Secret field must not be empty"
+            }
+        }
     }
     
     private func save() async {
@@ -36,6 +49,9 @@ struct AddOtpEntryView: View {
             if newEntry.accountName.isEmpty { throw ValidationError.AccountNameRequired }
             if newEntry.issuer.isEmpty { throw ValidationError.IssuerRequired }
             if newEntry.secret.isEmpty { throw ValidationError.SecretRequired }
+            
+            // Try to calculate the OTP to make sure the data is valid
+            _ = try newEntry.getOtp()
             
             try await keychain.store(otp: self.newEntry)
             
