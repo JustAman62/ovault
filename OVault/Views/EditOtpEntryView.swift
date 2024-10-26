@@ -67,11 +67,15 @@ struct EditOtpEntryView: View {
                         if secretShown {
                             Text(otp.secret)
                                 .textSelection(.enabled)
+                                .font(.body.monospaced())
                         } else {
                             Button("Reveal Secret") {
                                 secretShown.toggle()
                             }
                         }
+                    }
+                    .contextMenu {
+                        CopyButton("Copy Secret", value: otp.secret)
                     }
                 }
             }
