@@ -67,6 +67,11 @@ struct AddOtpEntryView: View {
             }
             
             OVTextField("Secret", text: $newEntry.secret, placeholder: "ABCDEFGHIJKLMNOP")
+                .onChange(of: newEntry.secret) {
+                    newEntry.secret = newEntry.secret
+                        .replacingOccurrences(of: " ", with: "")
+                        .uppercased()
+                }
             
             Section {
                 DisclosureGroup("Advanced") {
