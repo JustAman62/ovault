@@ -104,6 +104,7 @@ struct ContentView: View {
                     await notifier.execute {
                         let otp = try Otp.from(url: url)
                         try await keychain.store(otp: otp)
+                        await load()
                     }
                 }
             }
