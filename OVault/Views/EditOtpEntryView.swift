@@ -15,7 +15,7 @@ struct EditOtpEntryView: View {
         self.secretShown = false
     }
     
-    enum ValidationError: Error, LocalizedError {
+    private enum ValidationError: Error, LocalizedError {
         case AccountNameRequired
         case IssuerRequired
         

@@ -16,7 +16,7 @@ struct AddOtpEntryView: View {
         case manual, byUrl
     }
     
-    enum ValidationError: Error, LocalizedError {
+    private enum ValidationError: Error, LocalizedError {
         case URLRequired
         case AccountNameRequired
         case IssuerRequired
