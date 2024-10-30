@@ -123,8 +123,10 @@ struct AddOtpEntryView: View {
         Form {
             Section {
                 OVTextField("URL", text: $url, placeholder: "otpauth://totp/Example:alice@example.com?secret=ABCDEFGHIJKLMNOP")
+#if !os(macOS)
                     .textInputAutocapitalization(.never)
                     .textContentType(.URL)
+#endif
             }
             
             Section("Calculated") {
