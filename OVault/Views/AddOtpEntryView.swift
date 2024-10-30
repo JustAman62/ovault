@@ -40,10 +40,6 @@ struct AddOtpEntryView: View {
         await notifier.execute {
             if tab == .byUrl {
                 if url.isEmpty { throw ValidationError.URLRequired }
-                if let url = URL(string: url) {
-                    let otp = try Otp.from(url: url)
-                    self.newEntry = otp
-                }
             }
             
             if newEntry.accountName.isEmpty { throw ValidationError.AccountNameRequired }
@@ -127,9 +123,28 @@ struct AddOtpEntryView: View {
         Form {
             Section {
                 OVTextField("URL", text: $url, placeholder: "otpauth://totp/Example:alice@example.com?secret=ABCDEFGHIJKLMNOP")
+                    .textInputAutocapitalization(.never)
+                    .textContentType(.URL)
+            }
+            
+            Section("Calculated") {
+                LabeledContent("Account Name", value: newEntry.accountName)
+                LabeledContent("Issuer", value: newEntry.issuer)
+                LabeledContent("Secret", value: newEntry.secret)
+                LabeledContent("Algorithm", value: newEntry.algorithm.rawValue)
+                LabeledContent("Length", value: newEntry.digits.description)
+                LabeledContent("Period", value: "\(newEntry.period)s")
             }
         }
         .formStyle(.grouped)
+        .onChange(of: url) {
+            if let url = URL(string: url),
+               let otp = try? Otp.from(url: url) {
+                self.newEntry = otp
+            } else {
+                self.newEntry = .blank()
+            }
+        }
     }
     
     var body: some View {
