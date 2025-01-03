@@ -1,6 +1,7 @@
 import SwiftUI
 import Models
 
+#if os(macOS)
 struct MenuBarView: View {
     @Environment(\.keychain) private var keychain
     @Environment(\.openWindow) private var openWindow
@@ -47,4 +48,5 @@ struct MenuBarView: View {
         .previewEnvironment()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
 }
+#endif
 #endif

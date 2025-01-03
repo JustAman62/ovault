@@ -15,7 +15,7 @@ struct OVaultApp: App {
         
 #if os(macOS)
         Settings {
-            SettingsView()w
+            SettingsView()
         }
         .floatWindowIfSupportedAndEnabled()
         
