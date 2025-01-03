@@ -4,7 +4,7 @@ import AppIntents
 
 @main
 struct OVaultApp: App {
-    @AppStorage("showMenuBarButton", store: UserDefaults.appGroup) private var showMenuBarButton: Bool = false
+    @AppStorage("showMenuBarButton", store: UserDefaults.appGroup) private var showMenuBarButton: Bool = true
     
     var body: some Scene {
         WindowGroup("OVault", id: "otp-list") {
