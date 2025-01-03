@@ -4,18 +4,25 @@ import AppIntents
 
 @main
 struct OVaultApp: App {
+    @AppStorage("showMenuBarButton", store: UserDefaults.appGroup) private var showMenuBarButton: Bool = false
+    
     var body: some Scene {
-        WindowGroup {
+        WindowGroup("OVault", id: "otp-list") {
             ContentView()
                 .withNotifierSupport()
         }
         .floatWindowIfSupportedAndEnabled()
-
+        
 #if os(macOS)
         Settings {
-            SettingsView()
+            SettingsView()w
         }
         .floatWindowIfSupportedAndEnabled()
+        
+        MenuBarExtra("OVault", image: "MenuBar", isInserted: $showMenuBarButton) {
+            MenuBarView()
+        }
+        .menuBarExtraStyle(.window)
 #endif
     }
 }

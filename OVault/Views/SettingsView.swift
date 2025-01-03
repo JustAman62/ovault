@@ -5,6 +5,7 @@ struct SettingsView: View {
     @AppStorage("iconsEnabled", store: UserDefaults.appGroup) private var iconsEnabled: Bool = false
     @AppStorage("widgetShowsOpenInAppButton", store: UserDefaults.appGroup) private var widgetShowsOpenInAppButton: Bool = false
     @AppStorage("floatWindow", store: UserDefaults.appGroup) private var floatWindow: Bool = false
+    @AppStorage("showMenuBarButton", store: UserDefaults.appGroup) private var showMenuBarButton: Bool = false
     
     private var version: String {
         Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
@@ -45,6 +46,16 @@ struct SettingsView: View {
             } footer: {
                 Text("""
                     If enabled, the OVault app window will always float above all other windows. The app must be quit and restarted for a change to this setting to take effect.
+                    """)
+            }
+            
+            Section {
+                Toggle("Show Menu Bar Button", isOn: $showMenuBarButton)
+            } header: {
+                Text("Menu Bar")
+            } footer: {
+                Text("""
+                    If enabled, an OVault button will be added to your Menu Bar. Clicking this button will show all your OTPs allowing you to quickly view and copy them.
                     """)
             }
 #endif

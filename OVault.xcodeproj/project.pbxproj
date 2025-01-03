@@ -43,6 +43,7 @@
 		07EF0ED82C3DBBF900F61BDF /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 07EF0ED72C3DBBF900F61BDF /* CodeScanner */; };
 		07EF0EDA2C3DBC1400F61BDF /* OtpQrScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EF0ED92C3DBC1400F61BDF /* OtpQrScannerView.swift */; };
 		07EFD0442D28779B0012C3FD /* FloatingWindowExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EFD0432D28778C0012C3FD /* FloatingWindowExtensions.swift */; };
+		07EFD0852D287F2B0012C3FD /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EFD0842D287F260012C3FD /* MenuBarView.swift */; };
 		07F630F22C3B18FF00A10485 /* OtpEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F630F12C3B18FF00A10485 /* OtpEntryView.swift */; };
 		07F630F42C3B28DC00A10485 /* CopyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F630F32C3B28DC00A10485 /* CopyButton.swift */; };
 /* End PBXBuildFile section */
@@ -144,6 +145,7 @@
 		07EF0EDB2C3DC62800F61BDF /* example-qr-code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "example-qr-code.png"; sourceTree = "<group>"; };
 		07EF0EDC2C3DC62800F61BDF /* Examples.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Examples.md; sourceTree = "<group>"; };
 		07EFD0432D28778C0012C3FD /* FloatingWindowExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingWindowExtensions.swift; sourceTree = "<group>"; };
+		07EFD0842D287F260012C3FD /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
 		07F630F12C3B18FF00A10485 /* OtpEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpEntryView.swift; sourceTree = "<group>"; };
 		07F630F32C3B28DC00A10485 /* CopyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -327,6 +329,7 @@
 				07BF2A242C3C441E00CB1FF5 /* OVTextField.swift */,
 				07EF0ED92C3DBC1400F61BDF /* OtpQrScannerView.swift */,
 				074CE3932CC9618700E41942 /* SettingsView.swift */,
+				07EFD0842D287F260012C3FD /* MenuBarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 				07BF2A212C3C3EFE00CB1FF5 /* AddOtpEntryView.swift in Sources */,
 				07C532542C38865300DC54C6 /* OVaultApp.swift in Sources */,
 				07F630F22C3B18FF00A10485 /* OtpEntryView.swift in Sources */,
+				07EFD0852D287F2B0012C3FD /* MenuBarView.swift in Sources */,
 				070F9A792C3C706E00FB4297 /* Notifier.swift in Sources */,
 				074CE3942CC9618700E41942 /* SettingsView.swift in Sources */,
 				07EF0EDA2C3DBC1400F61BDF /* OtpQrScannerView.swift in Sources */,
