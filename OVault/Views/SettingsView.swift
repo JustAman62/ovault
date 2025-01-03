@@ -33,7 +33,7 @@ struct SettingsView: View {
                 Text("Widgets")
             } footer: {
                 Text("""
-                    If enabled, the bottom row of OTPs in the widget will be replaced with a "Open OVault" button as a shortcut to open the app.
+                    If enabled, the bottom row of OTPs in the widget will be replaced with an "Open OVault" button as a shortcut to open the app.
                     """)
             }
             
@@ -44,7 +44,7 @@ struct SettingsView: View {
                 Text("Window")
             } footer: {
                 Text("""
-                    If enabled, the OVault app window will always float above all other windows. If changed, the app must be quit and restarted for the new value to take effect.
+                    If enabled, the OVault app window will always float above all other windows. The app must be quit and restarted for a change to this setting to take effect.
                     """)
             }
 #endif
