@@ -62,12 +62,16 @@ struct WidgetExtensionEntryView : View {
         }
     }
     
+    private var showOpenInAppButton: Bool { UserDefaults.appGroup?.widgetShowsOpenInAppButton ?? false
+    }
+
     private var maxOtps: Int {
-        switch widgetFamily {
-        case .systemSmall: 3
-        case .systemMedium: 6
-        case .systemLarge: 12
-        case .systemExtraLarge: 12
+        
+        return switch widgetFamily {
+        case .systemSmall: showOpenInAppButton ? 2 : 3
+        case .systemMedium: showOpenInAppButton ? 4 : 6
+        case .systemLarge: showOpenInAppButton ? 8 : 12
+        case .systemExtraLarge: showOpenInAppButton ? 8 : 12
         default: 1
         }
     }
@@ -143,6 +147,18 @@ struct WidgetExtensionEntryView : View {
                         }
                     }
                 }
+                
+                if showOpenInAppButton {
+                    HStack(spacing: 4) {
+                        Text("Open OVault")
+                            .font(.caption.bold())
+                        Image(systemName: "arrow.up.forward.app.fill")
+                            .padding(.vertical, 8)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .foregroundStyle(.white)
+                    .background(.accent)
+                }
             }
         }
         .clipShape(.rect(cornerRadius: 18))
@@ -175,14 +191,16 @@ extension Array {
 #if DEBUG
 #Preview("Populated", as: .systemMedium) {
     Keychain.shared = FakeKeychain(withData: true)
+    UserDefaults.appGroup?.widgetShowsOpenInAppButton = false
     return WidgetExtension()
 } timeline: {
     SimpleEntry(date: Date(), otps: [.testTotp15sec, .testTotp30sec, .testTotp15sec, .testTotp15sec, .testTotp30sec], showCodeForId: nil, code: nil, expiryDate: nil)
     SimpleEntry(date: Date(), otps: [.testTotp15sec], showCodeForId: Otp.testTotp30sec.id.uuidString, code: "123456", expiryDate: .now.addingTimeInterval(5))
 }
 
-#Preview("Small", as: .systemSmall) {
+#Preview("With Open Button", as: .systemSmall) {
     Keychain.shared = FakeKeychain(withData: true)
+    UserDefaults.appGroup?.widgetShowsOpenInAppButton = true
     return WidgetExtension()
 } timeline: {
     SimpleEntry(date: Date(), otps: [.testTotp15sec, .testTotp30sec, .testTotp15sec, .testTotp15sec, .testTotp30sec, .testTotp15sec], showCodeForId: nil, code: nil, expiryDate: nil)
@@ -191,6 +209,7 @@ extension Array {
 
 #Preview("Empty", as: .systemMedium) {
     Keychain.shared = FakeKeychain(withData: true)
+    UserDefaults.appGroup?.widgetShowsOpenInAppButton = false
     return WidgetExtension()
 } timeline: {
     SimpleEntry(date: Date(), otps: [], showCodeForId: nil, code: nil, expiryDate: nil)

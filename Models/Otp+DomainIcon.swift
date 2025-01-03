@@ -6,9 +6,8 @@ extension Otp {
         self.domainIcon = nil
 
         if self.domainName.isEmpty { return }
-        
-        guard let userDefaults = UserDefaults(suiteName: "group.net.ovault") else { return }
-        let iconsEnabled = userDefaults.bool(forKey: "iconsEnabled")
+
+        guard let iconsEnabled = UserDefaults.appGroup?.iconsEnabled else { return }
         if !iconsEnabled { return }
         
         guard let url = URL(string: "https://img.logo.dev/\(self.domainName)?format=png&token=pk_TM6KzUJ7SBWjyqpGWdWLmg") else { return }
