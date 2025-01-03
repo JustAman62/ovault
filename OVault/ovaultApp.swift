@@ -9,10 +9,13 @@ struct OVaultApp: App {
             ContentView()
                 .withNotifierSupport()
         }
+        .floatWindowIfSupportedAndEnabled()
+
 #if os(macOS)
         Settings {
             SettingsView()
         }
+        .floatWindowIfSupportedAndEnabled()
 #endif
     }
 }

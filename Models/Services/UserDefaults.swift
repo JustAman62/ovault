@@ -22,4 +22,13 @@ public extension UserDefaults {
             self.set(newValue, forKey: "iconsEnabled")
         }
     }
+
+    var floatWindow: Bool {
+        get {
+            self.bool(forKey: "floatWindow")
+        }
+        set {
+            self.set(newValue, forKey: "floatWindow")
+        }
+    }
 }

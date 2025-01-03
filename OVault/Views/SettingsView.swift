@@ -4,6 +4,7 @@ import Models
 struct SettingsView: View {
     @AppStorage("iconsEnabled", store: UserDefaults.appGroup) private var iconsEnabled: Bool = false
     @AppStorage("widgetShowsOpenInAppButton", store: UserDefaults.appGroup) private var widgetShowsOpenInAppButton: Bool = false
+    @AppStorage("floatWindow", store: UserDefaults.appGroup) private var floatWindow: Bool = false
     
     private var version: String {
         Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
@@ -35,6 +36,18 @@ struct SettingsView: View {
                     If enabled, the bottom row of OTPs in the widget will be replaced with a "Open OVault" button as a shortcut to open the app.
                     """)
             }
+            
+#if os(macOS)
+            Section {
+                Toggle("Always On Top", isOn: $floatWindow)
+            } header: {
+                Text("Window")
+            } footer: {
+                Text("""
+                    If enabled, the OVault app window will always float above all other windows. If changed, the app must be quit and restarted for the new value to take effect.
+                    """)
+            }
+#endif
             
             Section("About") {
                 LabeledContent("Version", value: version)
