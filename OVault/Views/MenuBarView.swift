@@ -5,6 +5,7 @@ import Models
 struct MenuBarView: View {
     @Environment(\.keychain) private var keychain
     @Environment(\.openWindow) private var openWindow
+    @Environment(\.dismiss) private var dismiss
     
     @State private var items: [Otp]? = nil
     
@@ -22,6 +23,7 @@ struct MenuBarView: View {
                 Button {
                     openWindow(id: "otp-list")
                     NSApp.activate()
+                    dismiss()
                 } label: {
                     Label("Open OVault", systemImage: "arrow.up.forward.app.fill")
                         .frame(maxWidth: .infinity)
