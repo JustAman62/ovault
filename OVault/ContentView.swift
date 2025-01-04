@@ -1,5 +1,6 @@
 import SwiftUI
 import Models
+import OSLog
 
 struct ContentView: View {
     @State private var isOtpScanPresented: Bool = false
@@ -8,6 +9,7 @@ struct ContentView: View {
     
     @Environment(\.notifier) private var notifier
     @Environment(\.keychain) private var keychain
+    private var logger: Logger = .init(ContentView.self)
     
     private func load() async {
         await notifier.execute {
@@ -103,9 +105,16 @@ struct ContentView: View {
             .onOpenURL { url in
                 Task {
                     await notifier.execute {
-                        let otp = try Otp.from(url: url)
-                        try await keychain.store(otp: otp)
-                        await load()
+                        switch url.scheme {
+                        case "otpauth", "ovault-otpauth":
+                            let otp = try Otp.from(url: url)
+                            try await keychain.store(otp: otp)
+                            await load()
+                            break
+                        default:
+                            logger.info("URL opened with scheme \(url.scheme ?? "Unknown"), ignoring")
+                            break
+                        }
                     }
                 }
             }

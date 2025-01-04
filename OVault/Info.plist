@@ -24,6 +24,16 @@
 				<string>ovault-otpauth</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>net.ovault.ovault</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>ovault</string>
+			</array>
+		</dict>
 	</array>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
