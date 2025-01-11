@@ -2,6 +2,7 @@ import Foundation
 import SwiftUI
 import Models
 
+#if DEBUG
 extension View {
     @MainActor
     func previewEnvironment(withData: Bool = true) -> some View {
@@ -10,3 +11,4 @@ extension View {
             .environment(\.keychain, FakeKeychain(withData: withData))
     }
 }
+#endif

@@ -1,8 +1,13 @@
 import Foundation
+import OSLog
 
 public extension UserDefaults {
     static var appGroup: UserDefaults? {
+#if MAC_DIRECT_DISTRIBUTION
+        UserDefaults(suiteName: "KED4M385SL.net.ovault")
+#else
         UserDefaults(suiteName: "group.net.ovault")
+#endif
     }
     
     var widgetShowsOpenInAppButton: Bool {

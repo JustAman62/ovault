@@ -2,19 +2,21 @@
 SCRIPT_DIR="$(pwd)/Scripts"
 BUILD_OUTPUT_DIR="$(pwd)/build-output"
 
-# Build & Archive the app
-xcodebuild archive \
-    -project OVault.xcodeproj \
-    -scheme ovault \
-    -destination "generic/platform=macOS" \
-    -archivePath "$BUILD_OUTPUT_DIR/OVault" \
-    -configuration Release 
+mkdir -p $BUILD_OUTPUT_DIR
+rm -r $BUILD_OUTPUT_DIR/*
 
-# Export the Archive
+set -e
+
+# Build, Archive, and Export (signed with Developer ID) the app
+xcodebuild clean archive \
+    -scheme "ovault" \
+    -archivePath "$BUILD_OUTPUT_DIR/ovault" \
+    -xcconfig "$SCRIPT_DIR/MacBuild.xcconfig"
+
 xcodebuild -exportArchive \
-    -archivePath "$BUILD_OUTPUT_DIR/OVault.xcarchive" \
-    -exportPath "$BUILD_OUTPUT_DIR/OVault.app" \
-    -exportOptionsPlist "$SCRIPT_DIR/exportOptions.plist"
+    -archivePath "$BUILD_OUTPUT_DIR/ovault.xcarchive" \
+    -exportOptionsPlist $SCRIPT_DIR/exportOptions.plist \
+    -exportPath "$BUILD_OUTPUT_DIR"
 
 # Create the dmg file
 create-dmg \
@@ -29,7 +31,21 @@ create-dmg \
     "$BUILD_OUTPUT_DIR/OVault.dmg" \
     "$BUILD_OUTPUT_DIR/OVault.app"
 
+# Notarize the dmg file
+# notarytool requires you to auth to Apple with your Apple ID. 
+# You need to create a app-specific password to support this. 
+# Store the apple-id and app-specific password in Keychain with the following command:
+# `xcrun notarytool store-credentials "notarytool-password" --apple-id "" --team-id "KED4M385SL" --password ""`
 
+xcrun notarytool submit "$BUILD_OUTPUT_DIR/OVault.dmg" --keychain-profile "notarytool-password" --wait
 
+xcrun stapler staple "$BUILD_OUTPUT_DIR/OVault.dmg"
 
-# xcodebuild archive -project OVault.xcodeproj -scheme ovault -destination "generic/platform=macOS" -archivePath "/Users/aman/ovault/build-output/ovault.xcarchive" -configuration Release
+# Fetch the current version to append to the dmg file name
+SRCROOT="." # Required by the UpdateVersion script
+. "$(pwd)/UpdateVersion.sh"
+echo "Version: $VERSION"
+
+mv "$BUILD_OUTPUT_DIR/OVault.dmg" "$BUILD_OUTPUT_DIR/OVault-$VERSION.dmg"
+
+echo "DMG created at $BUILD_OUTPUT_DIR/OVault-$VERSION.dmg, ready to upload to GitHub Releases https://github.com/JustAman62/ovault/releases/latest"
