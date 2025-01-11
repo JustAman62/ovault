@@ -25,16 +25,22 @@ OVault is a super simple OTP app that lets you view and manage OTPs for all your
   <img alt="iOS Add OTP" src="Docs/Screenshots/ios-add-otp.png" width="30%" />
 </p>
 
+## Installation
+
+The primary method of installation for OVault is through the [iOS and macOS App Stores](https://apps.apple.com/us/app/ovault/id6736616639?itscg=30200&itsct=apps_box_badge&mttnsubad=6736616639).
+
+For macOS, we do offer the application for download on our [GitHub Releases](https://github.com/JustAman62/ovault/releases/latest) page. Simply open the [latest release](https://github.com/JustAman62/ovault/releases/latest) and download the DMG file attached to it. Open this DMG, then drag OVault.app to the Applications folder shown.
+
 ## Development
 
 ### Packaging
 
-`.dmg` images containing `OVault.app` are created to allow for manual distribution of the mac app. These are created using `create-dmg` which can be installed using `brew install create-dmg`.
+`.dmg` images containing `OVault.app` are created to allow for manual distribution of the mac app. These are created using `create-dmg` which can be installed using `brew install create-dmg`. These DMGs are notarized to ensure end-users can open them.
 
-Once installed, simply execute the build script and a new image will be created at `./build-output/OVault.dmg`.
+Once installed, simply execute the build script and a new image will be created at `./build-output/OVault-<version>.dmg`.
 
 ```sh
-sh ./Scropts/create-dmg.sh
+sh ./Scripts/create-dmg.sh
 ```
 
 Note: the installer background image must be 72dpi to fill our the Finder window correctly. You can set this manually on the png by executing:
