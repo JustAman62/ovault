@@ -10,6 +10,7 @@ set -e
 # Build, Archive, and Export (signed with Developer ID) the app
 xcodebuild clean archive \
     -scheme "ovault" \
+    -destination "platform=macOS" \
     -archivePath "$BUILD_OUTPUT_DIR/ovault" \
     -xcconfig "$SCRIPT_DIR/MacBuild.xcconfig"
 
