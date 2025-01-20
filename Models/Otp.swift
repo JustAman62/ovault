@@ -70,6 +70,10 @@ extension Otp {
     public var nextExpiryDate: Date {
         Date(timeIntervalSince1970: Double((self.timeStep + 1) * Int64(self.period)))
     }
+    
+    public var intervalToNextExpiry: TimeInterval {
+        (Date.now.timeIntervalSince(self.nextExpiryDate) * -1).rounded(.up)
+    }
 }
 
 public enum OtpType: String, CaseIterable, Hashable, Codable {

@@ -9,7 +9,12 @@ struct ContentView: View {
     
     @Environment(\.notifier) private var notifier
     @Environment(\.keychain) private var keychain
+
     private var logger: Logger = .init(ContentView.self)
+    // Use a single timer for all OTP entries to reduce the number of timer threads
+    private let timer = Timer
+        .publish(every: 1, on: .main, in: .common)
+        .autoconnect()
     
     private func load() async {
         await notifier.execute {
@@ -45,7 +50,7 @@ struct ContentView: View {
         List {
             Section {
                 ForEach(items) { item in
-                    OtpEntryView(otp: item)
+                    OtpEntryView(otp: item, timer: timer)
                         .refreshable {
                             await load()
                         }
