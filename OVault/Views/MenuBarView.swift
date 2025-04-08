@@ -9,10 +9,6 @@ struct MenuBarView: View {
     
     @State private var items: [Otp]? = nil
     
-    private let timer = Timer
-        .publish(every: 1, on: .main, in: .common)
-        .autoconnect()
-    
     private func load() async {
         do {
             self.items = try await keychain.getAll()
@@ -36,7 +32,7 @@ struct MenuBarView: View {
 
                 if let items = items {
                     ForEach(items) { item in
-                        OtpEntryView(otp: item, timer: timer)
+                        OtpEntryView(otp: item)
                     }
                 }
             }
