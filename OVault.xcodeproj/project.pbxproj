@@ -16,6 +16,7 @@
 		074CE3922CC95F6E00E41942 /* DomainIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074CE38E2CC9524E00E41942 /* DomainIcon.swift */; };
 		074CE3942CC9618700E41942 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074CE3932CC9618700E41942 /* SettingsView.swift */; };
 		0755DFC42D28699A009C922F /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0755DFC32D28698E009C922F /* UserDefaults.swift */; };
+		0756FD052DA5BA200008E6CC /* EnvironmentExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0756FD042DA5BA1E0008E6CC /* EnvironmentExtensions.swift */; };
 		0763EF412CC9AA2100610CF0 /* Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07C43BAF2C3C830100BE0F34 /* Models.framework */; };
 		0767728B2CB3CF1E00F3A70F /* Models.h in Headers */ = {isa = PBXBuildFile; fileRef = 0767728A2CB3CF1E00F3A70F /* Models.h */; };
 		07BEB9032CB415CA005FB272 /* UpdateVersion.sh in Resources */ = {isa = PBXBuildFile; fileRef = 07BEB9002CB415CA005FB272 /* UpdateVersion.sh */; };
@@ -118,6 +119,7 @@
 		074CE3902CC95D4500E41942 /* Otp+DomainIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Otp+DomainIcon.swift"; sourceTree = "<group>"; };
 		074CE3932CC9618700E41942 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0755DFC32D28698E009C922F /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		0756FD042DA5BA1E0008E6CC /* EnvironmentExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentExtensions.swift; sourceTree = "<group>"; };
 		0767728A2CB3CF1E00F3A70F /* Models.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Models.h; sourceTree = "<group>"; };
 		0767729D2CB40D5B00F3A70F /* WidgetExtensionExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtensionExtension.entitlements; sourceTree = "<group>"; };
 		0767D6CB2C3AAB8300E8462E /* Otp+OTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Otp+OTP.swift"; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 		07C532522C38865300DC54C6 /* OVault */ = {
 			isa = PBXGroup;
 			children = (
+				0756FD042DA5BA1E0008E6CC /* EnvironmentExtensions.swift */,
 				07C532592C38865300DC54C6 /* Assets.xcassets */,
 				07BF2A2A2C3C59A500CB1FF5 /* Info.plist */,
 				07C5325B2C38865300DC54C6 /* OVault.entitlements */,
@@ -560,6 +563,7 @@
 				07C532542C38865300DC54C6 /* OVaultApp.swift in Sources */,
 				07F630F22C3B18FF00A10485 /* OtpEntryView.swift in Sources */,
 				07EFD0852D287F2B0012C3FD /* MenuBarView.swift in Sources */,
+				0756FD052DA5BA200008E6CC /* EnvironmentExtensions.swift in Sources */,
 				070F9A792C3C706E00FB4297 /* Notifier.swift in Sources */,
 				074CE3942CC9618700E41942 /* SettingsView.swift in Sources */,
 				07EF0EDA2C3DBC1400F61BDF /* OtpQrScannerView.swift in Sources */,

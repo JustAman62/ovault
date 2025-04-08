@@ -10,7 +10,8 @@ struct OtpEntryView: View {
     @Environment(\.notifier) private var notifier
     @Environment(\.keychain) private var keychain
     @Environment(\.refresh) private var refresh
-    @Environment(\.appearsActive) var appearsActive
+    // The appearsActive environment key is only available after iOS18, so we use a compat key
+    @Environment(\.appearsActiveCompat) private var appearsActive
 
     @State private var calculated: String = ""
 
