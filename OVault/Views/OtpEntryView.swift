@@ -82,7 +82,6 @@ struct OtpEntryView: View {
                         .padding(.bottom)
                         .animation(.linear(duration: 1), value: remainingFraction)
                         .onChange(of: otp.timeStep, initial: true) {
-                            print("changed")
                             self.updateCalculated()
                         }
                 }
