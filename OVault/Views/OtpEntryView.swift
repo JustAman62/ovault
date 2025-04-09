@@ -70,9 +70,6 @@ struct OtpEntryView: View {
                     .controlSize(.large)
 #endif
             }
-            .onChange(of: otp.timeStep, initial: true) {
-                self.updateCalculated()
-            }
             
             GeometryReader { geo in
                 TimelineView(.animation(minimumInterval: 1, paused: !self.appearsActive)) { _ in
@@ -84,6 +81,10 @@ struct OtpEntryView: View {
                             height: 6)
                         .padding(.bottom)
                         .animation(.linear(duration: 1), value: remainingFraction)
+                        .onChange(of: otp.timeStep, initial: true) {
+                            print("changed")
+                            self.updateCalculated()
+                        }
                 }
                 
             }
