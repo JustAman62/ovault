@@ -113,7 +113,7 @@ struct ContentView: View {
                             await load()
                             break
                         default:
-                            logger.info("URL opened with scheme \(url.scheme ?? "Unknown"), ignoring")
+                            self.logger.info("URL opened with scheme \(url.scheme ?? "Unknown"), ignoring")
                             break
                         }
                     }

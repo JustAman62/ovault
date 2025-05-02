@@ -6,6 +6,7 @@ struct SettingsView: View {
     @AppStorage("widgetShowsOpenInAppButton", store: UserDefaults.appGroup) private var widgetShowsOpenInAppButton: Bool = false
     @AppStorage("floatWindow", store: UserDefaults.appGroup) private var floatWindow: Bool = false
     @AppStorage("showMenuBarButton", store: UserDefaults.appGroup) private var showMenuBarButton: Bool = true
+    @AppStorage("lockEnabled", store: UserDefaults.appGroup) private var lockEnabled: Bool = false
     
     private var version: String {
         Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
@@ -35,6 +36,16 @@ struct SettingsView: View {
             } footer: {
                 Text("""
                     If enabled, the bottom row of OTPs in the widget will be replaced with an "Open OVault" button as a shortcut to open the app.
+                    """)
+            }
+            
+            Section {
+                Toggle("Lock App On Launch", isOn: $lockEnabled)
+            } header: {
+                Text("Security")
+            } footer: {
+                Text("""
+                    If enabled, the app will require the user to be authenticated by the device to see your OTPs. This can be done with the devices passcode, or biometrics such as Face ID.
                     """)
             }
             

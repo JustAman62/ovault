@@ -19,6 +19,7 @@
 		0756FD052DA5BA200008E6CC /* EnvironmentExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0756FD042DA5BA1E0008E6CC /* EnvironmentExtensions.swift */; };
 		0763EF412CC9AA2100610CF0 /* Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07C43BAF2C3C830100BE0F34 /* Models.framework */; };
 		0767728B2CB3CF1E00F3A70F /* Models.h in Headers */ = {isa = PBXBuildFile; fileRef = 0767728A2CB3CF1E00F3A70F /* Models.h */; };
+		078FB9412DC5721C00349D95 /* LockedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078FB9402DC5721200349D95 /* LockedView.swift */; };
 		07BEB9032CB415CA005FB272 /* UpdateVersion.sh in Resources */ = {isa = PBXBuildFile; fileRef = 07BEB9002CB415CA005FB272 /* UpdateVersion.sh */; };
 		07BEB9042CB415CA005FB272 /* VersionTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07BEB9022CB415CA005FB272 /* VersionTemplate.txt */; };
 		07BF2A212C3C3EFE00CB1FF5 /* AddOtpEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BF2A202C3C3EFE00CB1FF5 /* AddOtpEntryView.swift */; };
@@ -123,6 +124,7 @@
 		0767728A2CB3CF1E00F3A70F /* Models.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Models.h; sourceTree = "<group>"; };
 		0767729D2CB40D5B00F3A70F /* WidgetExtensionExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtensionExtension.entitlements; sourceTree = "<group>"; };
 		0767D6CB2C3AAB8300E8462E /* Otp+OTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Otp+OTP.swift"; sourceTree = "<group>"; };
+		078FB9402DC5721200349D95 /* LockedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockedView.swift; sourceTree = "<group>"; };
 		07BEB9002CB415CA005FB272 /* UpdateVersion.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = UpdateVersion.sh; sourceTree = "<group>"; };
 		07BEB9012CB415CA005FB272 /* Version.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Version.xcconfig; sourceTree = "<group>"; };
 		07BEB9022CB415CA005FB272 /* VersionTemplate.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = VersionTemplate.txt; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 		07C532522C38865300DC54C6 /* OVault */ = {
 			isa = PBXGroup;
 			children = (
+				078FB9402DC5721200349D95 /* LockedView.swift */,
 				0756FD042DA5BA1E0008E6CC /* EnvironmentExtensions.swift */,
 				07C532592C38865300DC54C6 /* Assets.xcassets */,
 				07BF2A2A2C3C59A500CB1FF5 /* Info.plist */,
@@ -445,7 +448,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1600;
-				LastUpgradeCheck = 1610;
+				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					071A79A42C3AA66A00077318 = {
 						CreatedOnToolsVersion = 15.4;
@@ -561,6 +564,7 @@
 				07BF2A272C3C4A8E00CB1FF5 /* EditOtpEntryView.swift in Sources */,
 				07BF2A212C3C3EFE00CB1FF5 /* AddOtpEntryView.swift in Sources */,
 				07C532542C38865300DC54C6 /* OVaultApp.swift in Sources */,
+				078FB9412DC5721C00349D95 /* LockedView.swift in Sources */,
 				07F630F22C3B18FF00A10485 /* OtpEntryView.swift in Sources */,
 				07EFD0852D287F2B0012C3FD /* MenuBarView.swift in Sources */,
 				0756FD052DA5BA200008E6CC /* EnvironmentExtensions.swift in Sources */,
@@ -610,7 +614,6 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KED4M385SL;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -635,7 +638,6 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KED4M385SL;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -663,7 +665,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = NO;
-				DEVELOPMENT_TEAM = KED4M385SL;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -706,7 +707,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = NO;
-				DEVELOPMENT_TEAM = KED4M385SL;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -779,6 +779,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = KED4M385SL;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -842,6 +843,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = KED4M385SL;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -871,7 +873,6 @@
 				CURRENT_PROJECT_VERSION = "$(inherited)";
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"OVault/Preview Content\"";
-				DEVELOPMENT_TEAM = KED4M385SL;
 				ENABLE_HARDENED_RUNTIME = YES;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
@@ -897,6 +898,7 @@
 				MARKETING_VERSION = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = net.ovault.ovault;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -916,7 +918,6 @@
 				CURRENT_PROJECT_VERSION = "$(inherited)";
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"OVault/Preview Content\"";
-				DEVELOPMENT_TEAM = KED4M385SL;
 				ENABLE_HARDENED_RUNTIME = YES;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
@@ -942,6 +943,7 @@
 				MARKETING_VERSION = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = net.ovault.ovault;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -958,7 +960,6 @@
 				CODE_SIGN_ENTITLEMENTS = WidgetExtensionExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(inherited)";
-				DEVELOPMENT_TEAM = KED4M385SL;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WidgetExtension/Info.plist;
@@ -976,7 +977,7 @@
 				MARKETING_VERSION = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = net.ovault.ovault.WidgetExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				REGISTER_APP_GROUPS = NO;
+				REGISTER_APP_GROUPS = YES;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -997,7 +998,6 @@
 				CODE_SIGN_ENTITLEMENTS = WidgetExtensionExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(inherited)";
-				DEVELOPMENT_TEAM = KED4M385SL;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WidgetExtension/Info.plist;
@@ -1015,7 +1015,7 @@
 				MARKETING_VERSION = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = net.ovault.ovault.WidgetExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				REGISTER_APP_GROUPS = NO;
+				REGISTER_APP_GROUPS = YES;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
