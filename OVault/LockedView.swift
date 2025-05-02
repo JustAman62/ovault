@@ -10,6 +10,7 @@ struct LockedView<T: View>: View {
     }
     
     @Environment(\.notifier) private var notifier
+    @Environment(\.scenePhase) private var scenePhase
     
     @State private var isAuthenticated: Bool? = nil
     private var logger: Logger = .init(LockedView.self)
@@ -92,6 +93,11 @@ struct LockedView<T: View>: View {
             .background(.accent)
         case .some(true):
             content()
+                .onChange(of: scenePhase) { _, phase in
+                    if phase == .background {
+                        isAuthenticated = nil
+                    }
+                }
         }
     }
 }
