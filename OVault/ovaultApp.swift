@@ -47,7 +47,9 @@ struct OVaultApp: App {
         .floatWindowIfSupportedAndEnabled()
         
         MenuBarExtra("OVault", image: "MenuBar", isInserted: $showMenuBarButton) {
-            MenuBarView()
+            LockedView(lockEnabled: lockEnabled) {
+                MenuBarView()
+            }
         }
         .menuBarExtraStyle(.window)
 #endif

@@ -4,15 +4,18 @@ import OSLog
 import SwiftUI
 
 struct LockedView<T: View>: View {
-    init(lockEnabled: Bool, @ViewBuilder _ content: @escaping () -> T) {
-        self.lockEnabled = lockEnabled
-        self.content = content
-    }
+    init(
+        lockEnabled: Bool,
+        @ViewBuilder _ content: @escaping () -> T) {
+            self.lockEnabled = lockEnabled
+            self.content = content
+        }
     
     @Environment(\.notifier) private var notifier
-    @Environment(\.scenePhase) private var scenePhase
+    @Environment(\.appearsActiveCompat) private var appearsActive
     
     @State private var isAuthenticated: Bool? = nil
+    @State private var backgroundedAt: Date? = nil
     private var logger: Logger = .init(LockedView.self)
     
     private var lockEnabled: Bool
@@ -72,10 +75,7 @@ struct LockedView<T: View>: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(maxWidth: 200)
-                Text("Failed to unlock. Please try again.")
-                    .foregroundStyle(.secondaryAccent)
-                    .font(.headline.bold())
-
+                
                 AsyncButton {
                     self.isAuthenticated = await authenticate()
                 } label: {
@@ -93,9 +93,18 @@ struct LockedView<T: View>: View {
             .background(.accent)
         case .some(true):
             content()
-                .onChange(of: scenePhase) { _, phase in
-                    if phase == .background {
-                        isAuthenticated = nil
+                .onChange(of: appearsActive) { _, active in
+                    if (active) {
+                        // if app was background more than 60 seconds ago, require a reauth
+                        if let backgroundedAt,
+                           backgroundedAt.distance(to: .now) > 60 {
+                            isAuthenticated = nil
+                            logger.info("app launched more than 60 seconds after backgrounding")
+                        }
+                        backgroundedAt = nil
+                    } else {
+                        backgroundedAt = .now
+                        logger.info("app backgrounded")
                     }
                 }
         }

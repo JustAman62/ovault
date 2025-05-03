@@ -45,7 +45,9 @@ struct SettingsView: View {
                 Text("Security")
             } footer: {
                 Text("""
-                    If enabled, the app will require the user to be authenticated by the device to see your OTPs. This can be done with the devices passcode, or biometrics such as Face ID.
+                    If enabled, the app will require the user to be authenticated by the device to see OTPs. This can be done with the devices passcode, or biometrics such as Face ID.
+                    
+                    If the app is backgrounded for more than 60 seconds, it will be locked and require unlocking on next launch.
                     """)
             }
             

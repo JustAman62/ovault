@@ -290,13 +290,13 @@
 		07C532522C38865300DC54C6 /* OVault */ = {
 			isa = PBXGroup;
 			children = (
-				078FB9402DC5721200349D95 /* LockedView.swift */,
-				0756FD042DA5BA1E0008E6CC /* EnvironmentExtensions.swift */,
 				07C532592C38865300DC54C6 /* Assets.xcassets */,
 				07BF2A2A2C3C59A500CB1FF5 /* Info.plist */,
 				07C5325B2C38865300DC54C6 /* OVault.entitlements */,
 				07C532532C38865300DC54C6 /* OVaultApp.swift */,
 				07C532552C38865300DC54C6 /* ContentView.swift */,
+				078FB9402DC5721200349D95 /* LockedView.swift */,
+				0756FD042DA5BA1E0008E6CC /* EnvironmentExtensions.swift */,
 				07EFD0432D28778C0012C3FD /* FloatingWindowExtensions.swift */,
 				073BF6B92C3DB6DD00DCA0A1 /* Services */,
 				07F630F02C3B18E200A10485 /* Views */,
