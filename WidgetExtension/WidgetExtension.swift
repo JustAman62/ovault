@@ -67,10 +67,10 @@ struct WidgetExtensionEntryView : View {
     
     private var maxOtps: Int {
         return switch widgetFamily {
-        case .systemSmall: showOpenInAppButton ? 2 : 3
-        case .systemMedium: showOpenInAppButton ? 4 : 6
-        case .systemLarge: showOpenInAppButton ? 8 : 12
-        case .systemExtraLarge: showOpenInAppButton ? 8 : 12
+        case .systemSmall: 3
+        case .systemMedium: 6
+        case .systemLarge: showOpenInAppButton ? 12 : 14
+        case .systemExtraLarge: showOpenInAppButton ? 12 : 14
         default: 1
         }
     }
@@ -150,7 +150,7 @@ struct WidgetExtensionEntryView : View {
                         Text("Open OVault")
                             .font(.caption.bold())
                         Image(systemName: "arrow.up.forward.app.fill")
-                            .padding(.vertical, 8)
+                            .padding(.vertical, 2)
                     }
                     .frame(maxWidth: .infinity)
                     .foregroundStyle(.white)
@@ -191,7 +191,7 @@ extension Array {
     UserDefaults.appGroup?.widgetShowsOpenInAppButton = false
     return WidgetExtension()
 } timeline: {
-    SimpleEntry(date: Date(), otps: [.testTotp15sec, .testTotp30sec, .testTotp15sec, .testTotp15sec, .testTotp30sec], showCodeForId: nil, code: nil, expiryDate: nil)
+    SimpleEntry(date: Date(), otps: [.testTotp15sec, .testTotp30sec, .testTotp15sec, .testTotp15sec, .testTotp30sec, .testTotp15sec, .testTotp30sec, .testTotp15sec, .testTotp30sec, .testTotp15sec, .testTotp30sec, .testTotp15sec, .testTotp30sec], showCodeForId: nil, code: nil, expiryDate: nil)
     SimpleEntry(date: Date(), otps: [.testTotp15sec], showCodeForId: Otp.testTotp30sec.id.uuidString, code: "123456", expiryDate: .now.addingTimeInterval(5))
 }
 
@@ -200,7 +200,7 @@ extension Array {
     UserDefaults.appGroup?.widgetShowsOpenInAppButton = true
     return WidgetExtension()
 } timeline: {
-    SimpleEntry(date: Date(), otps: [.testTotp15sec, .testTotp30sec, .testTotp15sec, .testTotp15sec, .testTotp30sec, .testTotp15sec], showCodeForId: nil, code: nil, expiryDate: nil)
+    SimpleEntry(date: Date(), otps: [.testTotp15sec, .testTotp30sec, .testTotp15sec, .testTotp15sec, .testTotp30sec, .testTotp15sec, .testTotp30sec, .testTotp15sec, .testTotp30sec, .testTotp15sec, .testTotp30sec, .testTotp15sec, .testTotp30sec], showCodeForId: nil, code: nil, expiryDate: nil)
     SimpleEntry(date: Date(), otps: [.testTotp15sec], showCodeForId: Otp.testTotp30sec.id.uuidString, code: "123456", expiryDate: .now.addingTimeInterval(5))
 }
 
