@@ -27,7 +27,7 @@ public struct DomainIcon: View {
                     .clipShape(.circle)
             }
         }
-        .onChange(of: otp.domainName) {
+        .onChange(of: otp.domainName, initial: true) {
             previousTask?.cancel()
             previousTask = Task {
                 await otp.loadDomainIcon()
@@ -39,12 +39,12 @@ public struct DomainIcon: View {
 #if DEBUG
 #Preview("Not Loaded") {
     DomainIcon(otp: .testTotp30sec)
+        .task {
+            Otp.testTotp30sec.domainIcon = nil
+        }
 }
 
 #Preview("Loaded") {
     DomainIcon(otp: .testTotp30sec)
-        .task {
-            await Otp.testTotp30sec.loadDomainIcon()
-        }
 }
 #endif

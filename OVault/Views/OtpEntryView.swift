@@ -54,6 +54,7 @@ struct OtpEntryView: View {
                         .contentShape(.circle)
                 }
                 .menuStyle(.borderlessButton)
+                .menuIndicator(.hidden)
                 .frame(width: 30, height: 30)
             }
             
@@ -66,6 +67,7 @@ struct OtpEntryView: View {
                 Spacer()
                 CopyButton("Copy", value: calculated)
                     .font(.caption)
+                    .buttonStyle(.borderedProminent)
 #if os(macOS)
                     .controlSize(.large)
 #endif
@@ -94,20 +96,27 @@ struct OtpEntryView: View {
                 menu()
             }
         )
+        .swipeActions(edge: .leading) {
+            CopyButton("Copy", value: calculated)
+                .tint(.accent)
+//            Button("Test", systemImage: "rectangle.fill") { }
+        }
         .swipeActions(edge: .trailing) {
-            menu()
+            menu(includeCopy: false)
         }
     }
     
     @ViewBuilder
-    private func menu() -> some View {
+    private func menu(includeCopy: Bool = true) -> some View {
         NavigationLink {
             EditOtpEntryView(otp: otp)
         } label: {
             Label("Edit", systemImage: "pencil")
         }
         
-        CopyButton("Copy", value: calculated)
+        if includeCopy {
+            CopyButton("Copy", value: calculated)
+        }
         
         AsyncButton("Delete", systemImage: "trash", role: .destructive) {
             await notifier.execute {
@@ -120,9 +129,18 @@ struct OtpEntryView: View {
 }
 
 #if DEBUG
-#Preview {
+#Preview("Individial") {
     NavigationStack {
         OtpEntryView(otp: .testTotp15sec)
+    }
+    .previewEnvironment()
+}
+
+#Preview("In List") {
+    NavigationStack {
+        List {
+            OtpEntryView(otp: .testTotp15sec)
+        }
     }
     .previewEnvironment()
 }

@@ -64,9 +64,8 @@ struct WidgetExtensionEntryView : View {
     
     private var showOpenInAppButton: Bool { UserDefaults.appGroup?.widgetShowsOpenInAppButton ?? false
     }
-
+    
     private var maxOtps: Int {
-        
         return switch widgetFamily {
         case .systemSmall: showOpenInAppButton ? 2 : 3
         case .systemMedium: showOpenInAppButton ? 4 : 6
@@ -119,7 +118,7 @@ struct WidgetExtensionEntryView : View {
                     ZStack {
                         VStack(spacing: 8) {
                             Image(systemName: "exclamationmark.arrow.trianglehead.2.clockwise.rotate.90")
-                            Text("No OTPs Found")
+                            Text("No OTPs Loaded")
                             Text("Tap to Reload")
                             Spacer()
                         }
@@ -129,12 +128,11 @@ struct WidgetExtensionEntryView : View {
                             .padding(.horizontal)
                     }
                     .padding(.vertical)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(Rectangle().fill(.accent))
-                    .foregroundStyle(.white)
                 }
                 .buttonStyle(.plain)
-                .buttonBorderShape(.roundedRectangle(radius: 16))
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Rectangle().fill(.accent))
+                .foregroundStyle(.white)
             } else {
                 ForEach(rows, id: \.first!.id) { row in
                     HStack(spacing: 4) {
@@ -143,7 +141,6 @@ struct WidgetExtensionEntryView : View {
                                 buttonLabel(otp)
                             }
                             .buttonStyle(.plain)
-                            .buttonBorderShape(.roundedRectangle(radius: 16))
                         }
                     }
                 }
@@ -161,7 +158,7 @@ struct WidgetExtensionEntryView : View {
                 }
             }
         }
-        .clipShape(.rect(cornerRadius: 18))
+        .clipShape(.containerRelative)
         .padding(4)
     }
 }

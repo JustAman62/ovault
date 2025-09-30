@@ -1,12 +1,12 @@
 import SwiftUI
 
 struct CopyButton: View {
-    var title: String
+    var title: LocalizedStringKey
     var value: String
     
-    @State private var internalTitle: String
+    @State private var internalTitle: LocalizedStringKey
     
-    init(_ title: String, value: String) {
+    init(_ title: LocalizedStringKey, value: String) {
         self.title = title
         self._internalTitle = State(initialValue: title)
         self.value = value
@@ -22,8 +22,18 @@ struct CopyButton: View {
         UIPasteboard.general.string = value
     }
 #endif
-
+    
     var body: some View {
+        if #available(iOS 26.0, macOS 26.0, *) {
+            self.button
+                .labelIconToTitleSpacing(8)
+        } else {
+            self.button
+        }
+    }
+    
+    @ViewBuilder
+    var button: some View {
         Button {
             copy()
             
@@ -40,11 +50,10 @@ struct CopyButton: View {
                 .fixedSize()
                 .foregroundStyle(.white)
         }
-        .buttonStyle(.borderedProminent)
         .disabled(internalTitle != title)
     }
 }
 
 #Preview {
-    CopyButton("Copy!", value: "123456")
+    CopyButton("Copy", value: "123456")
 }

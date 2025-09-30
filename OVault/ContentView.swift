@@ -40,7 +40,6 @@ struct ContentView: View {
                     }
 #endif
                 })
-            .scaledToFill()
         }
         
         List {
@@ -58,8 +57,6 @@ struct ContentView: View {
                         .labelStyle(.titleAndIcon)
 #endif
                 }
-            } footer: {
-                Text("Logos provided by [Logo.dev](https://logo.dev)")
             }
         }
     }
